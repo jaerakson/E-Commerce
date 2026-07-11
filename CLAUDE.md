@@ -51,6 +51,24 @@
 
 ---
 
+## [아키텍처 & 동작 방식 요약]
+
+> 전체 상세: `docs/ai_analysis/20260711_AETHER_개발내용_상세정리.md` (로컬 전용, gitignore). 아래는 그 요약.
+
+- **렌더링**: 각 라우트 `page.tsx`는 **정적 서버 컴포넌트**(현재 `"use client"` 없음). `app/layout.tsx`(공통 셸: html/body·폰트변수·Material Symbols `<link>`·CSS import)가 감싸 서버에서 HTML 생성. 데이터 fetch·상태·이벤트 없어 전부 정적 프리렌더.
+- **스타일 3층 구조**:
+  1. `tailwind.config.ts` — 색·간격·폰트·타이포 **토큰 SSOT**(빌드 시 유틸 생성)
+  2. `app/globals.css` — `@tailwind` + base 레이어 + `.material-symbols-outlined`
+  3. `app/stitch-pages.css` — Tailwind로 표현 안 되는 **페이지별 커스텀 클래스**(원본 `theme()`는 hex로 해석됨)
+- **타이포**: 폰트패밀리 유틸과 폰트사이즈 유틸이 **같은 키 이름**이라 쌍으로 사용.
+  예: `font-display-xl text-display-xl`(Anton 80), `font-body-lg text-body-lg`(Inter 18), `font-accent-serif text-accent-serif`(Playfair). 폰트는 next/font 변수(`--font-anton` 등)를 tailwind `fontFamily`가 참조.
+- **색 핵심**: `primary-container #e32652`(Action-Raspberry, **구매/장바구니 전환 액션 전용**), `secondary-container #d0f100`(선택/활성), `background #121316`, `pitch-black #000`, `surface-deep #272c33`(카드), `charcoal-canvas #222326`(상품 카드).
+- **공통 UI**: 헤더/푸터는 컴포넌트 분리 없이 **각 페이지에 인라인**(Stitch 원본 충실 이식 결과) → 향후 `SiteHeader`/`SiteFooter` 추출 여지.
+- **내비게이션**: 내부 링크는 플레인 `<a href="/route">`(`tools/stitch/wire_nav.py`로 텍스트/아이콘 기준 배선). `next/link` 전환은 선택.
+- **이미지**: `public/assets/stitch/` 43개 로컬. 렌더는 플레인 `<img>`(`next/image` 전환 TODO).
+
+---
+
 ## [프로젝트 코드 규칙]
 
 - **컴포넌트 분리**: 서버 컴포넌트가 기본. 현재 페이지는 정적(이벤트 핸들러 없음)이라 전부 서버 컴포넌트.
@@ -61,8 +79,10 @@
 - **애니메이션**: compositor 친화 속성(`transform`/`opacity`)만. layout 유발 속성 애니메이션 금지.
 - **이미지**: 원격 URL 직접 삽입 금지, `public/assets/`에 로컬화. (`next/image` 전환은 TODO)
 - **접근성**: 시맨틱 태그 우선, `aria-label`/`:focus-visible`, `prefers-reduced-motion` 존중(globals.css 전역 처리).
+- **공통 UI**: 헤더/푸터가 페이지마다 인라인되어 있음 → 수정 시 여러 페이지 동기화 주의(추출 전까지). 링크는 `<a href>` 사용, 필요 시 `next/link`.
 - **디자인 원본 갱신**: Stitch에서 화면이 추가/수정되면 `stitch-export/html/`로 다시 내려받아 재변환.
-  변환 스크립트 로직은 세션 스크래치패드의 `convert.py`/`extract_css.py` 참고(HTML→JSX, 커스텀 CSS 추출).
+  변환 파이프라인 스크립트는 **`tools/stitch/`**(convert/extract_css/wire_nav) + `tools/stitch/README.md` 참고.
+  ⚠️ `convert.py` 통째 재실행은 페이지의 수작업 수정(내비/여백)을 덮어씀 — **소스 오브 트루스는 생성된 `app/**/page.tsx`**.
 
 ---
 
@@ -76,7 +96,15 @@
 
 ## [알려진 이슈 / TODO]
 
-- [ ] 노출됐던 Stitch API 키 폐기(rotate) — 우선순위 높음
-- [ ] `git init` + 최초 커밋(브랜치 전략 확정 후)
-- [ ] `postcss` transitive 취약점 2건 — Next.js 16 업그레이드 시 해소(브레이킹, 별도 검토)
-- [ ] 테스트 도입(Playwright 시각 회귀 / 장바구니 유닛)
+- [ ] 노출됐던 Stitch API 키 폐기(rotate) — **우선순위 높음**(보안)
+- [ ] `<img>` → `next/image` 최적화(width/height 또는 fill+sizes)
+- [ ] 폼/장바구니 **동작 로직** — login/checkout/bag/contact는 현재 정적 디자인
+- [ ] `products/[id]` 동적 데이터화(현재 id 무관 동일 정적 렌더) + 상품 데이터 소스(`lib/`)
+- [ ] 공통 헤더/푸터 `SiteHeader`/`SiteFooter` 컴포넌트 추출(중복 제거)
+- [ ] 푸터 잔여 `href="#"` 링크(Shipping/Returns/Privacy) 정리, `next/link` 전환
+- [ ] 원격 저장소 연결 + 푸시(사용자 진행 예정)
+- [ ] `postcss` transitive 취약점 — Next.js 16 업그레이드 시 해소(브레이킹, 별도 검토)
+- [ ] 테스트 자동화(Playwright 시각 회귀 / E2E / 장바구니 유닛)
+- [ ] `package.json` name `midnight-ecommerce` → `aether` 정리(선택)
+
+> ✅ 완료: git 초기화·초기 커밋, 14개 페이지 구현, 내비게이션 배선, 시각 QA(에러 0).
