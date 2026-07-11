@@ -1,0 +1,80 @@
+/* ----------------------------------------------------
+   Midnight Cinematic — Design System Tokens
+   Single source of truth for color, type, space, motion.
+   next/font injects --font-anton / --font-inter / --font-playfair
+   (wired to the semantic --font-* aliases below via layout.tsx).
+---------------------------------------------------- */
+:root {
+  /* Surfaces */
+  --background: #121316;
+  --surface: #121316;
+  --surface-deep: #272c33;
+  --surface-bright: #38393c;
+  --pitch-black: #000000;
+
+  /* Brand / action */
+  --primary: #e32652;    /* Action Raspberry */
+  --secondary: #dcff00;  /* Interactive Lime */
+  --tertiary: #eed37f;   /* Highlight Gold */
+
+  /* Text */
+  --on-surface: #e3e2e6;
+  --silver-mist: #9ea0a9;
+  --pure-white: #ffffff;
+
+  /* Hairline borders (translucent so they read on any surface) */
+  --border-faint: rgba(255, 255, 255, 0.03);
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  --border-strong: rgba(255, 255, 255, 0.1);
+  --border-input: rgba(255, 255, 255, 0.15);
+
+  /* Glow accents */
+  --glow-primary: rgba(227, 38, 82, 0.15);
+  --glow-primary-strong: rgba(227, 38, 82, 0.3);
+
+  /* Typography families (aliased to next/font variables) */
+  --font-display: var(--font-anton), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+  --font-accent: var(--font-playfair), serif;
+
+  /* Fluid type scale */
+  --text-hero: clamp(3.5rem, 1.5rem + 7vw, 5.5rem);
+  --text-h1: clamp(2.25rem, 1.5rem + 3vw, 3rem);
+  --text-h2: clamp(2rem, 1.4rem + 2vw, 2.5rem);
+  --text-quote: clamp(1.5rem, 1rem + 2.2vw, 2.2rem);
+  --text-lead: clamp(1rem, 0.95rem + 0.4vw, 1.15rem);
+  --text-base: 1rem;
+  --text-sm: 0.85rem;
+  --text-xs: 0.75rem;
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-section: clamp(60px, 4rem + 4vw, 120px);
+  --gutter: clamp(24px, 2rem + 2vw, 48px);
+
+  /* Layout */
+  --container-max: 1440px;
+  --drawer-width: 450px;
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 50px;
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 0.15s;
+  --duration-normal: 0.4s;
+  --transition-smooth: all var(--duration-normal) var(--ease-out-expo);
+
+  /* Elevation */
+  --z-header: 100;
+  --z-drawer: 1000;
+}

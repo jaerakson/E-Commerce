@@ -1,0 +1,26 @@
+.section {
+  padding: var(--space-section) var(--gutter);
+  background-color: var(--pitch-black);
+  text-align: center;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.quote {
+  font-family: var(--font-accent);
+  font-size: var(--text-quote);
+  line-height: 1.5;
+  color: var(--on-surface);
+  font-style: italic;
+  margin-bottom: 24px;
+}
+
+.author {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--secondary);
+}

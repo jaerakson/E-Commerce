@@ -1,0 +1,33 @@
+.footer {
+  background-color: var(--pitch-black);
+  border-top: 1px solid var(--border-faint);
+  padding: 60px var(--gutter);
+}
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+  color: var(--pure-white);
+}
+
+.copy {
+  font-size: 0.8rem;
+  color: var(--silver-mist);
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+}
