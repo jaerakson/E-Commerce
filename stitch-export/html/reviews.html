@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AETHER | THE VOICES</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700&family=Playfair+Display:wght@600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Anton:wght@100..900&family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#ffb2b8",
+                    "inverse-primary": "#be003d",
+                    "inverse-surface": "#e3e2e6",
+                    "inverse-on-surface": "#2f3033",
+                    "surface-variant": "#343538",
+                    "primary": "#ffb2b8",
+                    "on-tertiary-fixed": "#231b00",
+                    "on-tertiary": "#3c2f00",
+                    "silver-mist": "#9ea0a9",
+                    "on-surface-variant": "#e4bdbf",
+                    "error": "#ffb4ab",
+                    "secondary-container": "#d0f100",
+                    "tertiary": "#dfc573",
+                    "surface-container-low": "#1a1b1e",
+                    "on-primary-fixed-variant": "#91002c",
+                    "surface-deep": "#272c33",
+                    "tertiary-container": "#c3aa5a",
+                    "surface-container-high": "#292a2d",
+                    "on-tertiary-container": "#4e3e00",
+                    "secondary-fixed": "#d0f100",
+                    "primary-fixed-dim": "#ffb2b8",
+                    "primary-fixed": "#ffdadb",
+                    "surface": "#121316",
+                    "surface-container-lowest": "#0d0e11",
+                    "surface-dim": "#121316",
+                    "primary-container": "#e32652",
+                    "tertiary-fixed-dim": "#dfc572",
+                    "on-primary": "#67001d",
+                    "outline": "#ab888a",
+                    "background": "#121316",
+                    "secondary": "#ffffff",
+                    "on-surface": "#e3e2e6",
+                    "on-tertiary-fixed-variant": "#564500",
+                    "on-primary-fixed": "#40000f",
+                    "on-primary-container": "#ffffff",
+                    "on-secondary-container": "#5c6b00",
+                    "pitch-black": "#000000",
+                    "surface-container": "#1e2022",
+                    "surface-bright": "#38393c",
+                    "on-secondary-fixed-variant": "#404c00",
+                    "tertiary-fixed": "#fce18b",
+                    "secondary-fixed-dim": "#b6d300",
+                    "pure-white": "#ffffff",
+                    "surface-container-highest": "#343538",
+                    "on-error": "#690005",
+                    "on-error-container": "#ffdad6",
+                    "outline-variant": "#5b3f41",
+                    "on-secondary": "#2c3400",
+                    "on-secondary-fixed": "#181e00",
+                    "on-background": "#e3e2e6",
+                    "error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-gap": "64px",
+                    "margin-desktop": "48px",
+                    "gutter": "24px",
+                    "margin-mobile": "20px",
+                    "container-max": "1440px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-xl": ["Anton"],
+                    "display-lg-mobile": ["Anton"],
+                    "display-lg": ["Anton"],
+                    "body-md": ["Inter"],
+                    "accent-serif": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-xl": ["80px", {"lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "400"}],
+                    "display-lg-mobile": ["48px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                    "display-lg": ["64px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "accent-serif": ["64px", {"lineHeight": "72px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .star-fill { font-variation-settings: 'FILL' 1; }
+        
+        /* Custom scrollbar for luxury feel */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #000000; }
+        ::-webkit-scrollbar-thumb { background: #272c33; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #ffb2b8; }
+
+        .cinematic-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+        }
+
+        .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-auto-rows: 10px;
+        }
+
+        .review-card-fixed-height {
+            grid-row-end: span 45;
+        }
+        .review-card-tall {
+            grid-row-end: span 65;
+        }
+    </style>
+</head>
+<body class="bg-pitch-black text-on-background antialiased overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-pitch-black bg-opacity-80 backdrop-blur-xl border-b border-surface-container-high">
+<div class="flex justify-between items-center px-margin-desktop py-6 w-full max-w-container-max mx-auto">
+<div class="font-display-lg text-display-lg text-pure-white tracking-tighter uppercase">AETHER</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300" href="#">Collections</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300" href="#">New Arrivals</a>
+<a class="font-label-caps text-label-caps text-primary-container font-bold border-b-2 border-primary-container pb-1" href="#">Curations</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300" href="#">Boutique</a>
+</div>
+<div class="flex items-center space-x-6">
+<button class="text-pure-white hover:text-primary-container transition-all duration-200 active:opacity-80 active:scale-95">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="text-pure-white hover:text-primary-container transition-all duration-200 active:opacity-80 active:scale-95">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Hero Header -->
+<header class="mb-section-gap text-center md:text-left">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-pure-white uppercase mb-4 tracking-tighter">THE VOICES</h1>
+<p class="font-body-lg text-body-lg text-silver-mist max-w-2xl">
+                A curated chronicle of experiences. Real perspectives from our community on the intersection of form, function, and luxury.
+            </p>
+</header>
+<!-- Stats & Filter Row -->
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-surface-container-high pb-8 gap-8">
+<div class="flex gap-12">
+<div>
+<div class="text-primary-container flex items-center gap-1 mb-1">
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div class="font-headline-md text-headline-md text-pure-white">4.9 / 5.0</div>
+<div class="font-label-caps text-label-caps text-silver-mist">BASED ON 12,402 REVIEWS</div>
+</div>
+<div class="hidden sm:block">
+<div class="font-headline-md text-headline-md text-pure-white">98%</div>
+<div class="font-label-caps text-label-caps text-silver-mist">WOULD RECOMMEND</div>
+</div>
+</div>
+<div class="flex gap-4 w-full md:w-auto">
+<button class="flex-1 md:flex-none px-6 py-3 bg-charcoal-canvas border border-silver-mist text-pure-white font-label-caps text-label-caps hover:bg-surface-deep transition-all">
+                    FILTER BY PRODUCT
+                </button>
+<button class="flex-1 md:flex-none px-8 py-3 bg-primary-container text-pure-white font-label-caps text-label-caps rounded-lg hover:opacity-90 transition-all">
+                    WRITE A REVIEW
+                </button>
+</div>
+</div>
+<!-- Review Gallery Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Review Card 1 (Large Editorial) -->
+<div class="lg:col-span-2 row-span-2 group relative overflow-hidden rounded-xl bg-surface-deep p-12 flex flex-col justify-between border border-transparent hover:border-primary-container/30 transition-all duration-500">
+<div class="absolute inset-0 z-0 opacity-40 group-hover:opacity-60 transition-opacity duration-700">
+<div class="w-full h-full bg-cover bg-center" data-alt="A high-end cinematic photograph of a luxury AETHER jacket worn by a model in a brutalist architectural setting. The lighting is moody and directional, casting long shadows that emphasize the premium fabric texture. Deep blacks and silver mist tones dominate the palette, reflecting a minimalist dark-mode aesthetic." style="background-image: url('/assets/stitch/stitch-30.jpg"></div>
+<div class="absolute inset-0 cinematic-overlay"></div>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-2 text-primary-container mb-6">
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<h3 class="font-accent-serif text-accent-serif text-pure-white leading-tight mb-8">"Beyond any outerwear I've owned—the technical precision meets high-fashion effortlessly."</h3>
+</div>
+<div class="relative z-10 flex items-center gap-6 mt-auto">
+<div class="w-16 h-16 rounded-full border-2 border-primary-container p-1 overflow-hidden">
+<img class="w-full h-full object-cover rounded-full" data-alt="A professional close-up portrait of a refined man in his 40s, with a clean-shaven face and short styled hair. He is wearing a dark, minimal sweater against a charcoal background. The lighting is soft and high-contrast, fitting for a luxury brand testimonial. Dark mode colors of black and silver are prominent." src="/assets/stitch/stitch-28.jpg"/>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-pure-white text-2xl">MARCUS VANE</div>
+<div class="font-label-caps text-label-caps text-silver-mist">VERIFIED PURCHASER • NEW YORK, NY</div>
+</div>
+</div>
+</div>
+<!-- Review Card 2 (Standard Content Card) -->
+<div class="bg-surface-deep rounded-xl p-8 border border-surface-container-high hover:border-primary-container/20 transition-all">
+<div class="flex justify-between items-start mb-6">
+<div class="text-primary-container">
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-label-caps text-[10px] bg-pure-white text-pitch-black px-2 py-0.5 rounded-full">NEW</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-pure-white text-xl mb-4 uppercase tracking-wide">SILVER-MIST PARKA</h4>
+<p class="font-body-md text-body-md text-silver-mist mb-8 leading-relaxed italic">
+                    "The silhouette is architectural. I wore this through a London downpour and remained bone-dry while looking like I'd just stepped off a runway."
+                </p>
+<div class="flex items-center gap-4">
+<div class="font-label-caps text-label-caps text-pure-white">ELARA J.</div>
+<div class="w-px h-4 bg-surface-container-high"></div>
+<div class="font-label-caps text-label-caps text-silver-mist">LONDON, UK</div>
+</div>
+</div>
+<!-- Review Card 3 (Image Focused) -->
+<div class="bg-surface-deep rounded-xl overflow-hidden flex flex-col border border-surface-container-high hover:border-primary-container/20 transition-all">
+<div class="h-64 relative group overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A detailed close-up shot of the intricate stitching and textured fabric of a luxury technical backpack. The shot is macro-focused, highlighting the industrial-grade zippers and silver-mist metallic accents. The environment is dark and moody, emphasizing a premium, rugged yet sophisticated vibe consistent with cinematic dark-mode branding." src="/assets/stitch/stitch-23.jpg"/>
+<div class="absolute inset-0 bg-pitch-black/20"></div>
+</div>
+<div class="p-8">
+<div class="text-primary-container mb-4">
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mb-6">"Impeccable build quality. The zippers feel machined from solid blocks of steel. A heavy piece, but worth the weight."</p>
+<div class="font-label-caps text-label-caps text-silver-mist">SANTIAGO R. • ARCHITECT</div>
+</div>
+</div>
+<!-- Review Card 4 (Full Image Card) -->
+<div class="relative rounded-xl overflow-hidden group aspect-[4/5]">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" data-alt="A lifestyle shot of a woman in minimalist high-tech activewear standing on a foggy mountaintop at dawn. The color palette is composed of cool blues, deep blacks, and soft silver greys. The atmosphere is serene and powerful, capturing the essence of a luxury adventure brand. The lighting is diffused and natural, highlighting the technical layers of her outfit." src="/assets/stitch/stitch-07.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-pitch-black via-pitch-black/20 to-transparent p-8 flex flex-col justify-end">
+<div class="text-primary-container mb-2">
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-pure-white mb-4 line-clamp-3 italic">"AETHER isn't just clothing, it's an armor for the modern explorer. I trust it implicitly in every climate I face."</p>
+<div class="font-label-caps text-label-caps text-silver-mist">NATHAN D. • PHOTOJOURNALIST</div>
+</div>
+</div>
+<!-- Review Card 5 (Minimal Text) -->
+<div class="bg-surface-deep rounded-xl p-8 border border-surface-container-high flex flex-col justify-center items-center text-center">
+<div class="text-primary-container mb-6 scale-125">
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-pure-white text-2xl mb-4 italic">"Pure perfection."</h4>
+<p class="font-body-md text-body-md text-silver-mist mb-6">Simple, direct, and exactly what I expected from AETHER.</p>
+<div class="font-label-caps text-label-caps text-primary-container">SARAH K.</div>
+</div>
+<!-- Review Card 6 (Video Placeholder/Visual) -->
+<div class="lg:col-span-1 bg-surface-deep rounded-xl p-8 border border-surface-container-high relative overflow-hidden group">
+<div class="relative z-10">
+<div class="text-primary-container mb-4">
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<h4 class="font-label-caps text-label-caps text-pure-white mb-4 uppercase">TECHNICAL SHELL V4</h4>
+<p class="font-body-md text-body-md text-on-surface mb-8">"The matte finish is exquisite. Every interaction with the garment—the magnetic snaps, the micro-fleece lining—feels considered."</p>
+</div>
+<div class="mt-auto relative z-10 flex items-center justify-between">
+<div class="font-label-caps text-label-caps text-silver-mist">JAMES L.</div>
+<button class="w-12 h-12 flex items-center justify-center rounded-full border border-silver-mist text-pure-white hover:bg-primary-container hover:border-primary-container transition-all">
+<span class="material-symbols-outlined">play_arrow</span>
+</button>
+</div>
+<!-- Subtle texture/pattern in background -->
+<div class="absolute bottom-0 right-0 opacity-10 pointer-events-none group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[160px]" style="font-variation-settings: 'wght' 100;">verified</span>
+</div>
+</div>
+</div>
+<!-- Load More Section -->
+<div class="mt-section-gap text-center">
+<button class="inline-flex items-center gap-4 px-12 py-5 bg-transparent border border-surface-container-high text-pure-white font-label-caps text-label-caps hover:bg-surface-deep transition-all group">
+                LOAD MORE EXPERIENCES
+                <span class="material-symbols-outlined group-hover:translate-y-1 transition-transform">keyboard_arrow_down</span>
+</button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full relative bg-pitch-black border-t border-surface-container-high mt-section-gap">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-section-gap w-full max-w-container-max mx-auto gap-8">
+<div class="font-display-lg-mobile text-display-lg-mobile text-pure-white">AETHER</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="#">Sustainability</a>
+<a class="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="#">Privacy Policy</a>
+<a class="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="#">Terms of Service</a>
+<a class="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="#">Shipping & Returns</a>
+</div>
+<div class="font-label-caps text-label-caps text-silver-mist">© 2024 AETHER. ALL RIGHTS RESERVED.</div>
+</div>
+</footer>
+<!-- Interactive Layer: Hover Glow -->
+<script>
+        document.addEventListener('mousemove', (e) => {
+            const glow = document.getElementById('cursor-glow');
+            if (glow) {
+                glow.style.transform = `translate(${e.clientX - 150}px, ${e.clientY - 150}px)`;
+            }
+        });
+    </script>
+<div class="fixed top-0 left-0 w-[300px] h-[300px] bg-primary-container/5 rounded-full blur-[100px] pointer-events-none z-[60] hidden lg:block" id="cursor-glow"></div>
+</body></html>

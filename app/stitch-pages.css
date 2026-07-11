@@ -1,0 +1,206 @@
+/* Custom component styles ported from Stitch page <style> blocks (theme() resolved to hex). */
+
+.inset-border-light {
+  box-shadow: inset 0 0 0 1px #9ea0a9;
+}
+
+/* Forms */
+        [type='text'], [type='email'], [type='tel'] {
+  background-color: #000000;
+            border-color: #272c33;
+            color: #9ea0a9;
+}
+
+[type='text']:focus, [type='email']:focus, [type='tel']:focus {
+  border-color: #d0f100;
+            box-shadow: none;
+}
+
+.charcoal-bg {
+  background-color: #222326;
+}
+
+.nav-link {
+  transition: all 0.3s ease;
+}
+
+.input-field {
+  background-color: #000000;
+            border: 1px solid #272c33;
+            color: #ffffff;
+            transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+  outline: none;
+            border-color: #dcff00;
+}
+
+.input-field::placeholder {
+  color: #9ea0a9;
+}
+
+.btn-primary {
+  background-color: #e32652;
+            color: #ffffff;
+            border-radius: 8px;
+            transition: opacity 0.3s ease;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-secondary {
+  background-color: #222326;
+            border: 1px inset #9ea0a9;
+            border-radius: 0;
+            color: #ffffff;
+            transition: opacity 0.3s ease;
+}
+
+.btn-secondary:hover {
+  opacity: 0.8;
+}
+
+.accordion-content {
+  max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 500px; /* Arbitrary large height */
+}
+
+.accordion-icon {
+  transition: transform 0.3s ease;
+}
+
+.accordion-item.active .accordion-icon {
+  transform: rotate(180deg);
+}
+
+.filled-heart {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.product-card-hover:hover .heart-overlay {
+  opacity: 1;
+}
+
+.glass-blur {
+  backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+}
+
+.curation-card:hover .hover-reveal {
+  opacity: 1;
+            transform: translateY(0);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #272c33;
+}
+
+.charcoal-canvas {
+  background-color: #121316;
+}
+
+.inset-border {
+  box-shadow: inset 0 0 0 1px #343538;
+}
+
+.inset-border-light {
+  box-shadow: inset 0 0 0 1px #9ea0a9;
+}
+
+.inset-border-active {
+  box-shadow: inset 0 0 0 1px #d0f100;
+}
+
+/* Hide scrollbar for clean aesthetic */
+        ::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none; scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none; scrollbar-width: none;
+}
+
+.star-fill {
+  font-variation-settings: 'FILL' 1;
+}
+
+/* Custom scrollbar for luxury feel */
+        ::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #272c33; border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffb2b8;
+}
+
+.cinematic-overlay {
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+}
+
+.masonry-grid {
+  display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-auto-rows: 10px;
+}
+
+.review-card-fixed-height {
+  grid-row-end: span 45;
+}
+
+.review-card-tall {
+  grid-row-end: span 65;
+}
+
+.inset-border {
+  box-shadow: inset 0 0 0 1px #9ea0a9;
+}
+
+.inset-border-focus:focus-within {
+  box-shadow: inset 0 0 0 1px #d0f100;
+}
+
+/* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #272c33;
+            border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #343538;
+}

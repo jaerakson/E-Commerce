@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AETHER - Shopping Bag</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Inter:wght@400;700&amp;family=Playfair+Display:wght@600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#38393c",
+                        "pitch-black": "#000000",
+                        "on-primary-container": "#ffffff",
+                        "secondary-container": "#d0f100",
+                        "surface-container-high": "#292a2d",
+                        "secondary-fixed": "#d0f100",
+                        "tertiary-container": "#c3aa5a",
+                        "on-tertiary-fixed": "#231b00",
+                        "on-secondary-fixed": "#181e00",
+                        "on-background": "#e3e2e6",
+                        "surface-dim": "#121316",
+                        "pure-white": "#ffffff",
+                        "primary-fixed": "#ffdadb",
+                        "on-secondary": "#2c3400",
+                        "error-container": "#93000a",
+                        "outline": "#ab888a",
+                        "on-primary-fixed-variant": "#91002c",
+                        "surface-deep": "#272c33",
+                        "surface-container-lowest": "#0d0e11",
+                        "on-secondary-fixed-variant": "#404c00",
+                        "primary-fixed-dim": "#ffb2b8",
+                        "outline-variant": "#5b3f41",
+                        "surface-container": "#1e2022",
+                        "tertiary-fixed-dim": "#dfc572",
+                        "tertiary-fixed": "#fce18b",
+                        "inverse-primary": "#be003d",
+                        "surface-container-low": "#1a1b1e",
+                        "on-secondary-container": "#5c6b00",
+                        "tertiary": "#dfc573",
+                        "on-primary-fixed": "#40000f",
+                        "on-error": "#690005",
+                        "error": "#ffb4ab",
+                        "surface": "#121316",
+                        "surface-tint": "#ffb2b8",
+                        "inverse-surface": "#e3e2e6",
+                        "on-error-container": "#ffdad6",
+                        "primary": "#ffb2b8",
+                        "surface-container-highest": "#343538",
+                        "inverse-on-surface": "#2f3033",
+                        "on-surface": "#e3e2e6",
+                        "background": "#121316",
+                        "on-tertiary": "#3c2f00",
+                        "primary-container": "#e32652",
+                        "surface-variant": "#343538",
+                        "secondary": "#ffffff",
+                        "silver-mist": "#9ea0a9",
+                        "on-tertiary-container": "#4e3e00",
+                        "on-primary": "#67001d",
+                        "on-tertiary-fixed-variant": "#564500",
+                        "secondary-fixed-dim": "#b6d300",
+                        "on-surface-variant": "#e4bdbf"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "64px",
+                        "container-max": "1440px",
+                        "margin-desktop": "48px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["anton"],
+                        "accent-serif": ["playfairDisplay"],
+                        "headline-md": ["inter"],
+                        "body-lg": ["inter"],
+                        "label-caps": ["inter"],
+                        "display-xl": ["anton"],
+                        "display-lg-mobile": ["anton"],
+                        "body-md": ["inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["64px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+                        "accent-serif": ["64px", { "lineHeight": "72px", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "display-xl": ["80px", { "lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "400" }],
+                        "display-lg-mobile": ["48px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #000000; color: #ffffff; }
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-pitch-black text-pure-white min-h-screen flex flex-col font-body-md">
+<!-- TopNavBar -->
+<header class="bg-pitch-black dark:bg-pitch-black text-pure-white dark:text-pure-white fixed top-0 w-full z-50 bg-pitch-black bg-opacity-80 backdrop-blur-xl border-b border-surface-container-high">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 w-full max-w-container-max mx-auto">
+<nav class="hidden md:flex space-x-8">
+<a class="text-on-surface-variant hover:text-pure-white transition-colors duration-300 font-label-caps text-label-caps uppercase" href="#">Collections</a>
+<a class="text-on-surface-variant hover:text-pure-white transition-colors duration-300 font-label-caps text-label-caps uppercase" href="#">New Arrivals</a>
+<a class="text-on-surface-variant hover:text-pure-white transition-colors duration-300 font-label-caps text-label-caps uppercase" href="#">Curations</a>
+<a class="text-on-surface-variant hover:text-pure-white transition-colors duration-300 font-label-caps text-label-caps uppercase" href="#">Boutique</a>
+</nav>
+<div class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-pure-white tracking-tighter uppercase cursor-pointer hover:text-primary-container transition-all duration-200">
+                AETHER
+            </div>
+<div class="flex space-x-6 items-center">
+<span class="material-symbols-outlined cursor-pointer text-on-surface-variant hover:text-pure-white transition-colors duration-300" data-icon="search">search</span>
+<span class="material-symbols-outlined cursor-pointer text-primary-container font-bold border-b-2 border-primary-container pb-1" data-icon="shopping_bag">shopping_bag</span>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[120px] pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+<div class="mb-12">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg uppercase tracking-tighter">Your Bag</h1>
+<p class="font-body-lg text-body-lg text-silver-mist mt-2">2 items</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Items List -->
+<div class="lg:col-span-8 flex flex-col gap-6">
+<!-- Item 1 -->
+<div class="bg-surface-deep p-6 rounded-lg border border-surface-container-high flex flex-col sm:flex-row gap-6 relative">
+<button class="absolute top-6 right-6 text-silver-mist hover:text-pure-white transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+<div class="w-full sm:w-48 h-64 sm:h-auto bg-surface-container rounded-DEFAULT overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A high-fashion studio shot of a minimalist black technical jacket against a dark background, harsh lighting, cinematic dark mode aesthetic." src="/assets/stitch/stitch-18.jpg"/>
+</div>
+<div class="flex flex-col justify-between flex-grow">
+<div>
+<h3 class="font-headline-md text-headline-md uppercase">Obsidian Shell</h3>
+<p class="font-body-lg text-body-lg text-silver-mist mt-1">Size: M | Color: Black</p>
+</div>
+<div class="flex justify-between items-end mt-8 sm:mt-0">
+<div class="flex items-center bg-pitch-black border border-surface-container-high rounded-DEFAULT">
+<button class="px-4 py-2 text-silver-mist hover:text-pure-white">-</button>
+<span class="font-body-md text-body-md px-4 border-l border-r border-surface-container-high">1</span>
+<button class="px-4 py-2 text-silver-mist hover:text-pure-white">+</button>
+</div>
+<div class="font-body-lg text-body-lg font-bold">
+                                $450.00
+                            </div>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="bg-surface-deep p-6 rounded-lg border border-surface-container-high flex flex-col sm:flex-row gap-6 relative">
+<button class="absolute top-6 right-6 text-silver-mist hover:text-pure-white transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+<div class="w-full sm:w-48 h-64 sm:h-auto bg-surface-container rounded-DEFAULT overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A premium close-up of tactical urban footwear, dark grey tones, sleek lines, displayed in a moody, high-end gallery lighting setup." src="/assets/stitch/stitch-25.jpg"/>
+</div>
+<div class="flex flex-col justify-between flex-grow">
+<div>
+<h3 class="font-headline-md text-headline-md uppercase">Monolith Runners</h3>
+<p class="font-body-lg text-body-lg text-silver-mist mt-1">Size: 10 | Color: Graphite</p>
+</div>
+<div class="flex justify-between items-end mt-8 sm:mt-0">
+<div class="flex items-center bg-pitch-black border border-surface-container-high rounded-DEFAULT">
+<button class="px-4 py-2 text-silver-mist hover:text-pure-white">-</button>
+<span class="font-body-md text-body-md px-4 border-l border-r border-surface-container-high">1</span>
+<button class="px-4 py-2 text-silver-mist hover:text-pure-white">+</button>
+</div>
+<div class="font-body-lg text-body-lg font-bold">
+                                $280.00
+                            </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Order Summary -->
+<div class="lg:col-span-4 mt-8 lg:mt-0">
+<div class="bg-surface-container-lowest p-8 border border-surface-container-high rounded-lg sticky top-[120px]">
+<h2 class="font-headline-md text-headline-md uppercase mb-8 border-b border-surface-container-high pb-4">Summary</h2>
+<div class="flex justify-between mb-4 font-body-lg text-body-lg text-silver-mist">
+<span>Subtotal</span>
+<span class="text-pure-white">$730.00</span>
+</div>
+<div class="flex justify-between mb-4 font-body-lg text-body-lg text-silver-mist">
+<span>Estimated Shipping</span>
+<span class="text-pure-white">Complimentary</span>
+</div>
+<div class="flex justify-between mb-8 font-body-lg text-body-lg text-silver-mist">
+<span>Taxes</span>
+<span class="text-pure-white">Calculated at checkout</span>
+</div>
+<div class="flex justify-between mb-8 font-headline-md text-headline-md border-t border-surface-container-high pt-4">
+<span>Total</span>
+<span>$730.00</span>
+</div>
+<button class="w-full bg-primary-container text-pure-white font-label-caps text-label-caps py-6 rounded-lg uppercase tracking-widest hover:opacity-90 transition-opacity flex justify-center items-center gap-2">
+                        PROCEED TO CHECKOUT
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+<div class="mt-6 flex items-center justify-center gap-4 text-silver-mist">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span class="font-label-caps text-label-caps">Secure Checkout</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-pitch-black dark:bg-pitch-black text-silver-mist dark:text-silver-mist w-full relative bg-pitch-black border-t border-surface-container-high">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop py-section-gap w-full max-w-container-max mx-auto gap-8 md:gap-0">
+<div class="font-display-lg-mobile text-display-lg-mobile text-pure-white uppercase tracking-tighter">
+                AETHER
+            </div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200 uppercase" href="#">Sustainability</a>
+<a class="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200 uppercase" href="#">Privacy Policy</a>
+<a class="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200 uppercase" href="#">Terms of Service</a>
+<a class="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200 uppercase" href="#">Shipping &amp; Returns</a>
+</div>
+<div class="font-body-md text-body-md">
+                © 2024 AETHER. ALL RIGHTS RESERVED.
+            </div>
+</div>
+</footer>
+</body></html>

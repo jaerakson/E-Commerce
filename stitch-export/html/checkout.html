@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AETHER Checkout</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Inter:wght@400;600;700&amp;family=Playfair+Display:ital,wght@0,600;1,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#e4bdbf",
+                        "surface": "#121316",
+                        "surface-variant": "#343538",
+                        "surface-container-highest": "#343538",
+                        "on-secondary-fixed-variant": "#404c00",
+                        "tertiary-fixed": "#fce18b",
+                        "outline": "#ab888a",
+                        "outline-variant": "#5b3f41",
+                        "primary-fixed": "#ffdadb",
+                        "on-tertiary-fixed-variant": "#564500",
+                        "on-primary-fixed-variant": "#91002c",
+                        "background": "#121316",
+                        "inverse-on-surface": "#2f3033",
+                        "secondary-fixed": "#d0f100",
+                        "tertiary": "#dfc573",
+                        "on-secondary-container": "#5c6b00",
+                        "surface-bright": "#38393c",
+                        "inverse-primary": "#be003d",
+                        "on-tertiary": "#3c2f00",
+                        "secondary": "#ffffff",
+                        "on-error": "#690005",
+                        "on-background": "#e3e2e6",
+                        "surface-dim": "#121316",
+                        "primary-container": "#e32652",
+                        "on-surface": "#e3e2e6",
+                        "surface-container-lowest": "#0d0e11",
+                        "on-tertiary-container": "#4e3e00",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed-dim": "#dfc572",
+                        "error-container": "#93000a",
+                        "pitch-black": "#000000",
+                        "on-tertiary-fixed": "#231b00",
+                        "on-primary": "#67001d",
+                        "secondary-fixed-dim": "#b6d300",
+                        "inverse-surface": "#e3e2e6",
+                        "on-primary-fixed": "#40000f",
+                        "on-primary-container": "#ffffff",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-container": "#c3aa5a",
+                        "surface-tint": "#ffb2b8",
+                        "pure-white": "#ffffff",
+                        "surface-deep": "#272c33",
+                        "silver-mist": "#9ea0a9",
+                        "on-secondary-fixed": "#181e00",
+                        "secondary-container": "#d0f100",
+                        "on-secondary": "#2c3400",
+                        "surface-container-low": "#1a1b1e",
+                        "surface-container": "#1e2022",
+                        "surface-container-high": "#292a2d",
+                        "primary-fixed-dim": "#ffb2b8",
+                        "primary": "#ffb2b8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "48px",
+                        "gutter": "24px",
+                        "container-max": "1440px",
+                        "section-gap": "64px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["anton"],
+                        "label-caps": ["inter"],
+                        "display-xl": ["anton"],
+                        "body-md": ["inter"],
+                        "headline-md": ["inter"],
+                        "body-lg": ["inter"],
+                        "accent-serif": ["playfairDisplay"],
+                        "display-lg": ["anton"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["48px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "display-xl": ["80px", { "lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "accent-serif": ["64px", { "lineHeight": "72px", "fontWeight": "600" }],
+                        "display-lg": ["64px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.pitch-black'); color: theme('colors.on-surface'); }
+        /* Forms */
+        [type='text'], [type='email'], [type='tel'] {
+            background-color: theme('colors.pitch-black');
+            border-color: theme('colors.surface-deep');
+            color: theme('colors.silver-mist');
+        }
+        [type='text']:focus, [type='email']:focus, [type='tel']:focus {
+            border-color: theme('colors.secondary-container');
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col font-body-md text-body-md text-on-surface bg-pitch-black selection:bg-primary-container selection:text-pure-white">
+<!-- TopNavBar: Suppressed for Transactional Intent -->
+<header class="w-full flex justify-center py-8 border-b border-surface-variant/50 bg-pitch-black z-50 sticky top-0">
+<a class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg tracking-tighter text-on-background" href="#">AETHER</a>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Checkout Forms -->
+<div class="lg:col-span-7 xl:col-span-8 flex flex-col gap-12">
+<!-- Shipping Information -->
+<section class="bg-surface rounded-xl p-6 md:p-8 border border-surface-variant/30 inset-shadow-sm">
+<h2 class="font-headline-md text-headline-md mb-6 text-pure-white flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+                    Shipping Information
+                </h2>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="col-span-1 md:col-span-2">
+<label class="block font-label-caps text-label-caps text-silver-mist mb-2 uppercase" for="email">Email Address</label>
+<input class="w-full rounded-DEFAULT border-surface-deep bg-pitch-black text-on-surface focus:border-secondary-container focus:ring-0 transition-colors py-3" id="email" placeholder="Enter your email" type="email"/>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-silver-mist mb-2 uppercase" for="first-name">First Name</label>
+<input class="w-full rounded-DEFAULT border-surface-deep bg-pitch-black text-on-surface focus:border-secondary-container focus:ring-0 transition-colors py-3" id="first-name" placeholder="First Name" type="text"/>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-silver-mist mb-2 uppercase" for="last-name">Last Name</label>
+<input class="w-full rounded-DEFAULT border-surface-deep bg-pitch-black text-on-surface focus:border-secondary-container focus:ring-0 transition-colors py-3" id="last-name" placeholder="Last Name" type="text"/>
+</div>
+<div class="col-span-1 md:col-span-2">
+<label class="block font-label-caps text-label-caps text-silver-mist mb-2 uppercase" for="address">Address</label>
+<input class="w-full rounded-DEFAULT border-surface-deep bg-pitch-black text-on-surface focus:border-secondary-container focus:ring-0 transition-colors py-3" id="address" placeholder="Street Address" type="text"/>
+</div>
+<div class="col-span-1 md:col-span-2">
+<label class="block font-label-caps text-label-caps text-silver-mist mb-2 uppercase" for="apartment">Apartment, suite, etc. (optional)</label>
+<input class="w-full rounded-DEFAULT border-surface-deep bg-pitch-black text-on-surface focus:border-secondary-container focus:ring-0 transition-colors py-3" id="apartment" placeholder="Apartment, suite, etc." type="text"/>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-silver-mist mb-2 uppercase" for="city">City</label>
+<input class="w-full rounded-DEFAULT border-surface-deep bg-pitch-black text-on-surface focus:border-secondary-container focus:ring-0 transition-colors py-3" id="city" placeholder="City" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block font-label-caps text-label-caps text-silver-mist mb-2 uppercase" for="state">State/Province</label>
+<input class="w-full rounded-DEFAULT border-surface-deep bg-pitch-black text-on-surface focus:border-secondary-container focus:ring-0 transition-colors py-3" id="state" placeholder="State" type="text"/>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-silver-mist mb-2 uppercase" for="zip">ZIP / Postal Code</label>
+<input class="w-full rounded-DEFAULT border-surface-deep bg-pitch-black text-on-surface focus:border-secondary-container focus:ring-0 transition-colors py-3" id="zip" placeholder="ZIP" type="text"/>
+</div>
+</div>
+<div class="col-span-1 md:col-span-2">
+<label class="block font-label-caps text-label-caps text-silver-mist mb-2 uppercase" for="phone">Phone</label>
+<input class="w-full rounded-DEFAULT border-surface-deep bg-pitch-black text-on-surface focus:border-secondary-container focus:ring-0 transition-colors py-3" id="phone" placeholder="Phone for delivery updates" type="tel"/>
+</div>
+</form>
+</section>
+<!-- Delivery Method -->
+<section class="bg-surface rounded-xl p-6 md:p-8 border border-surface-variant/30">
+<h2 class="font-headline-md text-headline-md mb-6 text-pure-white flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">package_2</span>
+                    Delivery Method
+                </h2>
+<div class="flex flex-col gap-4">
+<label class="flex items-center justify-between p-4 border border-surface-deep rounded-DEFAULT cursor-pointer hover:border-silver-mist transition-colors bg-pitch-black relative overflow-hidden group">
+<div class="flex items-center gap-4 z-10">
+<input checked="" class="text-primary-container bg-pitch-black border-surface-deep focus:ring-primary-container focus:ring-offset-pitch-black" name="delivery" type="radio"/>
+<div>
+<span class="block font-body-lg text-body-lg text-pure-white mb-1">Standard Shipping</span>
+<span class="block font-body-md text-body-md text-silver-mist">3-5 Business Days</span>
+</div>
+</div>
+<span class="font-label-caps text-label-caps text-pure-white z-10">FREE</span>
+<div class="absolute inset-0 bg-surface-deep opacity-0 group-hover:opacity-20 transition-opacity"></div>
+</label>
+<label class="flex items-center justify-between p-4 border border-surface-deep rounded-DEFAULT cursor-pointer hover:border-silver-mist transition-colors bg-pitch-black relative overflow-hidden group">
+<div class="flex items-center gap-4 z-10">
+<input class="text-primary-container bg-pitch-black border-surface-deep focus:ring-primary-container focus:ring-offset-pitch-black" name="delivery" type="radio"/>
+<div>
+<span class="block font-body-lg text-body-lg text-pure-white mb-1">Express Delivery</span>
+<span class="block font-body-md text-body-md text-silver-mist">1-2 Business Days</span>
+</div>
+</div>
+<span class="font-label-caps text-label-caps text-pure-white z-10">$25.00</span>
+<div class="absolute inset-0 bg-surface-deep opacity-0 group-hover:opacity-20 transition-opacity"></div>
+</label>
+</div>
+</section>
+<!-- Payment Details -->
+<section class="bg-surface rounded-xl p-6 md:p-8 border border-surface-variant/30">
+<h2 class="font-headline-md text-headline-md mb-6 text-pure-white flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">credit_card</span>
+                    Payment
+                </h2>
+<div class="mb-6">
+<span class="block font-label-caps text-label-caps text-silver-mist mb-3 uppercase">All transactions are secure and encrypted.</span>
+<div class="flex gap-2 mb-6">
+<div class="h-8 w-12 bg-pure-white rounded flex items-center justify-center text-pitch-black font-bold text-[10px]">VISA</div>
+<div class="h-8 w-12 bg-pure-white rounded flex items-center justify-center text-pitch-black font-bold text-[10px]">MC</div>
+<div class="h-8 w-12 bg-pure-white rounded flex items-center justify-center text-pitch-black font-bold text-[10px]">AMEX</div>
+</div>
+</div>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="col-span-1 md:col-span-2">
+<label class="block font-label-caps text-label-caps text-silver-mist mb-2 uppercase" for="card-number">Card Number</label>
+<div class="relative">
+<input class="w-full rounded-DEFAULT border-surface-deep bg-pitch-black text-on-surface focus:border-secondary-container focus:ring-0 transition-colors py-3 pl-10" id="card-number" placeholder="0000 0000 0000 0000" type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-3.5 text-silver-mist text-[20px]">credit_card</span>
+</div>
+</div>
+<div class="col-span-1 md:col-span-2">
+<label class="block font-label-caps text-label-caps text-silver-mist mb-2 uppercase" for="name-on-card">Name on Card</label>
+<input class="w-full rounded-DEFAULT border-surface-deep bg-pitch-black text-on-surface focus:border-secondary-container focus:ring-0 transition-colors py-3" id="name-on-card" placeholder="Name on Card" type="text"/>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-silver-mist mb-2 uppercase" for="expiry">Expiration Date (MM/YY)</label>
+<input class="w-full rounded-DEFAULT border-surface-deep bg-pitch-black text-on-surface focus:border-secondary-container focus:ring-0 transition-colors py-3" id="expiry" placeholder="MM / YY" type="text"/>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-silver-mist mb-2 uppercase" for="cvv">Security Code</label>
+<input class="w-full rounded-DEFAULT border-surface-deep bg-pitch-black text-on-surface focus:border-secondary-container focus:ring-0 transition-colors py-3" id="cvv" placeholder="CVV" type="text"/>
+</div>
+</form>
+</section>
+</div>
+<!-- Right Column: Order Summary -->
+<div class="lg:col-span-5 xl:col-span-4">
+<div class="bg-surface-deep rounded-xl p-6 md:p-8 sticky top-32 border border-surface-variant/20">
+<h3 class="font-headline-md text-headline-md text-pure-white mb-6 border-b border-surface-variant/30 pb-4">Order Summary</h3>
+<!-- Items -->
+<div class="flex flex-col gap-6 mb-8">
+<!-- Item 1 -->
+<div class="flex gap-4 items-center">
+<div class="w-20 h-24 bg-surface rounded-lg overflow-hidden shrink-0 border border-surface-variant/50 relative">
+<img class="w-full h-full object-cover" data-alt="A meticulously crafted, dark, high-end minimalist product shot of a sleek obsidian black leather trench coat laid flat on a charcoal gray textured surface, illuminated by harsh cinematic studio lighting casting deep shadows. The mood is severe, premium, and avant-garde luxury fashion." src="/assets/stitch/stitch-29.jpg"/>
+<span class="absolute -top-2 -right-2 bg-silver-mist text-pitch-black font-label-caps text-[10px] w-5 h-5 rounded-full flex items-center justify-center border border-pitch-black z-10">1</span>
+</div>
+<div class="flex-grow">
+<h4 class="font-body-lg text-body-lg text-pure-white mb-1">Obsidian Trench</h4>
+<p class="font-body-md text-body-md text-silver-mist mb-1">Size: M</p>
+<p class="font-body-md text-body-md text-silver-mist">$1,250.00</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex gap-4 items-center">
+<div class="w-20 h-24 bg-surface rounded-lg overflow-hidden shrink-0 border border-surface-variant/50 relative">
+<img class="w-full h-full object-cover" data-alt="A minimalist, high-contrast product photo of architectural, matte black sunglasses with mirrored lenses resting on a slab of rough slate against a pitch black background, harsh spotlighting emphasizing sharp angles and premium materials. High fashion, cinematic luxury style." src="/assets/stitch/stitch-22.jpg"/>
+<span class="absolute -top-2 -right-2 bg-silver-mist text-pitch-black font-label-caps text-[10px] w-5 h-5 rounded-full flex items-center justify-center border border-pitch-black z-10">1</span>
+</div>
+<div class="flex-grow">
+<h4 class="font-body-lg text-body-lg text-pure-white mb-1">Void Aviators</h4>
+<p class="font-body-md text-body-md text-silver-mist mb-1">Color: Matte</p>
+<p class="font-body-md text-body-md text-silver-mist">$450.00</p>
+</div>
+</div>
+</div>
+<!-- Discount Code -->
+<div class="flex gap-2 mb-8 pb-8 border-b border-surface-variant/30">
+<input class="flex-grow rounded-DEFAULT border-surface-variant bg-pitch-black text-on-surface focus:border-secondary-container focus:ring-0 py-2 px-4 font-body-md" placeholder="Discount code" type="text"/>
+<button class="bg-surface-variant text-pure-white font-label-caps text-label-caps uppercase px-6 py-2 rounded-DEFAULT hover:bg-silver-mist hover:text-pitch-black transition-colors duration-300 inset-shadow-sm border border-transparent hover:border-pure-white">Apply</button>
+</div>
+<!-- Totals -->
+<div class="flex flex-col gap-3 mb-8">
+<div class="flex justify-between font-body-md text-body-md text-silver-mist">
+<span>Subtotal</span>
+<span class="text-pure-white">$1,700.00</span>
+</div>
+<div class="flex justify-between font-body-md text-body-md text-silver-mist">
+<span>Shipping</span>
+<span class="text-pure-white">Calculated next step</span>
+</div>
+<div class="flex justify-between font-body-md text-body-md text-silver-mist">
+<span>Taxes</span>
+<span class="text-pure-white">$153.00</span>
+</div>
+<div class="flex justify-between font-headline-md text-headline-md text-pure-white mt-4 pt-4 border-t border-surface-variant/50 items-end">
+<span class="font-body-lg text-body-lg text-silver-mist mb-1">Total</span>
+<div class="text-right">
+<span class="text-[14px] text-silver-mist font-normal mr-2">USD</span>
+<span>$1,853.00</span>
+</div>
+</div>
+</div>
+<!-- CTA -->
+<button class="w-full bg-primary-container text-pure-white font-label-caps text-label-caps uppercase py-4 rounded-lg hover:bg-inverse-primary transition-colors duration-300 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)] flex justify-center items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">lock</span>
+                    Pay Now
+                </button>
+<p class="text-center font-body-md text-[12px] text-silver-mist mt-4">
+                    By confirming this order, you agree to our Terms of Service and Privacy Policy.
+                </p>
+</div>
+</div>
+</main>
+<!-- Footer: Rendered minimally as per transaction intent -->
+<footer class="w-full bg-pitch-black border-t border-surface-variant/30 mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-8 max-w-container-max mx-auto text-silver-mist font-label-caps text-label-caps">
+<span class="mb-4 md:mb-0">© 2024 AETHER LUXURY RETAIL. ALL RIGHTS RESERVED.</span>
+<div class="flex gap-6">
+<a class="hover:text-pure-white transition-colors" href="#">Privacy</a>
+<a class="hover:text-pure-white transition-colors" href="#">Terms</a>
+</div>
+</div>
+</footer>
+</body></html>

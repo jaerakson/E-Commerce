@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>THE FAVORITES | AETHER</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Inter:wght@400;700&amp;family=Playfair+Display:wght@600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .filled-heart {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #000000;
+            color: #e3e2e6;
+            font-family: 'Inter', sans-serif;
+        }
+        .product-card-hover:hover .heart-overlay {
+            opacity: 1;
+        }
+        .glass-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#ffb2b8",
+                        "inverse-primary": "#be003d",
+                        "inverse-surface": "#e3e2e6",
+                        "inverse-on-surface": "#2f3033",
+                        "surface-variant": "#343538",
+                        "primary": "#ffb2b8",
+                        "on-tertiary-fixed": "#231b00",
+                        "on-tertiary": "#3c2f00",
+                        "silver-mist": "#9ea0a9",
+                        "on-surface-variant": "#e4bdbf",
+                        "error": "#ffb4ab",
+                        "secondary-container": "#d0f100",
+                        "tertiary": "#dfc573",
+                        "surface-container-low": "#1a1b1e",
+                        "on-primary-fixed-variant": "#91002c",
+                        "surface-deep": "#272c33",
+                        "tertiary-container": "#c3aa5a",
+                        "surface-container-high": "#292a2d",
+                        "on-tertiary-container": "#4e3e00",
+                        "secondary-fixed": "#d0f100",
+                        "primary-fixed-dim": "#ffb2b8",
+                        "primary-fixed": "#ffdadb",
+                        "surface": "#121316",
+                        "surface-container-lowest": "#0d0e11",
+                        "surface-dim": "#121316",
+                        "primary-container": "#e32652",
+                        "tertiary-fixed-dim": "#dfc572",
+                        "on-primary": "#67001d",
+                        "outline": "#ab888a",
+                        "background": "#121316",
+                        "secondary": "#ffffff",
+                        "on-surface": "#e3e2e6",
+                        "on-tertiary-fixed-variant": "#564500",
+                        "on-primary-fixed": "#40000f",
+                        "on-primary-container": "#ffffff",
+                        "on-secondary-container": "#5c6b00",
+                        "pitch-black": "#000000",
+                        "surface-container": "#1e2022",
+                        "surface-bright": "#38393c",
+                        "on-secondary-fixed-variant": "#404c00",
+                        "tertiary-fixed": "#fce18b",
+                        "secondary-fixed-dim": "#b6d300",
+                        "pure-white": "#ffffff",
+                        "surface-container-highest": "#343538",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "outline-variant": "#5b3f41",
+                        "on-secondary": "#2c3400",
+                        "on-secondary-fixed": "#181e00",
+                        "on-background": "#e3e2e6",
+                        "error-container": "#93000a",
+                        "charcoal-canvas": "#222326"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "12px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "64px",
+                        "margin-desktop": "48px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-xl": ["Anton"],
+                        "display-lg-mobile": ["Anton"],
+                        "display-lg": ["Anton"],
+                        "body-md": ["Inter"],
+                        "accent-serif": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-xl": ["80px", { "lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "400" }],
+                        "display-lg-mobile": ["48px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+                        "display-lg": ["64px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "accent-serif": ["64px", { "lineHeight": "72px", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-pitch-black selection:bg-primary-container selection:text-white">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-pitch-black bg-opacity-80 backdrop-blur-xl border-b border-surface-container-high">
+<div class="flex justify-between items-center px-margin-desktop py-6 w-full max-w-container-max mx-auto">
+<a class="font-display-lg text-display-lg text-pure-white tracking-tighter uppercase" href="#">AETHER</a>
+<div class="hidden md:flex items-center space-x-10">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300" href="#">Collections</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300" href="#">New Arrivals</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300" href="#">Curations</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300" href="#">Boutique</a>
+</div>
+<div class="flex items-center space-x-6">
+<button class="text-pure-white hover:text-primary-container transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="text-pure-white hover:text-primary-container transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+<button class="md:hidden text-pure-white">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-section-gap">
+<!-- Hero Section -->
+<section class="px-margin-desktop max-w-container-max mx-auto mb-16">
+<div class="flex flex-col md:flex-row md:items-end justify-between border-b border-surface-container-high pb-8">
+<div>
+<p class="font-label-caps text-label-caps text-primary mb-2">CURATED SELECTION</p>
+<h1 class="font-display-lg text-display-lg text-pure-white uppercase">The Favorites</h1>
+</div>
+<div class="mt-6 md:mt-0">
+<p class="font-body-md text-silver-mist max-w-xs">
+                        Your private vault of architectural silhouettes and limited edition essentials.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Product Grid -->
+<section class="px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter">
+<!-- Product Card 1 -->
+<div class="group relative bg-charcoal-canvas rounded-xl overflow-hidden product-card-hover transition-transform duration-500 hover:-translate-y-2">
+<div class="aspect-[3/4] relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A high-fashion editorial shot of a minimalist black structured jacket with sharp architectural shoulders, set against a stark, high-contrast dark studio background. The lighting is dramatic and cinematic, highlighting the fabric's rich texture. This premium dark-mode aesthetic features deep shadows and sharp highlights, perfectly aligning with a luxury boutique atmosphere." src="/assets/stitch/stitch-34.jpg"/>
+<div class="absolute top-4 right-4 z-10">
+<button class="w-10 h-10 rounded-full glass-blur bg-pitch-black/40 border border-white/10 flex items-center justify-center text-primary-container hover:bg-primary-container hover:text-pure-white transition-all duration-300" onclick="this.closest('.group').remove()">
+<span class="material-symbols-outlined filled-heart" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+<div class="absolute top-4 left-4">
+<span class="bg-pure-white text-pitch-black px-3 py-1 font-label-caps text-[10px] rounded-full uppercase">New Arrival</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-lg text-pure-white uppercase tracking-tight">Kinetica Structural Blazer</h3>
+<p class="font-body-lg font-bold text-pure-white">$1,240</p>
+</div>
+<p class="font-body-md text-silver-mist text-sm mb-4">Technical Wool Blend</p>
+<button class="w-full py-3 bg-pitch-black border border-surface-deep text-pure-white font-label-caps text-[11px] hover:bg-pure-white hover:text-pitch-black transition-all duration-300 uppercase tracking-widest">
+                            Add to Cart
+                        </button>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group relative bg-charcoal-canvas rounded-xl overflow-hidden product-card-hover transition-transform duration-500 hover:-translate-y-2">
+<div class="aspect-[3/4] relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A cinematic close-up of sleek, matte-finish luxury eyewear resting on a dark reflective surface. The glasses feature futuristic, sharp-edged frames in obsidian black. The atmosphere is immersive and gallery-like, with soft rim lighting that defines the precision-engineered contours of the product. The mood is authoritative and exclusive, typical of high-end retail design." src="/assets/stitch/stitch-36.jpg"/>
+<div class="absolute top-4 right-4 z-10">
+<button class="w-10 h-10 rounded-full glass-blur bg-pitch-black/40 border border-white/10 flex items-center justify-center text-primary-container hover:bg-primary-container hover:text-pure-white transition-all duration-300" onclick="this.closest('.group').remove()">
+<span class="material-symbols-outlined filled-heart" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-lg text-pure-white uppercase tracking-tight">Obsidian Monolith Frames</h3>
+<p class="font-body-lg font-bold text-pure-white">$450</p>
+</div>
+<p class="font-body-md text-silver-mist text-sm mb-4">Handcrafted Acetate</p>
+<button class="w-full py-3 bg-pitch-black border border-surface-deep text-pure-white font-label-caps text-[11px] hover:bg-pure-white hover:text-pitch-black transition-all duration-300 uppercase tracking-widest">
+                            Add to Cart
+                        </button>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group relative bg-charcoal-canvas rounded-xl overflow-hidden product-card-hover transition-transform duration-500 hover:-translate-y-2">
+<div class="aspect-[3/4] relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A minimalist architectural bag made of smooth, deep charcoal leather, displayed in a cinematic spotlight. The bag's design is geometric and sharp, with no visible hardware, embodying luxury minimalism. The background is a gradient of deep blacks, creating a tactile and premium feel that emphasizes form and precision-cut edges. The aesthetic is sophisticated and technologically focused." src="/assets/stitch/stitch-27.jpg"/>
+<div class="absolute top-4 right-4 z-10">
+<button class="w-10 h-10 rounded-full glass-blur bg-pitch-black/40 border border-white/10 flex items-center justify-center text-primary-container hover:bg-primary-container hover:text-pure-white transition-all duration-300" onclick="this.closest('.group').remove()">
+<span class="material-symbols-outlined filled-heart" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-lg text-pure-white uppercase tracking-tight">Axiom Leather Tote</h3>
+<div class="text-right">
+<p class="font-body-lg font-bold text-pure-white">$2,100</p>
+<p class="text-[10px] text-silver-mist line-through">$2,850</p>
+</div>
+</div>
+<p class="font-body-md text-silver-mist text-sm mb-4">Vachetta Hide</p>
+<button class="w-full py-3 bg-pitch-black border border-surface-deep text-pure-white font-label-caps text-[11px] hover:bg-pure-white hover:text-pitch-black transition-all duration-300 uppercase tracking-widest">
+                            Add to Cart
+                        </button>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group relative bg-charcoal-canvas rounded-xl overflow-hidden product-card-hover transition-transform duration-500 hover:-translate-y-2">
+<div class="aspect-[3/4] relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A high-end studio photograph of a futuristic sneaker with a sculpted sole and multi-textured upper in tonal greys and blacks. The lighting is sharp and technical, emphasizing the complex engineering and premium materials. Set against a dark, minimalist charcoal background, the image conveys exclusive, high-performance luxury. Every detail is rendered with precision, creating an immersive gallery-like experience." src="/assets/stitch/stitch-06.jpg"/>
+<div class="absolute top-4 right-4 z-10">
+<button class="w-10 h-10 rounded-full glass-blur bg-pitch-black/40 border border-white/10 flex items-center justify-center text-primary-container hover:bg-primary-container hover:text-pure-white transition-all duration-300" onclick="this.closest('.group').remove()">
+<span class="material-symbols-outlined filled-heart" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+<div class="absolute top-4 left-4">
+<span class="bg-primary-container text-pure-white px-3 py-1 font-label-caps text-[10px] rounded-full uppercase">Limited</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-lg text-pure-white uppercase tracking-tight">Vortex Hybrid Sneaker</h3>
+<p class="font-body-lg font-bold text-pure-white">$890</p>
+</div>
+<p class="font-body-md text-silver-mist text-sm mb-4">Tech-Knit / Carbon</p>
+<button class="w-full py-3 bg-pitch-black border border-surface-deep text-pure-white font-label-caps text-[11px] hover:bg-pure-white hover:text-pitch-black transition-all duration-300 uppercase tracking-widest">
+                            Add to Cart
+                        </button>
+</div>
+</div>
+</div>
+<!-- Empty State Helper (Hidden initially) -->
+<div class="hidden flex-col items-center justify-center py-32 text-center" id="empty-state">
+<span class="material-symbols-outlined text-6xl text-surface-variant mb-6" data-icon="favorite_border">favorite_border</span>
+<h2 class="font-display-lg-mobile text-pure-white mb-4">Your vault is empty</h2>
+<p class="font-body-lg text-silver-mist mb-8 max-w-sm">Start curating your personal collection of AETHER pieces.</p>
+<a class="px-8 py-4 bg-primary-container text-pure-white font-label-caps rounded-lg hover:opacity-90 transition-all" href="#">Explore Collections</a>
+</div>
+</section>
+<!-- Curated Recommendations -->
+<section class="mt-section-gap px-margin-desktop max-w-container-max mx-auto">
+<div class="bg-surface-deep p-12 rounded-xl border border-surface-container-high flex flex-col md:flex-row items-center gap-12">
+<div class="flex-1">
+<h2 class="font-accent-serif text-pure-white italic mb-4">The seasonal edit</h2>
+<p class="font-body-lg text-silver-mist mb-8">Discover pieces hand-selected by our creative directors to complement your current favorites.</p>
+<button class="px-10 py-4 bg-secondary text-on-secondary font-label-caps rounded-none hover:bg-primary-container hover:text-pure-white transition-all duration-300 uppercase tracking-widest">View Curation</button>
+</div>
+<div class="flex-1 w-full grid grid-cols-2 gap-4">
+<div class="aspect-square bg-pitch-black overflow-hidden rounded-lg">
+<img class="w-full h-full object-cover grayscale opacity-60 hover:opacity-100 transition-opacity duration-500" data-alt="Minimalist abstract detail of a silk fabric draped over a sharp edge, high contrast black and white lighting, luxury fashion aesthetic, deep blacks and pristine whites." src="/assets/stitch/stitch-17.jpg"/>
+</div>
+<div class="aspect-square bg-pitch-black overflow-hidden rounded-lg">
+<img class="w-full h-full object-cover grayscale opacity-60 hover:opacity-100 transition-opacity duration-500" data-alt="A close-up macro shot of architectural jewelry with sharp geometric angles, metallic silver mist finish, set against a charcoal canvas background, cinematic lighting." src="/assets/stitch/stitch-19.jpg"/>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full relative bg-pitch-black border-t border-surface-container-high">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-section-gap w-full max-w-container-max mx-auto">
+<div class="mb-8 md:mb-0">
+<span class="font-display-lg-mobile text-display-lg-mobile text-pure-white tracking-tighter">AETHER</span>
+<p class="text-[10px] text-silver-mist mt-2 tracking-widest uppercase">Precision. Architecture. Exclusivity.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-8 md:mb-0">
+<a class="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="#">Sustainability</a>
+<a class="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="#">Privacy Policy</a>
+<a class="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="#">Terms of Service</a>
+<a class="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="#">Shipping &amp; Returns</a>
+</div>
+<div class="text-[10px] font-label-caps text-silver-mist">
+                © 2024 AETHER. ALL RIGHTS RESERVED.
+            </div>
+</div>
+</footer>
+<script>
+        // Micro-interaction to handle card removal and empty state
+        const grid = document.querySelector('.grid');
+        const emptyState = document.getElementById('empty-state');
+        
+        const checkEmpty = () => {
+            const cards = grid.querySelectorAll('.group');
+            if (cards.length === 0) {
+                grid.classList.add('hidden');
+                emptyState.classList.remove('hidden');
+                emptyState.classList.add('flex');
+            }
+        };
+
+        document.querySelectorAll('button[onclick]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                setTimeout(checkEmpty, 300);
+            });
+        });
+    </script>
+</body></html>

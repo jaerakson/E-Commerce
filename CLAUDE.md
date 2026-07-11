@@ -7,31 +7,26 @@
 ---
 
 ## [프로젝트 개요]
-- **프로젝트명**: MIDNIGHT (Premium Dark E-Commerce)
-- **목적/한 줄 설명**: 영화 같은 다크 럭셔리 에스테틱의 프리미엄 셀렉트샵 랜딩 + 미니 장바구니.
+- **프로젝트명**: AETHER (Premium Dark E-Commerce) — 디자인 원본은 Google Stitch "Premium Dark E-Commerce"(Midnight Cinematic)
+- **목적/한 줄 설명**: 영화 같은 다크 럭셔리 에스테틱의 프리미엄 셀렉트샵. Stitch 디자인 14개 화면을 Next.js로 구현.
 - **주요 기술 스택**:
   - Next.js 14 (App Router) · React 18 · TypeScript (strict)
-  - 스타일: CSS Modules + 디자인 토큰(`styles/tokens.css`), 프레임워크 CSS 미사용
-  - 폰트: `next/font/google` 셀프 호스팅 (Anton / Inter / Playfair Display)
-  - 이미지: `next/image` 최적화, 에셋은 전부 `public/assets/` 로컬화
-  - 상태: 장바구니는 React Context + `useReducer` + localStorage (외부 상태 라이브러리 없음)
+  - 스타일: **Tailwind CSS** + Stitch 디자인 토큰(`tailwind.config.ts`) · 페이지별 커스텀 CSS는 `app/stitch-pages.css`
+  - 폰트: `next/font/google` 셀프 호스팅(Anton/Inter/Playfair, Tailwind fontFamily 변수 연결) + Material Symbols(layout `<link>`)
+  - 이미지: 에셋 전부 `public/assets/` 로컬화(원격 URL 금지). 현재 페이지는 플레인 `<img>`(→ `next/image` 최적화는 TODO)
+  - 디자인 원본: `stitch-export/html/*.html`(Stitch에서 내려받은 원본 HTML, 참고용)
 - **핵심 디렉터리 구조**:
   ```text
   app/
-    layout.tsx        # 폰트 변수 주입, 메타데이터, CartProvider 래핑
-    page.tsx          # 섹션 조합(홈)
-    globals.css       # reset + 토큰 import + 공용 .btn/.container
-  components/
-    layout/           # Header(클라이언트, 카트 카운트) · Footer
-    sections/         # Hero · EditorialIntro · ProductGallery · TechnicalDetails
-    product/          # ProductCard(클라이언트, add-to-cart)
-    cart/             # CartProvider(reducer) · CartDrawer(dialog)
-  lib/
-    products.ts       # 상품 데이터(단일 소스) + 타입
-    format.ts         # formatKrw() 통화 포맷
-  styles/
-    tokens.css        # 컬러/타입 스케일/스페이싱/모션 토큰 (SSOT)
-  public/assets/      # hero-bg.jpg + products/*.jpg (로컬 이미지)
+    layout.tsx        # 폰트 변수 주입, 메타데이터, Material Symbols link, globals+stitch-pages import
+    page.tsx          # 홈(AETHER Home)
+    globals.css       # @tailwind + base + Material Symbols 클래스
+    stitch-pages.css  # 페이지별 head <style>에서 추출한 커스텀 클래스(theme()→hex)
+    <route>/page.tsx  # 각 페이지: collections, search, products/[id], bag, checkout,
+                      #   wishlist, favorites, curations, reviews, orders, login, contact, brand-story
+  tailwind.config.ts  # Stitch 디자인 토큰(색/간격/폰트 유틸) SSOT
+  public/assets/stitch/  # Stitch 로컬 이미지 43개
+  stitch-export/         # Stitch 원본 HTML + DESIGN.md + image-map(참고용)
   ```
 - **빌드 명령어**: `npm run build`
 - **테스트 명령어**: (미도입 — 추가 시 Playwright 시각 회귀 우선, `~/.claude/rules/ecc/web/testing.md` 참고)
@@ -39,22 +34,23 @@
   - 개발: `npm run dev`  → **3000 포트 점유 이슈**로 필요 시 `PORT=3210 npm run dev`
   - 프로덕션: `npm run build && npm run start`
   - 린트: `npm run lint`
-- **브랜치 전략**: 현재 **git 미초기화**. `git init` 이후 전략은 사용자와 합의 전까지 미확정 → 커밋/푸시 전 반드시 확인.
-- **기본 원격/브랜치**: (미설정)
+- **브랜치 전략**: git 초기화됨(현재 `main`, 원격 미설정). 전략 미확정 → 커밋/푸시 전 반드시 확인.
+- **기본 원격/브랜치**: (원격 미설정 / main)
 
 ---
 
 ## [프로젝트 코드 규칙]
 
-- **컴포넌트 분리**: 서버 컴포넌트가 기본. `useCart`/이벤트 핸들러가 필요한 것만 `"use client"`
-  (현재 클라이언트: Header, ProductCard, CartProvider, CartDrawer).
-- **디자인 토큰 우선**: 색·간격·타이포·모션 값은 하드코딩 금지. `styles/tokens.css`의 CSS 변수 참조.
-  새 토큰이 필요하면 tokens.css에 먼저 추가 후 사용.
-- **애니메이션**: compositor 친화 속성(`transform`/`opacity`)만 사용. layout 유발 속성 애니메이션 금지.
-- **불변성**: 장바구니 등 상태는 항상 새 객체 반환(리듀서 각 분기 참고). in-place 변경 금지.
-- **이미지**: 반드시 `next/image` + 명시적 크기(또는 `fill` + `sizes`). 원격 URL 직접 삽입 금지, `public/assets/`에 로컬화.
-- **접근성**: 시맨틱 태그 우선, 인터랙션 요소에 `aria-label`/`:focus-visible`, `prefers-reduced-motion` 존중(globals.css에 전역 처리됨).
-- **데이터**: 상품 등 정적 데이터는 `lib/products.ts` 단일 소스에서만 관리.
+- **컴포넌트 분리**: 서버 컴포넌트가 기본. 현재 페이지는 정적(이벤트 핸들러 없음)이라 전부 서버 컴포넌트.
+  상호작용(장바구니/폼 제출 등) 추가 시에만 `"use client"`.
+- **디자인 토큰 우선**: 색·간격·타이포는 하드코딩 금지. `tailwind.config.ts`의 유틸(`bg-primary-container`,
+  `text-body-lg`, `px-margin-desktop` 등) 사용. 새 토큰은 config에 먼저 추가.
+- **커스텀 CSS**: Tailwind로 표현 안 되는 클래스는 `app/stitch-pages.css`에만 추가(theme()는 hex로).
+- **애니메이션**: compositor 친화 속성(`transform`/`opacity`)만. layout 유발 속성 애니메이션 금지.
+- **이미지**: 원격 URL 직접 삽입 금지, `public/assets/`에 로컬화. (`next/image` 전환은 TODO)
+- **접근성**: 시맨틱 태그 우선, `aria-label`/`:focus-visible`, `prefers-reduced-motion` 존중(globals.css 전역 처리).
+- **디자인 원본 갱신**: Stitch에서 화면이 추가/수정되면 `stitch-export/html/`로 다시 내려받아 재변환.
+  변환 스크립트 로직은 세션 스크래치패드의 `convert.py`/`extract_css.py` 참고(HTML→JSX, 커스텀 CSS 추출).
 
 ---
 

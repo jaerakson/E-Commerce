@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Anton, Inter, Playfair_Display } from "next/font/google";
-import { CartProvider } from "@/components/cart/CartProvider";
 import "./globals.css";
+import "./stitch-pages.css";
 
 const anton = Anton({
   weight: "400",
@@ -11,14 +11,14 @@ const anton = Anton({
 });
 
 const inter = Inter({
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "700"],
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
 });
 
 const playfair = Playfair_Display({
-  weight: ["500", "600"],
+  weight: ["400", "600"],
   style: ["normal", "italic"],
   subsets: ["latin"],
   display: "swap",
@@ -26,9 +26,9 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Premium Dark E-Commerce | Cinematic Luxury",
+  title: "AETHER — Premium E-Commerce",
   description:
-    "영화 같은 다크 모드와 프리미엄 에스테틱으로 구현된 럭셔리 셀렉트 샵. 최고급 패션과 테크 제품을 만나보세요.",
+    "Cinematic dark-mode luxury e-commerce. A curated selection of premium essentials.",
 };
 
 export default function RootLayout({
@@ -37,9 +37,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko" className={`${anton.variable} ${inter.variable} ${playfair.variable}`}>
-      <body>
-        <CartProvider>{children}</CartProvider>
+    <html
+      lang="en"
+      className={`dark ${anton.variable} ${inter.variable} ${playfair.variable}`}
+    >
+      <head>
+        {/* Material Symbols icon font used across the Stitch (AETHER) designs */}
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+        />
+      </head>
+      <body className="bg-background text-on-background antialiased selection:bg-primary-container selection:text-pure-white">
+        {children}
       </body>
     </html>
   );

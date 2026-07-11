@@ -1,5 +1,28 @@
 # PROGRESS
 
+## 2026-07-11 20:30  (집)
+- 브랜치: main (git 초기화됨, 미푸시)
+- 완료:
+  - **Stitch MCP 연결** (local 스코프, `~/.claude.json`) → 세션 재시작 후 도구 로드
+  - Stitch "Premium Dark E-Commerce"(AETHER) 프로젝트 **14개 화면 전부 로컬 다운로드** (`stitch-export/html/`)
+    → Home/Collections/Search/ProductDetail/ShoppingBag/Checkout/Wishlist/Favorites/MyCurations/Reviews/OrderHistory/Login/Contact/BrandStory (+DESIGN.md, flow=home 중복 제외)
+  - 원격 lh3 이미지 **43개 로컬화** (`public/assets/stitch/`) + HTML 내 URL 치환
+  - **Tailwind 도입** + Stitch 디자인 토큰 1:1 이식(`tailwind.config.ts`), 폰트는 next/font 변수 연결, Material Symbols는 layout `<link>`
+  - 페이지별 head `<style>` 커스텀 CSS를 `theme()`→hex로 해석해 `app/stitch-pages.css`로 통합
+  - HTML→JSX 변환기로 **14개 라우트 생성**(`app/**/page.tsx`): 브랜드 **AETHER**로 통일
+  - 구 MIDNIGHT 구성요소(components/·styles/·lib/) 제거
+- 현재 상태: `npm run build` 성공(16 라우트 정적 생성, First Load JS 87.4kB), 서버 구동 후 14개 페이지 전부 200·이미지/CSS 정상 확인
+- 다음 할 일:
+  - **페이지 간 내비게이션 연결**: 현재 모든 `href="#"`(Stitch 그대로). 헤더/CTA를 실제 라우트로 배선
+  - `<img>` → `next/image` 최적화(현재 플레인 img, lint warning)
+  - 장바구니 상태(구 CartProvider 제거됨) 재도입 여부 결정 — Bag/Checkout 페이지는 현재 정적
+  - product-detail 동적화(`[id]`별 데이터)
+- 막힌 점/주의:
+  - 샌드박스 bash가 긴 루프/PATH에서 불안정(타임아웃·command not found) → 벌크 작업은 Python으로 처리
+  - 3000 포트 타 프로세스 점유 → `PORT=3210` 사용
+- 관련 파일: `app/**/page.tsx`, `tailwind.config.ts`, `app/stitch-pages.css`, `public/assets/stitch/`, `stitch-export/`
+- 푸시 여부: 미푸시 (커밋 대기)
+
 ## 2026-07-11 19:35  (집)
 - 브랜치: (git 미초기화 — 로컬 작업)
 - 완료:

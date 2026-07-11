@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AETHER - Search Results</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Inter:wght@400;700&amp;family=Playfair+Display:wght@600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#e4bdbf",
+                        "surface": "#121316",
+                        "surface-variant": "#343538",
+                        "surface-container-highest": "#343538",
+                        "on-secondary-fixed-variant": "#404c00",
+                        "tertiary-fixed": "#fce18b",
+                        "outline": "#ab888a",
+                        "outline-variant": "#5b3f41",
+                        "primary-fixed": "#ffdadb",
+                        "on-tertiary-fixed-variant": "#564500",
+                        "on-primary-fixed-variant": "#91002c",
+                        "background": "#121316",
+                        "inverse-on-surface": "#2f3033",
+                        "secondary-fixed": "#d0f100",
+                        "tertiary": "#dfc573",
+                        "on-secondary-container": "#5c6b00",
+                        "surface-bright": "#38393c",
+                        "inverse-primary": "#be003d",
+                        "on-tertiary": "#3c2f00",
+                        "secondary": "#ffffff",
+                        "on-error": "#690005",
+                        "on-background": "#e3e2e6",
+                        "surface-dim": "#121316",
+                        "primary-container": "#e32652",
+                        "on-surface": "#e3e2e6",
+                        "surface-container-lowest": "#0d0e11",
+                        "on-tertiary-container": "#4e3e00",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed-dim": "#dfc572",
+                        "error-container": "#93000a",
+                        "pitch-black": "#000000",
+                        "on-tertiary-fixed": "#231b00",
+                        "on-primary": "#67001d",
+                        "secondary-fixed-dim": "#b6d300",
+                        "inverse-surface": "#e3e2e6",
+                        "on-primary-fixed": "#40000f",
+                        "on-primary-container": "#ffffff",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-container": "#c3aa5a",
+                        "surface-tint": "#ffb2b8",
+                        "pure-white": "#ffffff",
+                        "surface-deep": "#272c33",
+                        "silver-mist": "#9ea0a9",
+                        "on-secondary-fixed": "#181e00",
+                        "secondary-container": "#d0f100",
+                        "on-secondary": "#2c3400",
+                        "surface-container-low": "#1a1b1e",
+                        "surface-container": "#1e2022",
+                        "surface-container-high": "#292a2d",
+                        "primary-fixed-dim": "#ffb2b8",
+                        "primary": "#ffb2b8",
+                        "charcoal-canvas": "#121316",
+                        "action-raspberry": "#e32652"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "48px",
+                        "gutter": "24px",
+                        "container-max": "1440px",
+                        "section-gap": "64px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Anton"],
+                        "label-caps": ["Inter"],
+                        "display-xl": ["Anton"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "accent-serif": ["Playfair Display"],
+                        "display-lg": ["Anton"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["48px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "display-xl": ["80px", { "lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "accent-serif": ["64px", { "lineHeight": "72px", "fontWeight": "600" }],
+                        "display-lg": ["64px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #000000;
+            color: #e3e2e6;
+        }
+        .inset-border {
+            box-shadow: inset 0 0 0 1px #9ea0a9;
+        }
+        .inset-border-focus:focus-within {
+            box-shadow: inset 0 0 0 1px #d0f100;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md antialiased min-h-screen flex flex-col">
+<!-- TopNavBar (Search Intent implies active 'Explore' or similar if it existed, but we map to closest or none if it's a dedicated search page. Let's assume it's a primary ecosystem destination.) -->
+<header class="bg-background dark:bg-background text-primary dark:text-primary docked full-width top-0 z-50 flat no shadows border-b border-surface-variant flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto sticky top-0">
+<div class="font-display-lg text-display-lg-mobile tracking-tighter text-on-background dark:text-on-background">
+            AETHER
+        </div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex relative inset-border-focus inset-border bg-pitch-black rounded-none h-10 items-center px-4">
+<span class="material-symbols-outlined text-silver-mist text-[20px] mr-2">search</span>
+<input class="bg-transparent border-none text-silver-mist font-body-md focus:outline-none focus:ring-0 w-64 placeholder-silver-mist" placeholder="Search..." type="text" value="Minimalist Outerwear"/>
+</div>
+<button class="hover:text-primary transition-colors duration-300">
+<span class="material-symbols-outlined text-on-background text-[24px]">shopping_bag</span>
+</button>
+</div>
+</header>
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap flex flex-col md:flex-row gap-gutter">
+<!-- Sidebar Filters -->
+<aside class="w-full md:w-1/4 shrink-0 space-y-8">
+<div class="font-display-lg text-display-lg-mobile md:font-display-lg md:text-display-lg text-pure-white mb-8">
+                RESULTS FOR <br/><span class="text-primary-container">"MINIMALIST OUTERWEAR"</span>
+</div>
+<div class="bg-surface-deep rounded-lg p-6 space-y-6">
+<div>
+<h3 class="font-label-caps text-label-caps text-pure-white mb-4 border-b border-surface-variant pb-2 uppercase">Category</h3>
+<div class="space-y-3">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="appearance-none w-4 h-4 rounded-sm border border-silver-mist checked:bg-action-raspberry checked:border-transparent transition-colors relative before:content-[''] before:absolute before:inset-0 before:bg-no-repeat before:bg-center checked:before:bg-[url('data:image/svg+xml;utf8,&lt;svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 16 16\' fill=\'white\'&gt;&lt;path d=\'M6 10.5L3.5 8l-.7.7L6 11.9l8-8-.7-.7z\'/&gt;&lt;/svg&gt;')]" type="checkbox"/>
+<span class="font-body-md text-body-md text-silver-mist group-hover:text-pure-white transition-colors">Coats &amp; Jackets</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="appearance-none w-4 h-4 rounded-sm border border-silver-mist checked:bg-action-raspberry checked:border-transparent transition-colors relative before:content-[''] before:absolute before:inset-0 before:bg-no-repeat before:bg-center checked:before:bg-[url('data:image/svg+xml;utf8,&lt;svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 16 16\' fill=\'white\'&gt;&lt;path d=\'M6 10.5L3.5 8l-.7.7L6 11.9l8-8-.7-.7z\'/&gt;&lt;/svg&gt;')]" type="checkbox"/>
+<span class="font-body-md text-body-md text-pure-white transition-colors">Trench Coats</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="appearance-none w-4 h-4 rounded-sm border border-silver-mist checked:bg-action-raspberry checked:border-transparent transition-colors relative before:content-[''] before:absolute before:inset-0 before:bg-no-repeat before:bg-center checked:before:bg-[url('data:image/svg+xml;utf8,&lt;svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 16 16\' fill=\'white\'&gt;&lt;path d=\'M6 10.5L3.5 8l-.7.7L6 11.9l8-8-.7-.7z\'/&gt;&lt;/svg&gt;')]" type="checkbox"/>
+<span class="font-body-md text-body-md text-silver-mist group-hover:text-pure-white transition-colors">Blazers</span>
+</label>
+</div>
+</div>
+<div>
+<h3 class="font-label-caps text-label-caps text-pure-white mb-4 border-b border-surface-variant pb-2 uppercase">Price Range</h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between font-label-caps text-label-caps text-silver-mist">
+<span>$200</span>
+<span>$1500+</span>
+</div>
+<div class="h-1 bg-surface-variant rounded-full relative">
+<div class="absolute left-[20%] right-[30%] h-full bg-action-raspberry rounded-full"></div>
+<div class="absolute left-[20%] top-1/2 -translate-y-1/2 w-4 h-4 bg-pure-white rounded-full cursor-pointer"></div>
+<div class="absolute right-[30%] top-1/2 -translate-y-1/2 w-4 h-4 bg-pure-white rounded-full cursor-pointer"></div>
+</div>
+</div>
+</div>
+<div>
+<h3 class="font-label-caps text-label-caps text-pure-white mb-4 border-b border-surface-variant pb-2 uppercase">Material</h3>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 bg-surface border border-surface-variant text-silver-mist hover:text-pure-white hover:border-pure-white font-label-caps text-label-caps transition-colors rounded-none">WOOL</button>
+<button class="px-4 py-2 bg-action-raspberry text-pure-white font-label-caps text-label-caps rounded-none">CASHMERE</button>
+<button class="px-4 py-2 bg-surface border border-surface-variant text-silver-mist hover:text-pure-white hover:border-pure-white font-label-caps text-label-caps transition-colors rounded-none">NYLON</button>
+</div>
+</div>
+</div>
+</aside>
+<!-- Product Grid -->
+<section class="w-full md:w-3/4">
+<div class="flex justify-between items-center mb-8 border-b border-surface-variant pb-4">
+<p class="font-body-md text-body-md text-silver-mist">Showing 12 results</p>
+<div class="flex items-center gap-4">
+<span class="font-label-caps text-label-caps text-silver-mist uppercase">Sort By:</span>
+<select class="bg-pitch-black inset-border text-pure-white font-body-md px-4 py-2 rounded-none focus:outline-none focus:ring-1 focus:ring-secondary-fixed appearance-none cursor-pointer pr-10 relative">
+<option>Recommended</option>
+<option>Price: Low to High</option>
+<option>Price: High to Low</option>
+<option>Newest Arrivals</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Product Card 1 -->
+<div class="bg-surface rounded-xl overflow-hidden group cursor-pointer border border-surface-variant hover:border-surface-tint transition-colors duration-300 flex flex-col h-full">
+<div class="relative h-[400px] w-full overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A cinematic, high-end fashion editorial shot of a sleek, minimalist black wool overcoat worn by an androgynous model. The lighting is moody and dramatic with deep shadows and a stark, bright spotlight highlighting the texture of the fabric. The background is a pure pitch-black void to emphasize the garment's silhouette. The aesthetic is luxurious, sharp, and avant-garde." src="/assets/stitch/stitch-21.jpg"/>
+<div class="absolute top-4 left-4 bg-pure-white text-pitch-black font-label-caps text-label-caps px-3 py-1 rounded-full uppercase">New</div>
+</div>
+<div class="p-6 flex flex-col flex-grow justify-between">
+<div>
+<h4 class="font-headline-md text-headline-md text-pure-white mb-2 line-clamp-2">Obsidian Wool Overcoat</h4>
+<p class="font-body-md text-body-md text-silver-mist mb-4">Italian Cashmere Blend</p>
+</div>
+<div class="flex items-end justify-between mt-auto">
+<span class="font-headline-md text-headline-md text-pure-white">$895</span>
+<button class="bg-action-raspberry text-pure-white rounded-lg w-10 h-10 flex items-center justify-center hover:bg-inverse-primary transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="bg-surface rounded-xl overflow-hidden group cursor-pointer border border-surface-variant hover:border-surface-tint transition-colors duration-300 flex flex-col h-full">
+<div class="relative h-[400px] w-full overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A striking studio photograph of a structured, minimal trench coat in a deep charcoal grey. The garment is styled seamlessly on a mannequin against an endless black backdrop. High-contrast, cool-toned lighting accentuates the sharp lapels and matte finish of the technical fabric. The mood is utilitarian luxury, austere and precise." src="/assets/stitch/stitch-10.jpg"/>
+</div>
+<div class="p-6 flex flex-col flex-grow justify-between">
+<div>
+<h4 class="font-headline-md text-headline-md text-pure-white mb-2 line-clamp-2">Structure Trench</h4>
+<p class="font-body-md text-body-md text-silver-mist mb-4">Technical Water-Resistant Nylon</p>
+</div>
+<div class="flex items-end justify-between mt-auto">
+<span class="font-headline-md text-headline-md text-pure-white">$1,150</span>
+<button class="bg-action-raspberry text-pure-white rounded-lg w-10 h-10 flex items-center justify-center hover:bg-inverse-primary transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="bg-surface rounded-xl overflow-hidden group cursor-pointer border border-surface-variant hover:border-surface-tint transition-colors duration-300 flex flex-col h-full">
+<div class="relative h-[400px] w-full overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A close-up, highly detailed shot of a textured midnight blue blazer. The image focuses on the heavy weave of the fabric and the minimal, hidden button closures. The lighting creates a subtle rim light effect against a pitch-black background, creating a cinematic and tactile atmosphere. The overall style is elegant, modern minimalism." src="/assets/stitch/stitch-09.jpg"/>
+<div class="absolute top-4 left-4 bg-pure-white text-pitch-black font-label-caps text-label-caps px-3 py-1 rounded-full uppercase">Bestseller</div>
+</div>
+<div class="p-6 flex flex-col flex-grow justify-between">
+<div>
+<h4 class="font-headline-md text-headline-md text-pure-white mb-2 line-clamp-2">Midnight Architect Blazer</h4>
+<p class="font-body-md text-body-md text-silver-mist mb-4">Heavyweight Wool Crepe</p>
+</div>
+<div class="flex items-end justify-between mt-auto">
+<span class="font-headline-md text-headline-md text-pure-white">$750</span>
+<button class="bg-action-raspberry text-pure-white rounded-lg w-10 h-10 flex items-center justify-center hover:bg-inverse-primary transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-12 flex justify-center">
+<button class="bg-surface-deep text-pure-white font-label-caps text-label-caps uppercase px-8 py-4 inset-border hover:bg-surface-variant transition-colors rounded-none">Load More Results</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-pitch-black dark:bg-pitch-black border-t border-surface-variant flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-section-gap max-w-container-max mx-auto mt-auto">
+<div class="font-display-lg text-display-lg-mobile text-on-surface mb-6 md:mb-0">
+            AETHER
+        </div>
+<nav class="flex flex-wrap justify-center gap-6 mb-6 md:mb-0 font-body-md text-body-md">
+<a class="text-silver-mist hover:text-pure-white transition-colors opacity-80 hover:opacity-100" href="#">Collections</a>
+<a class="text-silver-mist hover:text-pure-white transition-colors opacity-80 hover:opacity-100" href="#">Sustainability</a>
+<a class="text-silver-mist hover:text-pure-white transition-colors opacity-80 hover:opacity-100" href="#">Shipping</a>
+<a class="text-silver-mist hover:text-pure-white transition-colors opacity-80 hover:opacity-100" href="#">Returns</a>
+<a class="text-silver-mist hover:text-pure-white transition-colors opacity-80 hover:opacity-100" href="#">Privacy</a>
+</nav>
+<div class="font-label-caps text-label-caps text-silver-mist uppercase">
+            © 2024 AETHER LUXURY RETAIL. ALL RIGHTS RESERVED.
+        </div>
+</footer>
+</body></html>

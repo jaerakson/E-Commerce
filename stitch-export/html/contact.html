@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AETHER LUXURY - Contact Us</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Anton&amp;family=Playfair+Display:wght@600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#343538",
+                        "surface": "#121316",
+                        "on-secondary-fixed": "#181e00",
+                        "on-surface-variant": "#e4bdbf",
+                        "on-primary": "#67001d",
+                        "tertiary-fixed": "#fce18b",
+                        "pitch-black": "#000000",
+                        "on-surface": "#e3e2e6",
+                        "primary-fixed-dim": "#ffb2b8",
+                        "on-secondary": "#2c3400",
+                        "primary-container": "#e32652",
+                        "on-error": "#690005",
+                        "inverse-surface": "#e3e2e6",
+                        "error-container": "#93000a",
+                        "background": "#121316",
+                        "on-primary-fixed": "#40000f",
+                        "secondary-container": "#d0f100",
+                        "secondary-fixed-dim": "#b6d300",
+                        "surface-container-low": "#1a1b1e",
+                        "on-tertiary-fixed": "#231b00",
+                        "on-tertiary-fixed-variant": "#564500",
+                        "tertiary-container": "#c3aa5a",
+                        "on-error-container": "#ffdad6",
+                        "surface-bright": "#38393c",
+                        "surface-deep": "#272c33",
+                        "surface-container-highest": "#343538",
+                        "primary-fixed": "#ffdadb",
+                        "inverse-on-surface": "#2f3033",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed-dim": "#dfc572",
+                        "surface-container-lowest": "#0d0e11",
+                        "primary": "#ffb2b8",
+                        "on-secondary-container": "#5c6b00",
+                        "tertiary": "#dfc573",
+                        "on-primary-container": "#ffffff",
+                        "on-background": "#e3e2e6",
+                        "pure-white": "#ffffff",
+                        "surface-container": "#1e2022",
+                        "secondary": "#ffffff",
+                        "inverse-primary": "#be003d",
+                        "silver-mist": "#9ea0a9",
+                        "on-secondary-fixed-variant": "#404c00",
+                        "surface-dim": "#121316",
+                        "outline": "#ab888a",
+                        "outline-variant": "#5b3f41",
+                        "surface-tint": "#ffb2b8",
+                        "secondary-fixed": "#d0f100",
+                        "surface-container-high": "#292a2d",
+                        "on-primary-fixed-variant": "#91002c",
+                        "on-tertiary-container": "#4e3e00",
+                        "on-tertiary": "#3c2f00",
+                        "interactive-lime": "#d0f100",
+                        "action-raspberry": "#e32652",
+                        "charcoal-canvas": "#1a1b1e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "48px",
+                        "margin-mobile": "20px",
+                        "section-gap": "64px",
+                        "container-max": "1440px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter", "sans-serif"],
+                        "label-caps": ["Inter", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "accent-serif": ["Playfair Display", "serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "display-lg-mobile": ["Anton", "sans-serif"],
+                        "display-xl": ["Anton", "sans-serif"],
+                        "display-lg": ["Anton", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "accent-serif": ["64px", { "lineHeight": "72px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["48px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+                        "display-xl": ["80px", { "lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "400" }],
+                        "display-lg": ["64px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        
+        .input-field {
+            background-color: theme('colors.pitch-black');
+            border: 1px solid theme('colors.surface-deep');
+            color: theme('colors.pure-white');
+            transition: border-color 0.3s ease;
+        }
+        
+        .input-field:focus {
+            outline: none;
+            border-color: theme('colors.interactive-lime');
+        }
+
+        .input-field::placeholder {
+            color: theme('colors.silver-mist');
+        }
+
+        .btn-primary {
+            background-color: theme('colors.action-raspberry');
+            color: theme('colors.pure-white');
+            border-radius: 8px;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+        
+        .btn-secondary {
+            background-color: theme('colors.charcoal-canvas');
+            border: 1px inset theme('colors.silver-mist');
+            border-radius: 0;
+            color: theme('colors.pure-white');
+            transition: opacity 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            opacity: 0.8;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+        
+        .accordion-item.active .accordion-content {
+            max-height: 500px; /* Arbitrary large height */
+        }
+        
+        .accordion-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col pt-20">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 max-w-container-max mx-auto">
+<div class="flex items-center gap-8">
+<a class="font-display-lg text-display-lg-mobile md:text-display-lg tracking-tighter text-pure-white" href="#">AETHER</a>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="nav-link text-on-surface-variant hover:text-pure-white transition-colors font-body-md text-body-md" href="#">Collections</a>
+<a class="nav-link text-on-surface-variant hover:text-pure-white transition-colors font-body-md text-body-md" href="#">New Arrivals</a>
+<a class="nav-link text-on-surface-variant hover:text-pure-white transition-colors font-body-md text-body-md" href="#">Curations</a>
+<a class="nav-link text-on-surface-variant hover:text-pure-white transition-colors font-body-md text-body-md" href="#">Boutique</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-pure-white transition-all duration-300 opacity-100 hover:opacity-80 scale-100 hover:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_bag</span>
+</button>
+<button class="text-on-surface-variant hover:text-pure-white transition-all duration-300 opacity-100 hover:opacity-80 scale-100 hover:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="relative h-[409px] min-h-[300px] flex items-center justify-center bg-pitch-black">
+<div class="absolute inset-0 z-0">
+<div class="bg-cover bg-center w-full h-full opacity-40" data-alt="A cinematic, high-contrast abstract composition of softly undulating dark fabric in a pitch black void. Lighting is extremely subtle, highlighting only the crests of the fabric folds in a silvery white, creating a luxurious, moody, minimal aesthetic." style="background-image: url('/assets/stitch/stitch-08.jpg"></div>
+</div>
+<div class="relative z-10 text-center px-margin-mobile">
+<h1 class="font-display-xl text-display-lg-mobile md:text-display-xl text-pure-white uppercase">Contact Us</h1>
+<p class="font-body-lg text-body-lg text-silver-mist mt-4 max-w-2xl mx-auto">We are here to assist you with inquiries, appointments, and bespoke services.</p>
+</div>
+</section>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Contact Form Area -->
+<div class="lg:col-span-7">
+<div class="bg-surface-deep rounded-lg p-8 md:p-12">
+<h2 class="font-headline-md text-headline-md text-pure-white mb-8">Send a Message</h2>
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="font-label-caps text-label-caps text-silver-mist block mb-2" for="firstName">First Name</label>
+<input class="input-field w-full p-4 font-body-md text-body-md" id="firstName" placeholder="Enter your first name" type="text"/>
+</div>
+<div>
+<label class="font-label-caps text-label-caps text-silver-mist block mb-2" for="lastName">Last Name</label>
+<input class="input-field w-full p-4 font-body-md text-body-md" id="lastName" placeholder="Enter your last name" type="text"/>
+</div>
+</div>
+<div>
+<label class="font-label-caps text-label-caps text-silver-mist block mb-2" for="email">Email Address</label>
+<input class="input-field w-full p-4 font-body-md text-body-md" id="email" placeholder="Enter your email address" type="email"/>
+</div>
+<div>
+<label class="font-label-caps text-label-caps text-silver-mist block mb-2" for="inquiryType">Inquiry Type</label>
+<select class="input-field w-full p-4 font-body-md text-body-md appearance-none" id="inquiryType">
+<option value="general">General Inquiry</option>
+<option value="order">Order Status</option>
+<option value="appointment">Book an Appointment</option>
+<option value="press">Press &amp; Media</option>
+</select>
+</div>
+<div>
+<label class="font-label-caps text-label-caps text-silver-mist block mb-2" for="message">Message</label>
+<textarea class="input-field w-full p-4 font-body-md text-body-md resize-none" id="message" placeholder="How can we assist you?" rows="5"></textarea>
+</div>
+<button class="btn-primary w-full py-4 font-label-caps text-label-caps uppercase tracking-wider" type="submit">Submit Inquiry</button>
+</form>
+</div>
+</div>
+<!-- Side Info & FAQ -->
+<div class="lg:col-span-5 space-y-12 mt-12 lg:mt-0">
+<!-- Direct Contact -->
+<div class="bg-charcoal-canvas p-8 border border-surface-variant">
+<h3 class="font-headline-md text-headline-md text-pure-white mb-6">Direct Assistance</h3>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-silver-mist" style="font-variation-settings: 'FILL' 0;">call</span>
+<div>
+<p class="font-label-caps text-label-caps text-silver-mist mb-1">Concierge Line</p>
+<p class="font-body-lg text-body-lg text-pure-white">+1 (800) 555-0199</p>
+<p class="font-body-md text-body-md text-surface-variant mt-1">Mon-Fri, 9am - 8pm EST</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-silver-mist" style="font-variation-settings: 'FILL' 0;">mail</span>
+<div>
+<p class="font-label-caps text-label-caps text-silver-mist mb-1">Email</p>
+<p class="font-body-lg text-body-lg text-pure-white">concierge@aetherluxury.com</p>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-8 border-t border-surface-variant">
+<button class="btn-secondary w-full py-4 flex items-center justify-center gap-2 font-label-caps text-label-caps uppercase">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 0;">chat_bubble</span>
+                            Start Live Chat
+                        </button>
+</div>
+</div>
+<!-- FAQ Accordion -->
+<div>
+<h3 class="font-headline-md text-headline-md text-pure-white mb-6">Frequently Asked</h3>
+<div class="space-y-4">
+<div class="accordion-item bg-pitch-black border border-surface-variant p-4 cursor-pointer" onclick="this.classList.toggle('active')">
+<div class="flex justify-between items-center">
+<h4 class="font-body-lg text-body-lg text-pure-white">What is your return policy?</h4>
+<span class="material-symbols-outlined accordion-icon text-silver-mist">expand_more</span>
+</div>
+<div class="accordion-content mt-2">
+<p class="font-body-md text-body-md text-silver-mist">We accept returns within 14 days of delivery for a full refund, provided items remain in pristine condition with original tags attached.</p>
+</div>
+</div>
+<div class="accordion-item bg-pitch-black border border-surface-variant p-4 cursor-pointer" onclick="this.classList.toggle('active')">
+<div class="flex justify-between items-center">
+<h4 class="font-body-lg text-body-lg text-pure-white">Do you offer international shipping?</h4>
+<span class="material-symbols-outlined accordion-icon text-silver-mist">expand_more</span>
+</div>
+<div class="accordion-content mt-2">
+<p class="font-body-md text-body-md text-silver-mist">Yes, we ship globally via insured courier services. Duties and taxes are calculated at checkout based on the destination.</p>
+</div>
+</div>
+<div class="accordion-item bg-pitch-black border border-surface-variant p-4 cursor-pointer" onclick="this.classList.toggle('active')">
+<div class="flex justify-between items-center">
+<h4 class="font-body-lg text-body-lg text-pure-white">How can I book a private viewing?</h4>
+<span class="material-symbols-outlined accordion-icon text-silver-mist">expand_more</span>
+</div>
+<div class="accordion-content mt-2">
+<p class="font-body-md text-body-md text-silver-mist">Private viewings can be arranged at our flagship locations by selecting 'Book an Appointment' in the contact form above.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-pitch-black w-full mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center px-margin-mobile md:px-margin-desktop py-section-gap max-w-container-max mx-auto">
+<div class="mb-8 md:mb-0">
+<span class="font-display-lg text-display-lg-mobile text-pure-white">AETHER</span>
+</div>
+<div class="flex flex-wrap gap-6 md:gap-8 mb-8 md:mb-0">
+<a class="font-body-md text-body-md text-silver-mist hover:text-secondary-container transition-colors opacity-100 hover:opacity-80" href="#">Sustainability</a>
+<a class="font-body-md text-body-md text-silver-mist hover:text-secondary-container transition-colors opacity-100 hover:opacity-80" href="#">Shipping</a>
+<a class="font-body-md text-body-md text-silver-mist hover:text-secondary-container transition-colors opacity-100 hover:opacity-80" href="#">Returns</a>
+<a class="font-body-md text-body-md text-silver-mist hover:text-secondary-container transition-colors opacity-100 hover:opacity-80" href="#">Privacy</a>
+<a class="font-body-md text-body-md text-pure-white hover:text-secondary-container transition-colors opacity-100 hover:opacity-80" href="#">Contact</a>
+</div>
+<div class="font-body-md text-body-md text-surface-variant">
+                © 2024 AETHER LUXURY. ALL RIGHTS RESERVED.
+            </div>
+</div>
+</footer>
+</body></html>
