@@ -6,7 +6,7 @@ export default function CheckoutPage() {
   return (
     <>
 <header className="w-full flex justify-center py-8 border-b border-surface-variant/50 bg-pitch-black z-50 sticky top-0">
-<a className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg tracking-tighter text-on-background" href="#">AETHER</a>
+<a className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg tracking-tighter text-on-background" href="/">AETHER</a>
 </header>
 
 <main className="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap grid grid-cols-1 lg:grid-cols-12 gap-gutter">

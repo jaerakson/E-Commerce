@@ -7,12 +7,12 @@ export default function FavoritesPage() {
     <>
 <nav className="fixed top-0 w-full z-50 bg-pitch-black bg-opacity-80 backdrop-blur-xl border-b border-surface-container-high">
 <div className="flex justify-between items-center px-margin-desktop py-6 w-full max-w-container-max mx-auto">
-<a className="font-display-lg text-display-lg text-pure-white tracking-tighter uppercase" href="#">AETHER</a>
+<a className="font-display-lg text-display-lg text-pure-white tracking-tighter uppercase" href="/">AETHER</a>
 <div className="hidden md:flex items-center space-x-10">
-<a className="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300" href="#">Collections</a>
-<a className="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300" href="#">New Arrivals</a>
-<a className="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300" href="#">Curations</a>
-<a className="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300" href="#">Boutique</a>
+<a className="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300" href="/collections">Collections</a>
+<a className="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300" href="/">New Arrivals</a>
+<a className="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300" href="/curations">Curations</a>
+<a className="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300" href="/collections">Boutique</a>
 </div>
 <div className="flex items-center space-x-6">
 <button className="text-pure-white hover:text-primary-container transition-all duration-200">
@@ -174,7 +174,7 @@ export default function FavoritesPage() {
 <p className="text-[10px] text-silver-mist mt-2 tracking-widest uppercase">Precision. Architecture. Exclusivity.</p>
 </div>
 <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-8 md:mb-0">
-<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="#">Sustainability</a>
+<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="/brand-story">Sustainability</a>
 <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="#">Privacy Policy</a>
 <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="#">Terms of Service</a>
 <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="#">Shipping &amp; Returns</a>

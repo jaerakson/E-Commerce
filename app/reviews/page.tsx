@@ -9,10 +9,10 @@ export default function ReviewsPage() {
 <div className="flex justify-between items-center px-margin-desktop py-6 w-full max-w-container-max mx-auto">
 <div className="font-display-lg text-display-lg text-pure-white tracking-tighter uppercase">AETHER</div>
 <div className="hidden md:flex items-center space-x-8">
-<a className="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300" href="#">Collections</a>
-<a className="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300" href="#">New Arrivals</a>
-<a className="font-label-caps text-label-caps text-primary-container font-bold border-b-2 border-primary-container pb-1" href="#">Curations</a>
-<a className="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300" href="#">Boutique</a>
+<a className="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300" href="/collections">Collections</a>
+<a className="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300" href="/">New Arrivals</a>
+<a className="font-label-caps text-label-caps text-primary-container font-bold border-b-2 border-primary-container pb-1" href="/curations">Curations</a>
+<a className="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300" href="/collections">Boutique</a>
 </div>
 <div className="flex items-center space-x-6">
 <button className="text-pure-white hover:text-primary-container transition-all duration-200 active:opacity-80 active:scale-95">
@@ -65,7 +65,7 @@ export default function ReviewsPage() {
 
 <div className="lg:col-span-2 row-span-2 group relative overflow-hidden rounded-xl bg-surface-deep p-12 flex flex-col justify-between border border-transparent hover:border-primary-container/30 transition-all duration-500">
 <div className="absolute inset-0 z-0 opacity-40 group-hover:opacity-60 transition-opacity duration-700">
-<div className="w-full h-full bg-cover bg-center" data-alt="A high-end cinematic photograph of a luxury AETHER jacket worn by a model in a brutalist architectural setting. The lighting is moody and directional, casting long shadows that emphasize the premium fabric texture. Deep blacks and silver mist tones dominate the palette, reflecting a minimalist dark-mode aesthetic." style={{backgroundImage: "url('/assets/stitch/stitch-30.jpg"}}></div>
+<div className="w-full h-full bg-cover bg-center" data-alt="A high-end cinematic photograph of a luxury AETHER jacket worn by a model in a brutalist architectural setting. The lighting is moody and directional, casting long shadows that emphasize the premium fabric texture. Deep blacks and silver mist tones dominate the palette, reflecting a minimalist dark-mode aesthetic." style={{backgroundImage: "url('/assets/stitch/stitch-30.jpg')"}}></div>
 <div className="absolute inset-0 cinematic-overlay"></div>
 </div>
 <div className="relative z-10">
@@ -194,7 +194,7 @@ export default function ReviewsPage() {
 <div className="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-section-gap w-full max-w-container-max mx-auto gap-8">
 <div className="font-display-lg-mobile text-display-lg-mobile text-pure-white">AETHER</div>
 <div className="flex flex-wrap justify-center gap-8">
-<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="#">Sustainability</a>
+<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="/brand-story">Sustainability</a>
 <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="#">Privacy Policy</a>
 <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="#">Terms of Service</a>
 <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="#">Shipping & Returns</a>

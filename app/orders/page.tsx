@@ -73,7 +73,7 @@ export default function OrdersPage() {
 <div>
 <div className="flex justify-between items-end mb-8 border-b border-surface-variant pb-4">
 <h2 className="font-headline-md text-headline-md text-pure-white">Recent Orders</h2>
-<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white underline transition-colors" href="#">View All</a>
+<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white underline transition-colors" href="/collections">View All</a>
 </div>
 <div className="flex flex-col gap-4">
 
@@ -131,8 +131,8 @@ export default function OrdersPage() {
                 AETHER
             </div>
 <div className="flex flex-wrap justify-center gap-6">
-<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors" href="#">Collections</a>
-<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors" href="#">Sustainability</a>
+<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors" href="/collections">Collections</a>
+<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors" href="/brand-story">Sustainability</a>
 <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors" href="#">Shipping</a>
 <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors" href="#">Returns</a>
 <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors" href="#">Privacy</a>

@@ -9,10 +9,10 @@ export default function CurationsPage() {
 <nav className="flex justify-between items-center px-margin-desktop py-6 w-full max-w-container-max mx-auto">
 <div className="font-display-lg text-display-lg text-pure-white tracking-tighter uppercase">AETHER</div>
 <div className="hidden md:flex items-center space-x-8">
-<a className="text-on-surface-variant hover:text-pure-white transition-colors duration-300 font-label-caps text-label-caps uppercase" href="#">Collections</a>
-<a className="text-on-surface-variant hover:text-pure-white transition-colors duration-300 font-label-caps text-label-caps uppercase" href="#">New Arrivals</a>
-<a className="text-primary-container font-bold border-b-2 border-primary-container pb-1 font-label-caps text-label-caps uppercase" href="#">Curations</a>
-<a className="text-on-surface-variant hover:text-pure-white transition-colors duration-300 font-label-caps text-label-caps uppercase" href="#">Boutique</a>
+<a className="text-on-surface-variant hover:text-pure-white transition-colors duration-300 font-label-caps text-label-caps uppercase" href="/collections">Collections</a>
+<a className="text-on-surface-variant hover:text-pure-white transition-colors duration-300 font-label-caps text-label-caps uppercase" href="/">New Arrivals</a>
+<a className="text-primary-container font-bold border-b-2 border-primary-container pb-1 font-label-caps text-label-caps uppercase" href="/curations">Curations</a>
+<a className="text-on-surface-variant hover:text-pure-white transition-colors duration-300 font-label-caps text-label-caps uppercase" href="/collections">Boutique</a>
 </div>
 <div className="flex items-center space-x-6">
 <button className="material-symbols-outlined text-pure-white hover:opacity-80 transition-all scale-110" data-icon="search">search</button>
@@ -137,7 +137,7 @@ export default function CurationsPage() {
 <div className="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-section-gap w-full max-w-container-max mx-auto">
 <div className="font-display-lg-mobile text-display-lg-mobile text-pure-white mb-8 md:mb-0">AETHER</div>
 <div className="flex flex-col md:flex-row gap-8 mb-8 md:mb-0 text-center md:text-left">
-<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200 uppercase tracking-widest" href="#">Sustainability</a>
+<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200 uppercase tracking-widest" href="/brand-story">Sustainability</a>
 <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200 uppercase tracking-widest" href="#">Privacy Policy</a>
 <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200 uppercase tracking-widest" href="#">Terms of Service</a>
 <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200 uppercase tracking-widest" href="#">Shipping &amp; Returns</a>

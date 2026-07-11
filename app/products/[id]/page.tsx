@@ -7,39 +7,37 @@ export default function ProductDetailPage() {
     <>
 <nav className="fixed top-0 w-full z-50 bg-pitch-black bg-opacity-80 backdrop-blur-xl border-b border-surface-container-high transition-transform duration-300" id="global-nav">
 <div className="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 w-full max-w-container-max mx-auto">
-<a className="font-display-lg text-display-lg md:font-display-lg md:text-display-lg text-pure-white tracking-tighter uppercase shrink-0" href="#">
+<a className="font-display-lg text-display-lg md:font-display-lg md:text-display-lg text-pure-white tracking-tighter uppercase shrink-0" href="/">
                 AETHER
             </a>
 
 <ul className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
 <li>
-<a className="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300" href="#">
+<a className="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300" href="/collections">
                         Collections
                     </a>
 </li>
 <li>
-<a className="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300" href="#">
+<a className="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300" href="/">
                         New Arrivals
                     </a>
 </li>
 <li>
-<a className="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300" href="#">
+<a className="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300" href="/curations">
                         Curations
                     </a>
 </li>
 <li>
-<a className="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300" href="#">
+<a className="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300" href="/collections">
                         Boutique
                     </a>
 </li>
 </ul>
 <div className="flex items-center gap-4 shrink-0">
-<button aria-label="search" className="text-pure-white hover:text-primary-container transition-all duration-200">
-<span className="material-symbols-outlined" style={{fontVariationSettings: "'FILL' 0"}}>search</span>
-</button>
-<button aria-label="shopping_bag" className="text-pure-white hover:text-primary-container transition-all duration-200">
+<a href="/search" aria-label="search" className="text-pure-white hover:text-primary-container transition-all duration-200"><span className="material-symbols-outlined" style={{fontVariationSettings: "'FILL' 0"}}>search</span></a>
+<a href="/bag" aria-label="shopping_bag" className="text-pure-white hover:text-primary-container transition-all duration-200">
 <span className="material-symbols-outlined" style={{fontVariationSettings: "'FILL' 0"}}>shopping_bag</span>
-</button>
+</a>
 <button aria-label="Menu" className="md:hidden text-pure-white hover:text-primary-container transition-all duration-200 ml-2">
 <span className="material-symbols-outlined" style={{fontVariationSettings: "'FILL' 0"}}>menu</span>
 </button>
@@ -47,7 +45,7 @@ export default function ProductDetailPage() {
 </div>
 </nav>
 
-<main className="flex-grow flex flex-col gap-section-gap w-full max-w-container-max mx-auto pb-section-gap">
+<main className="flex-grow flex flex-col gap-section-gap w-full max-w-container-max mx-auto pt-32 pb-section-gap">
 
 <section className="grid grid-cols-1 lg:grid-cols-12 gap-gutter px-margin-mobile md:px-margin-desktop min-h-[870px] items-center">
 
@@ -128,7 +126,7 @@ export default function ProductDetailPage() {
                 AETHER
             </div>
 <div className="flex flex-wrap justify-center md:justify-end gap-x-8 gap-y-4">
-<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="#">Sustainability</a>
+<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="/brand-story">Sustainability</a>
 <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="#">Privacy Policy</a>
 <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="#">Terms of Service</a>
 <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="#">Shipping &amp; Returns</a>

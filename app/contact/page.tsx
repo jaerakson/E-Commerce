@@ -8,13 +8,13 @@ export default function ContactPage() {
 <header className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl">
 <div className="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 max-w-container-max mx-auto">
 <div className="flex items-center gap-8">
-<a className="font-display-lg text-display-lg-mobile md:text-display-lg tracking-tighter text-pure-white" href="#">AETHER</a>
+<a className="font-display-lg text-display-lg-mobile md:text-display-lg tracking-tighter text-pure-white" href="/">AETHER</a>
 </div>
 <nav className="hidden md:flex items-center gap-6">
-<a className="nav-link text-on-surface-variant hover:text-pure-white transition-colors font-body-md text-body-md" href="#">Collections</a>
-<a className="nav-link text-on-surface-variant hover:text-pure-white transition-colors font-body-md text-body-md" href="#">New Arrivals</a>
-<a className="nav-link text-on-surface-variant hover:text-pure-white transition-colors font-body-md text-body-md" href="#">Curations</a>
-<a className="nav-link text-on-surface-variant hover:text-pure-white transition-colors font-body-md text-body-md" href="#">Boutique</a>
+<a className="nav-link text-on-surface-variant hover:text-pure-white transition-colors font-body-md text-body-md" href="/collections">Collections</a>
+<a className="nav-link text-on-surface-variant hover:text-pure-white transition-colors font-body-md text-body-md" href="/">New Arrivals</a>
+<a className="nav-link text-on-surface-variant hover:text-pure-white transition-colors font-body-md text-body-md" href="/curations">Curations</a>
+<a className="nav-link text-on-surface-variant hover:text-pure-white transition-colors font-body-md text-body-md" href="/collections">Boutique</a>
 </nav>
 <div className="flex items-center gap-4">
 <button className="text-on-surface-variant hover:text-pure-white transition-all duration-300 opacity-100 hover:opacity-80 scale-100 hover:scale-95">
@@ -31,7 +31,7 @@ export default function ContactPage() {
 
 <section className="relative h-[409px] min-h-[300px] flex items-center justify-center bg-pitch-black">
 <div className="absolute inset-0 z-0">
-<div className="bg-cover bg-center w-full h-full opacity-40" data-alt="A cinematic, high-contrast abstract composition of softly undulating dark fabric in a pitch black void. Lighting is extremely subtle, highlighting only the crests of the fabric folds in a silvery white, creating a luxurious, moody, minimal aesthetic." style={{backgroundImage: "url('/assets/stitch/stitch-08.jpg"}}></div>
+<div className="bg-cover bg-center w-full h-full opacity-40" data-alt="A cinematic, high-contrast abstract composition of softly undulating dark fabric in a pitch black void. Lighting is extremely subtle, highlighting only the crests of the fabric folds in a silvery white, creating a luxurious, moody, minimal aesthetic." style={{backgroundImage: "url('/assets/stitch/stitch-08.jpg')"}}></div>
 </div>
 <div className="relative z-10 text-center px-margin-mobile">
 <h1 className="font-display-xl text-display-lg-mobile md:text-display-xl text-pure-white uppercase">Contact Us</h1>
@@ -147,11 +147,11 @@ export default function ContactPage() {
 <span className="font-display-lg text-display-lg-mobile text-pure-white">AETHER</span>
 </div>
 <div className="flex flex-wrap gap-6 md:gap-8 mb-8 md:mb-0">
-<a className="font-body-md text-body-md text-silver-mist hover:text-secondary-container transition-colors opacity-100 hover:opacity-80" href="#">Sustainability</a>
+<a className="font-body-md text-body-md text-silver-mist hover:text-secondary-container transition-colors opacity-100 hover:opacity-80" href="/brand-story">Sustainability</a>
 <a className="font-body-md text-body-md text-silver-mist hover:text-secondary-container transition-colors opacity-100 hover:opacity-80" href="#">Shipping</a>
 <a className="font-body-md text-body-md text-silver-mist hover:text-secondary-container transition-colors opacity-100 hover:opacity-80" href="#">Returns</a>
 <a className="font-body-md text-body-md text-silver-mist hover:text-secondary-container transition-colors opacity-100 hover:opacity-80" href="#">Privacy</a>
-<a className="font-body-md text-body-md text-pure-white hover:text-secondary-container transition-colors opacity-100 hover:opacity-80" href="#">Contact</a>
+<a className="font-body-md text-body-md text-pure-white hover:text-secondary-container transition-colors opacity-100 hover:opacity-80" href="/contact">Contact</a>
 </div>
 <div className="font-body-md text-body-md text-surface-variant">
                 © 2024 AETHER LUXURY. ALL RIGHTS RESERVED.

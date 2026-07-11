@@ -19,7 +19,7 @@ export default function SearchPage() {
 </button>
 </div>
 </header>
-<main className="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap flex flex-col md:flex-row gap-gutter">
+<main className="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-32 pb-section-gap flex flex-col md:flex-row gap-gutter">
 
 <aside className="w-full md:w-1/4 shrink-0 space-y-8">
 <div className="font-display-lg text-display-lg-mobile md:font-display-lg md:text-display-lg text-pure-white mb-8">
@@ -150,8 +150,8 @@ export default function SearchPage() {
             AETHER
         </div>
 <nav className="flex flex-wrap justify-center gap-6 mb-6 md:mb-0 font-body-md text-body-md">
-<a className="text-silver-mist hover:text-pure-white transition-colors opacity-80 hover:opacity-100" href="#">Collections</a>
-<a className="text-silver-mist hover:text-pure-white transition-colors opacity-80 hover:opacity-100" href="#">Sustainability</a>
+<a className="text-silver-mist hover:text-pure-white transition-colors opacity-80 hover:opacity-100" href="/collections">Collections</a>
+<a className="text-silver-mist hover:text-pure-white transition-colors opacity-80 hover:opacity-100" href="/brand-story">Sustainability</a>
 <a className="text-silver-mist hover:text-pure-white transition-colors opacity-80 hover:opacity-100" href="#">Shipping</a>
 <a className="text-silver-mist hover:text-pure-white transition-colors opacity-80 hover:opacity-100" href="#">Returns</a>
 <a className="text-silver-mist hover:text-pure-white transition-colors opacity-80 hover:opacity-100" href="#">Privacy</a>

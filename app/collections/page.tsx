@@ -8,15 +8,15 @@ export default function CollectionsPage() {
 <nav className="fixed top-0 w-full z-50 bg-pitch-black bg-opacity-80 backdrop-blur-xl border-b border-surface-container-high transition-transform duration-300" id="navbar">
 <div className="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 w-full max-w-container-max mx-auto">
 
-<a className="font-display-lg text-display-lg-mobile md:text-display-lg text-pure-white tracking-tighter uppercase leading-none" href="#">
+<a className="font-display-lg text-display-lg-mobile md:text-display-lg text-pure-white tracking-tighter uppercase leading-none" href="/">
                 AETHER
             </a>
 
 <div className="hidden md:flex items-center space-x-gutter">
-<a className="font-label-caps text-label-caps text-primary-container font-bold border-b-2 border-primary-container pb-1 uppercase" href="#">Collections</a>
-<a className="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300 hover:text-primary-container uppercase" href="#">New Arrivals</a>
-<a className="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300 hover:text-primary-container uppercase" href="#">Curations</a>
-<a className="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300 hover:text-primary-container uppercase" href="#">Boutique</a>
+<a className="font-label-caps text-label-caps text-primary-container font-bold border-b-2 border-primary-container pb-1 uppercase" href="/collections">Collections</a>
+<a className="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300 hover:text-primary-container uppercase" href="/">New Arrivals</a>
+<a className="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300 hover:text-primary-container uppercase" href="/curations">Curations</a>
+<a className="font-label-caps text-label-caps text-on-surface-variant hover:text-pure-white transition-colors duration-300 hover:text-primary-container uppercase" href="/collections">Boutique</a>
 </div>
 
 <div className="flex items-center space-x-6 text-pure-white">
@@ -137,7 +137,7 @@ export default function CollectionsPage() {
                 AETHER
             </div>
 <div className="flex flex-wrap justify-center gap-6">
-<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200 uppercase" href="#">Sustainability</a>
+<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200 uppercase" href="/brand-story">Sustainability</a>
 <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200 uppercase" href="#">Privacy Policy</a>
 <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200 uppercase" href="#">Terms of Service</a>
 <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200 uppercase" href="#">Shipping &amp; Returns</a>

@@ -12,13 +12,13 @@ export default function WishlistPage() {
 <span className="material-symbols-outlined" data-icon="menu">menu</span>
 </button>
 
-<a className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg tracking-tighter text-pure-white md:mr-8" href="#">AETHER</a>
+<a className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg tracking-tighter text-pure-white md:mr-8" href="/">AETHER</a>
 
 <div className="hidden md:flex gap-8 items-center h-full">
-<a className="font-body-md text-body-md text-on-surface-variant hover:text-pure-white transition-colors h-full flex items-center" href="#">Collections</a>
-<a className="font-body-md text-body-md text-on-surface-variant hover:text-pure-white transition-colors h-full flex items-center" href="#">New Arrivals</a>
-<a className="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1 h-full flex items-center mt-1" href="#">Curations</a>
-<a className="font-body-md text-body-md text-on-surface-variant hover:text-pure-white transition-colors h-full flex items-center" href="#">Boutique</a>
+<a className="font-body-md text-body-md text-on-surface-variant hover:text-pure-white transition-colors h-full flex items-center" href="/collections">Collections</a>
+<a className="font-body-md text-body-md text-on-surface-variant hover:text-pure-white transition-colors h-full flex items-center" href="/">New Arrivals</a>
+<a className="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1 h-full flex items-center mt-1" href="/curations">Curations</a>
+<a className="font-body-md text-body-md text-on-surface-variant hover:text-pure-white transition-colors h-full flex items-center" href="/collections">Boutique</a>
 </div>
 
 <div className="flex items-center gap-4 text-pure-white">
@@ -32,7 +32,7 @@ export default function WishlistPage() {
 </div>
 </nav>
 
-<main className="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap">
+<main className="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-32 pb-section-gap">
 
 <header className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
 <div>
@@ -113,11 +113,11 @@ export default function WishlistPage() {
 <div className="flex flex-col md:flex-row justify-between items-start md:items-center px-margin-mobile md:px-margin-desktop py-section-gap max-w-container-max mx-auto gap-8">
 <div className="font-display-lg-mobile md:font-display-lg text-pure-white">AETHER</div>
 <div className="flex flex-wrap gap-x-8 gap-y-4">
-<a className="font-body-md text-body-md text-silver-mist hover:text-secondary-container transition-colors opacity-100 hover:opacity-80" href="#">Sustainability</a>
+<a className="font-body-md text-body-md text-silver-mist hover:text-secondary-container transition-colors opacity-100 hover:opacity-80" href="/brand-story">Sustainability</a>
 <a className="font-body-md text-body-md text-silver-mist hover:text-secondary-container transition-colors opacity-100 hover:opacity-80" href="#">Shipping</a>
 <a className="font-body-md text-body-md text-silver-mist hover:text-secondary-container transition-colors opacity-100 hover:opacity-80" href="#">Returns</a>
 <a className="font-body-md text-body-md text-silver-mist hover:text-secondary-container transition-colors opacity-100 hover:opacity-80" href="#">Privacy</a>
-<a className="font-body-md text-body-md text-silver-mist hover:text-secondary-container transition-colors opacity-100 hover:opacity-80" href="#">Contact</a>
+<a className="font-body-md text-body-md text-silver-mist hover:text-secondary-container transition-colors opacity-100 hover:opacity-80" href="/contact">Contact</a>
 </div>
 <div className="font-body-md text-body-md text-silver-mist">
                 © 2024 AETHER LUXURY. ALL RIGHTS RESERVED.

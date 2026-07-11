@@ -9,30 +9,30 @@ export default function HomePage() {
 <div className="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 max-w-container-max mx-auto">
 
 <nav className="hidden md:flex gap-gutter items-center">
-<a className="text-on-surface-variant hover:text-pure-white transition-colors hover:text-primary transition-all duration-300 font-body-md text-body-md opacity-100 hover:opacity-80" href="#">Collections</a>
-<a className="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md opacity-80 scale-95 transition-all" href="#">New Arrivals</a>
-<a className="text-on-surface-variant hover:text-pure-white transition-colors hover:text-primary transition-all duration-300 font-body-md text-body-md opacity-100 hover:opacity-80" href="#">Curations</a>
-<a className="text-on-surface-variant hover:text-pure-white transition-colors hover:text-primary transition-all duration-300 font-body-md text-body-md opacity-100 hover:opacity-80" href="#">Boutique</a>
+<a className="text-on-surface-variant hover:text-pure-white transition-colors hover:text-primary transition-all duration-300 font-body-md text-body-md opacity-100 hover:opacity-80" href="/collections">Collections</a>
+<a className="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md opacity-80 scale-95 transition-all" href="/">New Arrivals</a>
+<a className="text-on-surface-variant hover:text-pure-white transition-colors hover:text-primary transition-all duration-300 font-body-md text-body-md opacity-100 hover:opacity-80" href="/curations">Curations</a>
+<a className="text-on-surface-variant hover:text-pure-white transition-colors hover:text-primary transition-all duration-300 font-body-md text-body-md opacity-100 hover:opacity-80" href="/collections">Boutique</a>
 </nav>
 
 <button aria-label="Open Menu" className="md:hidden text-pure-white p-2">
 <span className="material-symbols-outlined" style={{fontVariationSettings: "'FILL' 0"}}>menu</span>
 </button>
 
-<a className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg tracking-tighter text-pure-white absolute left-1/2 transform -translate-x-1/2 md:static md:translate-x-0" href="#">
+<a className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg tracking-tighter text-pure-white absolute left-1/2 transform -translate-x-1/2 md:static md:translate-x-0" href="/">
                 AETHER
             </a>
 
 <div className="flex items-center gap-4 text-pure-white">
-<button aria-label="Search" className="hover:text-primary transition-colors opacity-100 hover:opacity-80">
+<a href="/search" aria-label="Search" className="hover:text-primary transition-colors opacity-100 hover:opacity-80">
 <span className="material-symbols-outlined" data-icon="search" style={{fontVariationSettings: "'FILL' 0"}}>search</span>
-</button>
-<button aria-label="shopping_bag" className="hover:text-primary transition-colors opacity-100 hover:opacity-80">
+</a>
+<a href="/bag" aria-label="shopping_bag" className="hover:text-primary transition-colors opacity-100 hover:opacity-80">
 <span className="material-symbols-outlined" data-icon="shopping_bag" style={{fontVariationSettings: "'FILL' 0"}}>shopping_bag</span>
-</button>
-<button aria-label="person" className="hover:text-primary transition-colors opacity-100 hover:opacity-80 hidden md:block">
+</a>
+<a href="/login" aria-label="person" className="hover:text-primary transition-colors opacity-100 hover:opacity-80 hidden md:block">
 <span className="material-symbols-outlined" data-icon="person" style={{fontVariationSettings: "'FILL' 0"}}>person</span>
-</button>
+</a>
 </div>
 </div>
 </header>
@@ -47,7 +47,7 @@ export default function HomePage() {
 <p className="font-body-lg text-body-lg text-silver-mist mb-10 max-w-md">
                     Discover a curated selection of premium essentials designed to redefine your everyday aesthetic with uncompromising quality and bold sophistication.
                 </p>
-<a className="inline-flex items-center justify-center bg-primary-container text-pure-white font-label-caps text-label-caps py-4 px-8 rounded-lg w-fit transition-transform hover:scale-[0.98] active:scale-95" href="#">
+<a className="inline-flex items-center justify-center bg-primary-container text-pure-white font-label-caps text-label-caps py-4 px-8 rounded-lg w-fit transition-transform hover:scale-[0.98] active:scale-95" href="/collections">
                     SHOP NEW ARRIVAL
                 </a>
 </div>
@@ -63,7 +63,7 @@ export default function HomePage() {
 <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
 <div className="flex justify-between items-end mb-10">
 <h2 className="font-headline-md text-headline-md text-pure-white uppercase tracking-wider">Best Sellers</h2>
-<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors uppercase pb-1 border-b border-silver-mist hover:border-pure-white" href="#">View All</a>
+<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors uppercase pb-1 border-b border-silver-mist hover:border-pure-white" href="/collections">View All</a>
 </div>
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
 
@@ -163,16 +163,16 @@ export default function HomePage() {
 <footer className="bg-pitch-black w-full border-t border-surface-container-high/50">
 <div className="flex flex-col md:flex-row justify-between items-start md:items-center px-margin-mobile md:px-margin-desktop py-section-gap max-w-container-max mx-auto">
 <div className="mb-8 md:mb-0">
-<a className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-pure-white tracking-tighter" href="#">
+<a className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-pure-white tracking-tighter" href="/">
                     AETHER
                 </a>
 </div>
 <nav className="flex flex-col md:flex-row gap-6 mb-8 md:mb-0">
-<a className="font-body-md text-body-md text-silver-mist hover:text-secondary-container transition-colors opacity-100 hover:opacity-80" href="#">Sustainability</a>
+<a className="font-body-md text-body-md text-silver-mist hover:text-secondary-container transition-colors opacity-100 hover:opacity-80" href="/brand-story">Sustainability</a>
 <a className="font-body-md text-body-md text-silver-mist hover:text-secondary-container transition-colors opacity-100 hover:opacity-80" href="#">Shipping</a>
 <a className="font-body-md text-body-md text-silver-mist hover:text-secondary-container transition-colors opacity-100 hover:opacity-80" href="#">Returns</a>
 <a className="font-body-md text-body-md text-silver-mist hover:text-secondary-container transition-colors opacity-100 hover:opacity-80" href="#">Privacy</a>
-<a className="font-body-md text-body-md text-silver-mist hover:text-secondary-container transition-colors opacity-100 hover:opacity-80" href="#">Contact</a>
+<a className="font-body-md text-body-md text-silver-mist hover:text-secondary-container transition-colors opacity-100 hover:opacity-80" href="/contact">Contact</a>
 </nav>
 <div className="font-label-caps text-label-caps text-silver-mist uppercase tracking-widest text-sm">
                 © 2024 AETHER LUXURY. ALL RIGHTS RESERVED.

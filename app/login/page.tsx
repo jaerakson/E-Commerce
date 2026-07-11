@@ -8,7 +8,7 @@ export default function LoginPage() {
 <main className="flex-grow flex flex-col md:flex-row">
 
 <div className="hidden md:block md:w-1/2 relative bg-surface">
-<div className="absolute inset-0 bg-cover bg-center" data-alt="A striking cinematic photograph of a luxury boutique interior in deep shadows, with precise, architectural lighting highlighting premium garments. The palette features pitch black shadows, pristine white highlights, and subtle accents of vibrant red, conveying exclusivity and high-end fashion authority." style={{backgroundImage: "url('/assets/stitch/stitch-43.jpg"}}></div>
+<div className="absolute inset-0 bg-cover bg-center" data-alt="A striking cinematic photograph of a luxury boutique interior in deep shadows, with precise, architectural lighting highlighting premium garments. The palette features pitch black shadows, pristine white highlights, and subtle accents of vibrant red, conveying exclusivity and high-end fashion authority." style={{backgroundImage: "url('/assets/stitch/stitch-43.jpg')"}}></div>
 
 <div className="absolute inset-0 bg-gradient-to-r from-pitch-black/80 to-transparent"></div>
 
@@ -85,8 +85,8 @@ export default function LoginPage() {
 <span className="font-display-lg text-display-lg-mobile text-on-surface tracking-tighter">AETHER</span>
 </div>
 <nav className="flex flex-wrap justify-center gap-6 mb-8 md:mb-0">
-<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors uppercase" href="#">Collections</a>
-<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors uppercase" href="#">Sustainability</a>
+<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors uppercase" href="/collections">Collections</a>
+<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors uppercase" href="/brand-story">Sustainability</a>
 <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors uppercase" href="#">Shipping</a>
 <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors uppercase" href="#">Returns</a>
 <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors uppercase" href="#">Privacy</a>
