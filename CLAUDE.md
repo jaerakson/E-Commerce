@@ -1,8 +1,20 @@
-# CLAUDE.md — MIDNIGHT E-Commerce
+# CLAUDE.md — AETHER (Premium Dark E-Commerce)
 
 > 이 파일은 **프로젝트 고유** 규칙/정보입니다.
 > 세션 연속성·보안·문서화 등 **전역 안정 규칙**은 `~/.claude/CLAUDE.md`를 따릅니다. (중복 기재하지 않음)
 > 자주 바뀌는 진행 상황은 여기가 아니라 `PROGRESS.md`에 최신순으로 기록합니다.
+
+---
+
+## [개발 시작 전 필수 절차]  ★ 항상 먼저
+
+1. **`docs/HISTORY.md` 최상단 "다음 시작점"을 먼저 읽는다.** — 현재 상태와 바로 이어서 할 일이 정리돼 있음.
+2. 더 세부 로그가 필요하면 `PROGRESS.md` 최근 항목(맨 위 1~3개)을 읽는다.
+3. 그다음 개발을 시작한다. 작업 단위가 끝나면 `PROGRESS.md`에 새 항목을 추가하고,
+   프로젝트의 큰 상태 변화(마일스톤)는 `docs/HISTORY.md` "다음 시작점"과 타임라인을 갱신한다.
+4. Stitch 화면을 추가로 가져올 때는 `tools/stitch/README.md`의 파이프라인을 따른다.
+
+> 요약: **HISTORY.md(다음 시작점) → PROGRESS.md(최근 로그) → 개발 → 끝나면 두 문서 갱신.**
 
 ---
 

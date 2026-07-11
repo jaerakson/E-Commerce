@@ -1,5 +1,19 @@
 # PROGRESS
 
+## 2026-07-11 21:00  (집)
+- 브랜치: main (git, 미푸시)
+- 완료:
+  - 14개 페이지 **내비게이션 배선**(헤더/로고/아이콘/푸터/CTA→라우트) + 고정헤더 여백 수정 + 배경이미지 url 복구 (`f668f70`)
+  - Playwright 시각 QA로 전 페이지 점검(내비 클릭 5/5, 에러/오버플로/깨진이미지 0)
+  - **히스토리 구성 정리**: `docs/HISTORY.md`(맨 위 "다음 시작점"만 읽어도 이어서 개발 가능),
+    변환 파이프라인 스크립트를 `tools/stitch/`로 보존(convert/extract_css/wire_nav + README),
+    `CLAUDE.md`에 "개발 시작 전 필수 절차" 추가
+  - 개발 서버 기동 확인: `PORT=3210 npm run dev` → http://localhost:3210 (200)
+- 현재 상태: 로컬에서 14개 페이지 정상 동작, 전부 커밋됨(작업 트리 클린)
+- 다음 할 일: (HISTORY.md "다음 시작점" 참고) img→next/image, 폼/장바구니 동작 로직, products/[id] 동적화, 원격 푸시
+- 관련 파일: `docs/HISTORY.md`, `tools/stitch/`, `app/**/page.tsx`
+- 푸시 여부: 미푸시 (원격은 나중에 진행 예정)
+
 ## 2026-07-11 20:30  (집)
 - 브랜치: main (git 초기화됨, 미푸시)
 - 완료:
