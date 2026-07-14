@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useCart } from "@/lib/hooks/useCart";
 import { useAuth } from "@/lib/hooks/useAuth";
 import { formatPrice } from "@/lib/utils/price";
@@ -64,8 +65,8 @@ AETHER
 <button className="absolute top-6 right-6 text-silver-mist hover:text-pure-white transition-colors" onClick={() => removeItem(item.id)}>
 <span className="material-symbols-outlined">close</span>
 </button>
-<a href={`/products/${item.product_id}`} className="w-full sm:w-48 h-64 sm:h-auto bg-surface-container rounded-DEFAULT overflow-hidden shrink-0">
-<img className="w-full h-full object-cover" src={item.product_image_url} alt={item.product_name} />
+<a href={`/products/${item.product_id}`} className="relative w-full sm:w-48 h-64 sm:h-auto bg-surface-container rounded-DEFAULT overflow-hidden shrink-0">
+<Image fill className="object-cover" src={item.product_image_url} alt={item.product_name} />
 </a>
 <div className="flex flex-col justify-between flex-grow">
 <div>

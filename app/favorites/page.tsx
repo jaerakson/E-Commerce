@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { get, del } from "@/lib/api/client";
@@ -159,11 +160,11 @@ export default function FavoritesPage() {
               <button className="px-10 py-4 bg-secondary text-on-secondary font-label-caps rounded-none hover:bg-primary-container hover:text-pure-white transition-all duration-300 uppercase tracking-widest">View Curation</button>
             </div>
             <div className="flex-1 w-full grid grid-cols-2 gap-4">
-              <div className="aspect-square bg-pitch-black overflow-hidden rounded-lg">
-                <img className="w-full h-full object-cover grayscale opacity-60 hover:opacity-100 transition-opacity duration-500" src="/assets/stitch/stitch-17.jpg" alt="" />
+              <div className="relative aspect-square bg-pitch-black overflow-hidden rounded-lg">
+                <Image fill className="object-cover grayscale opacity-60 hover:opacity-100 transition-opacity duration-500" src="/assets/stitch/stitch-17.jpg" alt="" />
               </div>
-              <div className="aspect-square bg-pitch-black overflow-hidden rounded-lg">
-                <img className="w-full h-full object-cover grayscale opacity-60 hover:opacity-100 transition-opacity duration-500" src="/assets/stitch/stitch-19.jpg" alt="" />
+              <div className="relative aspect-square bg-pitch-black overflow-hidden rounded-lg">
+                <Image fill className="object-cover grayscale opacity-60 hover:opacity-100 transition-opacity duration-500" src="/assets/stitch/stitch-19.jpg" alt="" />
               </div>
             </div>
           </div>

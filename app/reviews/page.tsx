@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = { title: "Reviews — AETHER" };
 
@@ -79,8 +80,8 @@ export default function ReviewsPage() {
 <h3 className="font-accent-serif text-accent-serif text-pure-white leading-tight mb-8">"Beyond any outerwear I've owned—the technical precision meets high-fashion effortlessly."</h3>
 </div>
 <div className="relative z-10 flex items-center gap-6 mt-auto">
-<div className="w-16 h-16 rounded-full border-2 border-primary-container p-1 overflow-hidden">
-<img className="w-full h-full object-cover rounded-full" src="/assets/stitch/stitch-28.jpg"/>
+<div className="relative w-16 h-16 rounded-full border-2 border-primary-container p-1 overflow-hidden">
+<Image width={64} height={64} className="w-full h-full object-cover rounded-full" src="/assets/stitch/stitch-28.jpg" alt="Reviewer" />
 </div>
 <div>
 <div className="font-headline-md text-headline-md text-pure-white text-2xl">MARCUS VANE</div>
@@ -113,7 +114,7 @@ export default function ReviewsPage() {
 
 <div className="bg-surface-deep rounded-xl overflow-hidden flex flex-col border border-surface-container-high hover:border-primary-container/20 transition-all">
 <div className="h-64 relative group overflow-hidden">
-<img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="/assets/stitch/stitch-23.jpg"/>
+<Image fill className="object-cover group-hover:scale-105 transition-transform duration-700" src="/assets/stitch/stitch-23.jpg" alt="Product" />
 <div className="absolute inset-0 bg-pitch-black/20"></div>
 </div>
 <div className="p-8">
@@ -130,7 +131,7 @@ export default function ReviewsPage() {
 </div>
 
 <div className="relative rounded-xl overflow-hidden group aspect-[4/5]">
-<img className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" src="/assets/stitch/stitch-07.jpg"/>
+<Image fill className="object-cover group-hover:scale-105 transition-transform duration-1000" src="/assets/stitch/stitch-07.jpg" alt="Product editorial" />
 <div className="absolute inset-0 bg-gradient-to-t from-pitch-black via-pitch-black/20 to-transparent p-8 flex flex-col justify-end">
 <div className="text-primary-container mb-2">
 <span className="material-symbols-outlined star-fill" style={{fontVariationSettings: "'FILL' 1"}}>star</span>

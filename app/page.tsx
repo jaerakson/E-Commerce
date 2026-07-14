@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = { title: "AETHER — Premium E-Commerce" };
 
@@ -52,7 +53,7 @@ export default function HomePage() {
                 </a>
 </div>
 <div className="flex-1 relative w-full min-h-[512px] md:min-h-full">
-<img className="absolute inset-0 w-full h-full object-cover" src="/assets/stitch/stitch-26.jpg"/>
+<Image fill className="object-cover" src="/assets/stitch/stitch-26.jpg" alt="Hero editorial image" />
 
 <div className="absolute inset-0 bg-gradient-to-r from-pitch-black via-pitch-black/50 to-transparent hidden md:block"></div>
 <div className="absolute inset-0 bg-gradient-to-t from-pitch-black via-pitch-black/50 to-transparent md:hidden"></div>
@@ -69,7 +70,7 @@ export default function HomePage() {
 
 <div className="group cursor-pointer">
 <div className="relative bg-charcoal-canvas rounded-xl overflow-hidden aspect-[4/5] mb-4">
-<img className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="/assets/stitch/stitch-02.jpg"/>
+<Image fill className="object-cover transition-transform duration-700 group-hover:scale-105" src="/assets/stitch/stitch-02.jpg" alt="Obsidian Tote" />
 <div className="absolute top-4 left-4 bg-pure-white text-pitch-black font-label-caps text-label-caps px-3 py-1 rounded-full uppercase tracking-wider">
                                 Bestseller
                             </div>
@@ -87,7 +88,7 @@ export default function HomePage() {
 
 <div className="group cursor-pointer">
 <div className="relative bg-charcoal-canvas rounded-xl overflow-hidden aspect-[4/5] mb-4">
-<img className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="/assets/stitch/stitch-40.jpg"/>
+<Image fill className="object-cover transition-transform duration-700 group-hover:scale-105" src="/assets/stitch/stitch-40.jpg" alt="Architect Blazer" />
 <div className="absolute top-4 left-4 bg-pure-white text-pitch-black font-label-caps text-label-caps px-3 py-1 rounded-full uppercase tracking-wider">
                                 Bestseller
                             </div>
@@ -103,7 +104,7 @@ export default function HomePage() {
 
 <div className="group cursor-pointer">
 <div className="relative bg-charcoal-canvas rounded-xl overflow-hidden aspect-[4/5] mb-4">
-<img className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="/assets/stitch/stitch-13.jpg"/>
+<Image fill className="object-cover transition-transform duration-700 group-hover:scale-105" src="/assets/stitch/stitch-13.jpg" alt="Chronos Timepiece" />
 <div className="absolute top-4 left-4 bg-pure-white text-pitch-black font-label-caps text-label-caps px-3 py-1 rounded-full uppercase tracking-wider">
                                 Bestseller
                             </div>
@@ -119,7 +120,7 @@ export default function HomePage() {
 
 <div className="group cursor-pointer">
 <div className="relative bg-charcoal-canvas rounded-xl overflow-hidden aspect-[4/5] mb-4">
-<img className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="/assets/stitch/stitch-15.jpg"/>
+<Image fill className="object-cover transition-transform duration-700 group-hover:scale-105" src="/assets/stitch/stitch-15.jpg" alt="Eclipse Eyewear" />
 <div className="absolute top-4 left-4 bg-pure-white text-pitch-black font-label-caps text-label-caps px-3 py-1 rounded-full uppercase tracking-wider">
                                 Bestseller
                             </div>
@@ -143,7 +144,7 @@ export default function HomePage() {
 <p className="font-body-md text-body-md text-silver-mist max-w-xl mx-auto">Explore our latest visual narrative, blending structural design with organic movement.</p>
 </div>
 <div className="relative w-full aspect-square md:aspect-[21/9] rounded-xl overflow-hidden">
-<img className="w-full h-full object-cover" src="/assets/stitch/stitch-38.jpg"/>
+<Image fill className="object-cover" src="/assets/stitch/stitch-38.jpg" alt="Editorial campaign" />
 
 <div className="absolute inset-0 border border-surface-bright/20 rounded-xl pointer-events-none"></div>
 </div>
