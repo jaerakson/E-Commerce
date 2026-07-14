@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Anton, Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import "./stitch-pages.css";
+import Providers from "./providers";
 
 const anton = Anton({
   weight: "400",
@@ -49,7 +50,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-background text-on-background antialiased selection:bg-primary-container selection:text-pure-white">
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

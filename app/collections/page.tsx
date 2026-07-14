@@ -1,8 +1,42 @@
-import type { Metadata } from "next";
+"use client";
 
-export const metadata: Metadata = { title: "Collections — AETHER" };
+import { useState, useEffect } from "react";
+import { get } from "@/lib/api/client";
+import { useCart } from "@/lib/hooks/useCart";
+import { formatPrice } from "@/lib/utils/price";
+
+interface Product {
+  id: string;
+  name: string;
+  slug: string;
+  description: string;
+  price: number;
+  image_url: string;
+  category: string;
+  material: string;
+  stock: number;
+  badge?: string;
+}
 
 export default function CollectionsPage() {
+  const { addItem } = useCart();
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [addingId, setAddingId] = useState<string | null>(null);
+
+  useEffect(() => {
+    get<Product[]>("/api/products").then((res) => {
+      if (res.ok) setProducts(res.data);
+      setLoading(false);
+    });
+  }, []);
+
+  async function handleAdd(productId: string) {
+    setAddingId(productId);
+    await addItem(productId);
+    setAddingId(null);
+  }
+
   return (
     <>
 <nav className="fixed top-0 w-full z-50 bg-pitch-black bg-opacity-80 backdrop-blur-xl border-b border-surface-container-high transition-transform duration-300" id="navbar">
@@ -68,65 +102,53 @@ export default function CollectionsPage() {
 
 <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
 
-<div className="group flex flex-col bg-pitch-black rounded-xl overflow-hidden border border-surface-container-low hover:border-surface-variant transition-all duration-300 relative">
-<div className="absolute top-4 left-4 z-10">
-<span className="bg-pure-white text-pitch-black font-label-caps text-label-caps px-3 py-1 rounded-full uppercase">Bestseller</span>
-</div>
-<div className="aspect-[4/5] relative overflow-hidden bg-surface-deep">
-<img className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out" src="/assets/stitch/stitch-14.jpg"/>
-</div>
-<div className="p-6 flex flex-col flex-1 justify-between">
-<div>
-<h3 className="font-headline-md text-[20px] text-pure-white mb-2 font-bold uppercase tracking-wide">Apex Shell Jacket</h3>
-<p className="font-body-md text-silver-mist mb-4">GORE-TEX Pro</p>
-</div>
-<div className="flex items-center justify-between mt-auto">
-<span className="font-body-lg text-pure-white font-bold">$795</span>
-<button className="bg-surface-deep text-pure-white hover:bg-pure-white hover:text-pitch-black transition-colors w-10 h-10 flex items-center justify-center rounded-DEFAULT border border-surface-variant">
-<span className="material-symbols-outlined text-lg">add</span>
-</button>
-</div>
-</div>
-</div>
+{loading && (
+  <div className="col-span-full flex justify-center items-center py-24">
+    <span className="material-symbols-outlined text-4xl text-silver-mist animate-spin">progress_activity</span>
+  </div>
+)}
 
-<div className="group flex flex-col bg-pitch-black rounded-xl overflow-hidden border border-surface-container-low hover:border-surface-variant transition-all duration-300 relative">
-<div className="absolute top-4 left-4 z-10">
-<span className="bg-pure-white text-pitch-black font-label-caps text-label-caps px-3 py-1 rounded-full uppercase">New</span>
-</div>
-<div className="aspect-[4/5] relative overflow-hidden bg-surface-deep">
-<img className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out" src="/assets/stitch/stitch-39.jpg"/>
-</div>
-<div className="p-6 flex flex-col flex-1 justify-between">
-<div>
-<h3 className="font-headline-md text-[20px] text-pure-white mb-2 font-bold uppercase tracking-wide">Chronos Titanium</h3>
-<p className="font-body-md text-silver-mist mb-4">Automatic Movement</p>
-</div>
-<div className="flex items-center justify-between mt-auto">
-<span className="font-body-lg text-pure-white font-bold">$4,200</span>
-<button className="bg-surface-deep text-pure-white hover:bg-pure-white hover:text-pitch-black transition-colors w-10 h-10 flex items-center justify-center rounded-DEFAULT border border-surface-variant">
-<span className="material-symbols-outlined text-lg">add</span>
-</button>
-</div>
-</div>
-</div>
+{!loading && products.length === 0 && (
+  <div className="col-span-full py-24 text-center">
+    <p className="font-body-lg text-body-lg text-silver-mist">No products found.</p>
+  </div>
+)}
 
-<div className="group flex flex-col bg-pitch-black rounded-xl overflow-hidden border border-surface-container-low hover:border-surface-variant transition-all duration-300 relative">
-<div className="aspect-[4/5] relative overflow-hidden bg-surface-deep">
-<img className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out" src="/assets/stitch/stitch-03.jpg"/>
-</div>
-<div className="p-6 flex flex-col flex-1 justify-between">
-<div>
-<h3 className="font-headline-md text-[20px] text-pure-white mb-2 font-bold uppercase tracking-wide">Eclipse Aviator</h3>
-<p className="font-body-md text-silver-mist mb-4">Polarized Carbon</p>
-</div>
-<div className="flex items-center justify-between mt-auto">
-<span className="font-body-lg text-pure-white font-bold">$345</span>
-<button className="bg-surface-deep text-pure-white hover:bg-pure-white hover:text-pitch-black transition-colors w-10 h-10 flex items-center justify-center rounded-DEFAULT border border-surface-variant">
-<span className="material-symbols-outlined text-lg">add</span>
-</button>
-</div>
-</div>
-</div>
+{!loading && products.map((product) => (
+  <div key={product.id} className="group flex flex-col bg-pitch-black rounded-xl overflow-hidden border border-surface-container-low hover:border-surface-variant transition-all duration-300 relative">
+    {product.badge && (
+      <div className="absolute top-4 left-4 z-10">
+        <span className="bg-pure-white text-pitch-black font-label-caps text-label-caps px-3 py-1 rounded-full uppercase">{product.badge}</span>
+      </div>
+    )}
+    <div className="aspect-[4/5] relative overflow-hidden bg-surface-deep">
+      <img
+        className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out"
+        src={product.image_url}
+        alt={product.name}
+      />
+    </div>
+    <div className="p-6 flex flex-col flex-1 justify-between">
+      <div>
+        <h3 className="font-headline-md text-[20px] text-pure-white mb-2 font-bold uppercase tracking-wide">{product.name}</h3>
+        <p className="font-body-md text-silver-mist mb-4">{product.material}</p>
+      </div>
+      <div className="flex items-center justify-between mt-auto">
+        <span className="font-body-lg text-pure-white font-bold">{formatPrice(product.price)}</span>
+        <button
+          onClick={() => handleAdd(product.id)}
+          disabled={addingId === product.id}
+          aria-label={`Add ${product.name} to bag`}
+          className="bg-surface-deep text-pure-white hover:bg-pure-white hover:text-pitch-black transition-colors w-10 h-10 flex items-center justify-center rounded-DEFAULT border border-surface-variant disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          <span className="material-symbols-outlined text-lg">
+            {addingId === product.id ? "hourglass_empty" : "add"}
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+))}
 </div>
 </div>
 </main>
