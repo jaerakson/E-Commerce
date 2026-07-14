@@ -6,25 +6,27 @@
 
 ---
 
-## ▶ 다음 시작점 (현재 상태) — 2026-07-11 기준
+## ▶ 다음 시작점 (현재 상태) — 2026-07-14 기준
 
-**한 줄 요약**: Stitch(AETHER) 디자인 14개 페이지를 Next.js 14 + Tailwind로 구현 완료. 내비게이션 배선·레이아웃 수정까지 끝나 로컬에서 정상 동작. 전부 로컬 git에 커밋됨(원격 미푸시).
+**한 줄 요약**: 백엔드 API 레이어(libsql·Repository·Service·25개 API 라우트) 완성. 모든 페이지 API 연동 동적화. `next/image` 최적화·링크 정리까지 완료. 빌드 정상. 원격 미푸시.
+
+**아키텍처 요약**
+- **DB**: `data/aether.db` (libsql SQLite) — 12테이블, 시드 15상품·4컬렉션·2쿠폰
+- **인증**: 세션 쿠키(`aether_session`) + in-memory 세션(globalThis, 포트폴리오용)
+- **API**: `app/api/` 25개 라우트 (auth/cart/orders/products/collections/wishlist/reviews/contact)
+- **상태**: `Providers` (AuthProvider + CartProvider) → `app/layout.tsx`에 주입
 
 **바로 이어서 할 수 있는 일 (우선순위 순)**
-1. `<img>` → `next/image` 최적화 (현재 플레인 img, lint warning만 있음)
-2. 폼/장바구니 **실제 동작 로직** — login/checkout/bag/contact는 현재 정적 디자인 (제출·상태 없음)
-3. `products/[id]` **동적 데이터화** — 지금은 id와 무관하게 동일한 정적 디자인 렌더
-4. 남은 정적 링크 정리 — 푸터 Shipping/Returns/Privacy 등 일부 `href="#"`
-5. (보안) 과거 노출된 `STITCH_API_KEY` **폐기(rotate)** 후 `.env` 갱신
-6. 원격 저장소 연결 + 푸시 (사용자가 나중에 진행 예정)
+1. **동작 테스트** — 회원가입→로그인→상품탐색→장바구니→체크아웃 전체 플로우 검증
+2. (보안) `STITCH_API_KEY` **폐기(rotate)** — 이전 세션 문서에 평문 노출 이력 있음
+3. 원격 저장소 연결 + 푸시 (사용자 진행 예정)
+4. (선택) 동적 이미지 URL(`item.product_image_url` 등) `next/image` sizes 최적화
 
 **개발 환경 복구 방법**
 ```bash
-git fetch origin 2>/dev/null; git status          # (원격 생기면) 최신화
-npm install                                        # 의존성
-PORT=3210 npm run dev                              # 개발 서버 → http://localhost:3210
-#   ※ 3000 포트는 다른 프로세스 점유 → 3210 사용
-npm run build                                      # 프로덕션 빌드 검증
+npm install
+PORT=3210 npm run dev    # → http://localhost:3210  (3000 포트 점유 이슈)
+npm run build            # 프로덕션 빌드 검증
 ```
 
 **Stitch에서 화면을 더 추가하려면** → [`../tools/stitch/README.md`](../tools/stitch/README.md) 파이프라인 참고.

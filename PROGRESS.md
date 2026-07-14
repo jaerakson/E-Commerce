@@ -1,5 +1,29 @@
 # PROGRESS
 
+## 2026-07-14  (집)
+- 브랜치: main (git, 미푸시)
+- 완료:
+  - 미커밋 상태였던 **백엔드 API 레이어 전체** 커밋 (`70483a9`)
+    - lib/db: libsql(SQLite) 스키마 12테이블 + 시드 (15상품·4컬렉션·2쿠폰)
+    - lib/repositories: Repository 패턴 (user/product/cart/order/wishlist/review/coupon 등)
+    - lib/services: auth·cart·contact·order·product·review·wishlist 7개 서비스
+    - lib/hooks: useAuth · useCart
+    - app/api: REST 라우트 25개 (auth/cart/orders/products/collections/wishlist 등)
+    - app/providers.tsx: AuthProvider + CartProvider 래퍼 → layout에 주입됨
+    - app/**/page.tsx: 전 페이지 정적→API 연동 동적 전환
+  - **타입 에러 수정** — orders/page.tsx get() 반환값 res.ok 체크 (`a225f4e`)
+  - **providers 로그인 시 cart 자동 refresh** — auth.user 변경 감지 useEffect 추가
+  - **`<img>` → `next/image` 최적화** — 12개 img 태그 전환 (page, bag, favorites, reviews)
+  - **`href="#"` 정적 링크 전체 정리** (`1260c2e`) — 35개: Shipping/Returns→/contact, Privacy/Terms→/brand-story, orders 사이드바 배선
+- 현재 상태: 빌드 성공, 16 페이지 + 25 API 라우트, `data/aether.db` 생성됨. 세션 in-memory(globalThis), 서버 재시작 시 로그인 세션 초기화(포트폴리오용 허용)
+- 다음 할 일:
+  - **동작 테스트** — 개발 서버에서 회원가입→로그인→상품 탐색→장바구니→체크아웃 플로우 확인
+  - (보안) `STITCH_API_KEY` 폐기(rotate) — 이전 키 노출 이력 있음
+  - 원격 저장소 연결 + 푸시 (사용자 진행 예정)
+  - (선택) `next/image` 미전환 페이지 확인 (동적 이미지 URL은 별도 처리 필요할 수 있음)
+- 관련 커밋: `70483a9` `a225f4e` `1260c2e`
+- 푸시 여부: 미푸시 (원격 미설정)
+
 ## 2026-07-11 21:00  (집)
 - 브랜치: main (git, 미푸시)
 - 완료:
