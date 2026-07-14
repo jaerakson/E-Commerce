@@ -160,9 +160,9 @@ export default function CollectionsPage() {
             </div>
 <div className="flex flex-wrap justify-center gap-6">
 <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200 uppercase" href="/brand-story">Sustainability</a>
-<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200 uppercase" href="#">Privacy Policy</a>
-<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200 uppercase" href="#">Terms of Service</a>
-<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200 uppercase" href="#">Shipping &amp; Returns</a>
+<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200 uppercase" href="/brand-story">Privacy Policy</a>
+<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200 uppercase" href="/brand-story">Terms of Service</a>
+<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200 uppercase" href="/contact">Shipping &amp; Returns</a>
 </div>
 <div className="font-body-md text-body-md text-silver-mist text-center md:text-right">
                 © 2024 AETHER. ALL RIGHTS RESERVED.

@@ -176,9 +176,9 @@ export default function CurationsPage() {
           <div className="font-display-lg-mobile text-display-lg-mobile text-pure-white mb-8 md:mb-0">AETHER</div>
           <div className="flex flex-col md:flex-row gap-8 mb-8 md:mb-0 text-center md:text-left">
             <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200 uppercase tracking-widest" href="/brand-story">Sustainability</a>
-            <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200 uppercase tracking-widest" href="#">Privacy Policy</a>
-            <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200 uppercase tracking-widest" href="#">Terms of Service</a>
-            <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200 uppercase tracking-widest" href="#">Shipping &amp; Returns</a>
+            <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200 uppercase tracking-widest" href="/brand-story">Privacy Policy</a>
+            <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200 uppercase tracking-widest" href="/brand-story">Terms of Service</a>
+            <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200 uppercase tracking-widest" href="/contact">Shipping &amp; Returns</a>
           </div>
           <div className="font-body-md text-body-md text-silver-mist font-label-caps text-[10px] tracking-widest">
             © 2024 AETHER. ALL RIGHTS RESERVED.

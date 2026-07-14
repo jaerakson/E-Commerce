@@ -195,9 +195,9 @@ export default function SearchPage() {
 <nav className="flex flex-wrap justify-center gap-6 mb-6 md:mb-0 font-body-md text-body-md">
 <a className="text-silver-mist hover:text-pure-white transition-colors opacity-80 hover:opacity-100" href="/collections">Collections</a>
 <a className="text-silver-mist hover:text-pure-white transition-colors opacity-80 hover:opacity-100" href="/brand-story">Sustainability</a>
-<a className="text-silver-mist hover:text-pure-white transition-colors opacity-80 hover:opacity-100" href="#">Shipping</a>
-<a className="text-silver-mist hover:text-pure-white transition-colors opacity-80 hover:opacity-100" href="#">Returns</a>
-<a className="text-silver-mist hover:text-pure-white transition-colors opacity-80 hover:opacity-100" href="#">Privacy</a>
+<a className="text-silver-mist hover:text-pure-white transition-colors opacity-80 hover:opacity-100" href="/contact">Shipping</a>
+<a className="text-silver-mist hover:text-pure-white transition-colors opacity-80 hover:opacity-100" href="/contact">Returns</a>
+<a className="text-silver-mist hover:text-pure-white transition-colors opacity-80 hover:opacity-100" href="/brand-story">Privacy</a>
 </nav>
 <div className="font-label-caps text-label-caps text-silver-mist uppercase">
             © 2024 AETHER LUXURY RETAIL. ALL RIGHTS RESERVED.

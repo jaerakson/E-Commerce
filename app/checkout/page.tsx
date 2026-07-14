@@ -549,8 +549,8 @@ export default function CheckoutPage() {
         <div className="flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-8 max-w-container-max mx-auto text-silver-mist font-label-caps text-label-caps">
           <span className="mb-4 md:mb-0">© 2024 AETHER LUXURY RETAIL. ALL RIGHTS RESERVED.</span>
           <div className="flex gap-6">
-            <a className="hover:text-pure-white transition-colors" href="#">Privacy</a>
-            <a className="hover:text-pure-white transition-colors" href="#">Terms</a>
+            <a className="hover:text-pure-white transition-colors" href="/brand-story">Privacy</a>
+            <a className="hover:text-pure-white transition-colors" href="/brand-story">Terms</a>
           </div>
         </div>
       </footer>

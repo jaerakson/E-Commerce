@@ -129,21 +129,21 @@ export default function OrdersPage() {
           <nav className="flex flex-col gap-2">
             <a
               className="flex items-center justify-between p-4 bg-surface-deep text-pure-white rounded-lg inset-border-active font-label-caps text-label-caps transition-transform scale-95"
-              href="#"
+              href="/orders"
             >
               <span>Profile &amp; Settings</span>
               <span className="material-symbols-outlined text-[18px]">person</span>
             </a>
             <a
               className="flex items-center justify-between p-4 charcoal-canvas text-on-surface-variant hover:text-pure-white rounded-lg inset-border font-label-caps text-label-caps transition-colors"
-              href="#"
+              href="/orders"
             >
               <span>Order History</span>
               <span className="material-symbols-outlined text-[18px]">history</span>
             </a>
             <a
               className="flex items-center justify-between p-4 charcoal-canvas text-on-surface-variant hover:text-pure-white rounded-lg inset-border font-label-caps text-label-caps transition-colors"
-              href="#"
+              href="/wishlist"
             >
               <span>Saved Items</span>
               <span className="material-symbols-outlined text-[18px]">favorite</span>
@@ -290,19 +290,19 @@ export default function OrdersPage() {
             </a>
             <a
               className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors"
-              href="#"
+              href="/contact"
             >
               Shipping
             </a>
             <a
               className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors"
-              href="#"
+              href="/contact"
             >
               Returns
             </a>
             <a
               className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors"
-              href="#"
+              href="/brand-story"
             >
               Privacy
             </a>

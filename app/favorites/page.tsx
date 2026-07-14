@@ -179,9 +179,9 @@ export default function FavoritesPage() {
           </div>
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-8 md:mb-0">
             <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="/brand-story">Sustainability</a>
-            <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="#">Privacy Policy</a>
-            <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="#">Terms of Service</a>
-            <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="#">Shipping &amp; Returns</a>
+            <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="/brand-story">Privacy Policy</a>
+            <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="/brand-story">Terms of Service</a>
+            <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="/contact">Shipping &amp; Returns</a>
           </div>
           <div className="text-[10px] font-label-caps text-silver-mist">
             © 2024 AETHER. ALL RIGHTS RESERVED.

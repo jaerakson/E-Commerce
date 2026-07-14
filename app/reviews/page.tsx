@@ -196,9 +196,9 @@ export default function ReviewsPage() {
 <div className="font-display-lg-mobile text-display-lg-mobile text-pure-white">AETHER</div>
 <div className="flex flex-wrap justify-center gap-8">
 <a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="/brand-story">Sustainability</a>
-<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="#">Privacy Policy</a>
-<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="#">Terms of Service</a>
-<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="#">Shipping & Returns</a>
+<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="/brand-story">Privacy Policy</a>
+<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="/brand-story">Terms of Service</a>
+<a className="font-label-caps text-label-caps text-silver-mist hover:text-pure-white transition-colors duration-200" href="/contact">Shipping & Returns</a>
 </div>
 <div className="font-label-caps text-label-caps text-silver-mist">© 2024 AETHER. ALL RIGHTS RESERVED.</div>
 </div>
