@@ -145,4 +145,8 @@ export async function migrate(): Promise<void> {
     `CREATE INDEX IF NOT EXISTS idx_wishlist_items_user ON wishlist_items(user_id)`,
     `CREATE INDEX IF NOT EXISTS idx_addresses_user ON addresses(user_id)`,
   ], "write");
+
+  // OAuth 칼럼 마이그레이션 — 이미 존재하면 무시
+  try { await client.execute("ALTER TABLE users ADD COLUMN oauth_provider TEXT"); } catch {}
+  try { await client.execute("ALTER TABLE users ADD COLUMN oauth_id TEXT"); } catch {}
 }

@@ -14,12 +14,21 @@ export class SqliteUserRepository implements IUserRepository {
     return (result.rows[0] as unknown as User) ?? null;
   }
 
+  async findByOAuthId(provider: string, oauthId: string): Promise<User | null> {
+    const client = getClient();
+    const result = await client.execute({
+      sql: "SELECT * FROM users WHERE oauth_provider = ? AND oauth_id = ?",
+      args: [provider, oauthId],
+    });
+    return (result.rows[0] as unknown as User) ?? null;
+  }
+
   async create(data: Omit<User, "created_at" | "updated_at">): Promise<User> {
     const client = getClient();
     await client.execute({
-      sql: `INSERT INTO users (id, email, password_hash, first_name, last_name, phone, avatar_url)
-            VALUES (?, ?, ?, ?, ?, ?, ?)`,
-      args: [data.id, data.email, data.password_hash, data.first_name, data.last_name, data.phone, data.avatar_url],
+      sql: `INSERT INTO users (id, email, password_hash, first_name, last_name, phone, avatar_url, oauth_provider, oauth_id)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      args: [data.id, data.email, data.password_hash, data.first_name, data.last_name, data.phone, data.avatar_url, data.oauth_provider ?? null, data.oauth_id ?? null],
     });
     return (await this.findById(data.id))!;
   }

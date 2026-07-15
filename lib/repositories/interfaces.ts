@@ -83,6 +83,8 @@ export interface User {
   last_name: string;
   phone: string | null;
   avatar_url: string | null;
+  oauth_provider: string | null;
+  oauth_id: string | null;
   created_at: string;
   updated_at: string;
 }
@@ -92,6 +94,7 @@ export type UserPublic = Omit<User, "password_hash">;
 export interface IUserRepository {
   findById(id: string): Promise<User | null>;
   findByEmail(email: string): Promise<User | null>;
+  findByOAuthId(provider: string, oauthId: string): Promise<User | null>;
   create(data: Omit<User, "created_at" | "updated_at">): Promise<User>;
   update(id: string, data: Partial<Omit<User, "id" | "created_at">>): Promise<User | null>;
 }

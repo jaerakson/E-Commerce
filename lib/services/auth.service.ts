@@ -15,7 +15,7 @@ if (!globalSessions.__aether_sessions) {
 }
 const sessions = globalSessions.__aether_sessions;
 
-function toPublic(user: { id: string; email: string; password_hash: string; first_name: string; last_name: string; phone: string | null; avatar_url: string | null; created_at: string; updated_at: string }): UserPublic {
+function toPublic(user: import("../repositories/interfaces").User): UserPublic {
   const { password_hash, ...rest } = user;
   return rest;
 }
@@ -39,6 +39,8 @@ export async function register(input: {
     last_name: input.last_name,
     phone: null,
     avatar_url: null,
+    oauth_provider: null,
+    oauth_id: null,
   });
 
   const token = uuid();
@@ -133,4 +135,45 @@ export async function updateAddress(id: string, data: Partial<Address>): Promise
 
 export async function deleteAddress(id: string): Promise<boolean> {
   return addressRepo.delete(id);
+}
+
+// ── OAuth ────────────────────────────────────────────────
+
+export async function findOrCreateOAuthUser(
+  provider: string,
+  oauthId: string,
+  profile: { email: string; first_name: string; last_name: string; avatar_url?: string },
+): Promise<{ user: UserPublic; token: string }> {
+  // 1. oauth_id로 기존 유저 찾기
+  let user = await userRepo.findByOAuthId(provider, oauthId);
+
+  if (!user) {
+    // 2. 같은 이메일 유저가 있으면 oauth 정보 연결
+    const existing = await userRepo.findByEmail(profile.email);
+    if (existing) {
+      user = await userRepo.update(existing.id, {
+        oauth_provider: provider,
+        oauth_id: oauthId,
+        avatar_url: profile.avatar_url ?? existing.avatar_url,
+      }) as import("../repositories/interfaces").User;
+    } else {
+      // 3. 신규 유저 생성 (password_hash 빈 문자열)
+      user = await userRepo.create({
+        id: uuid(),
+        email: profile.email,
+        password_hash: "",
+        first_name: profile.first_name,
+        last_name: profile.last_name,
+        phone: null,
+        avatar_url: profile.avatar_url ?? null,
+        oauth_provider: provider,
+        oauth_id: oauthId,
+      });
+    }
+  }
+
+  const token = uuid();
+  sessions.set(token, user!.id);
+
+  return { user: toPublic(user!), token };
 }
