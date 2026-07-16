@@ -24,6 +24,30 @@ export default function CollectionsPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [addingId, setAddingId] = useState<string | null>(null);
+  const [selectedCategories, setSelectedCategories] = useState<Set<string>>(new Set());
+  const [selectedMaterials, setSelectedMaterials] = useState<Set<string>>(new Set());
+
+  function toggleCategory(cat: string) {
+    setSelectedCategories(prev => {
+      const next = new Set(prev);
+      if (next.has(cat)) { next.delete(cat); } else { next.add(cat); }
+      return next;
+    });
+  }
+
+  function toggleMaterial(mat: string) {
+    setSelectedMaterials(prev => {
+      const next = new Set(prev);
+      if (next.has(mat)) { next.delete(mat); } else { next.add(mat); }
+      return next;
+    });
+  }
+
+  const filteredProducts = products.filter(p => {
+    const categoryMatch = selectedCategories.size === 0 || selectedCategories.has(p.category);
+    const materialMatch = selectedMaterials.size === 0 || selectedMaterials.has(p.material);
+    return categoryMatch && materialMatch;
+  });
 
   useEffect(() => {
     get<Product[]>("/api/products").then((res) => {
@@ -81,19 +105,19 @@ export default function CollectionsPage() {
 <div>
 <h3 className="font-label-caps text-label-caps text-pure-white mb-4 border-b border-surface-container-high pb-2 uppercase">Category</h3>
 <ul className="space-y-3 font-body-md text-body-md text-silver-mist">
-<li><label className="flex items-center cursor-pointer hover:text-pure-white transition-colors"><input defaultChecked className="form-checkbox h-4 w-4 bg-pitch-black border-surface-deep text-primary-container focus:ring-primary-container focus:ring-offset-pitch-black mr-3" type="checkbox"/> All Categories</label></li>
-<li><label className="flex items-center cursor-pointer hover:text-pure-white transition-colors"><input className="form-checkbox h-4 w-4 bg-pitch-black border-surface-deep text-primary-container focus:ring-primary-container focus:ring-offset-pitch-black mr-3" type="checkbox"/> Outerwear</label></li>
-<li><label className="flex items-center cursor-pointer hover:text-pure-white transition-colors"><input className="form-checkbox h-4 w-4 bg-pitch-black border-surface-deep text-primary-container focus:ring-primary-container focus:ring-offset-pitch-black mr-3" type="checkbox"/> Watches</label></li>
-<li><label className="flex items-center cursor-pointer hover:text-pure-white transition-colors"><input className="form-checkbox h-4 w-4 bg-pitch-black border-surface-deep text-primary-container focus:ring-primary-container focus:ring-offset-pitch-black mr-3" type="checkbox"/> Eyewear</label></li>
+<li><label className="flex items-center cursor-pointer hover:text-pure-white transition-colors"><input checked={selectedCategories.size === 0} onChange={() => setSelectedCategories(new Set())} className="form-checkbox h-4 w-4 bg-pitch-black border-surface-deep text-primary-container focus:ring-primary-container focus:ring-offset-pitch-black mr-3" type="checkbox"/> All Categories</label></li>
+<li><label className="flex items-center cursor-pointer hover:text-pure-white transition-colors"><input checked={selectedCategories.has("Outerwear")} onChange={() => toggleCategory("Outerwear")} className="form-checkbox h-4 w-4 bg-pitch-black border-surface-deep text-primary-container focus:ring-primary-container focus:ring-offset-pitch-black mr-3" type="checkbox"/> Outerwear</label></li>
+<li><label className="flex items-center cursor-pointer hover:text-pure-white transition-colors"><input checked={selectedCategories.has("Watches")} onChange={() => toggleCategory("Watches")} className="form-checkbox h-4 w-4 bg-pitch-black border-surface-deep text-primary-container focus:ring-primary-container focus:ring-offset-pitch-black mr-3" type="checkbox"/> Watches</label></li>
+<li><label className="flex items-center cursor-pointer hover:text-pure-white transition-colors"><input checked={selectedCategories.has("Eyewear")} onChange={() => toggleCategory("Eyewear")} className="form-checkbox h-4 w-4 bg-pitch-black border-surface-deep text-primary-container focus:ring-primary-container focus:ring-offset-pitch-black mr-3" type="checkbox"/> Eyewear</label></li>
 </ul>
 </div>
 
 <div>
 <h3 className="font-label-caps text-label-caps text-pure-white mb-4 border-b border-surface-container-high pb-2 uppercase">Material</h3>
 <ul className="space-y-3 font-body-md text-body-md text-silver-mist">
-<li><label className="flex items-center cursor-pointer hover:text-pure-white transition-colors"><input className="form-checkbox h-4 w-4 bg-pitch-black border-surface-deep text-primary-container focus:ring-primary-container focus:ring-offset-pitch-black mr-3" type="checkbox"/> Titanium</label></li>
-<li><label className="flex items-center cursor-pointer hover:text-pure-white transition-colors"><input className="form-checkbox h-4 w-4 bg-pitch-black border-surface-deep text-primary-container focus:ring-primary-container focus:ring-offset-pitch-black mr-3" type="checkbox"/> Carbon Fiber</label></li>
-<li><label className="flex items-center cursor-pointer hover:text-pure-white transition-colors"><input className="form-checkbox h-4 w-4 bg-pitch-black border-surface-deep text-primary-container focus:ring-primary-container focus:ring-offset-pitch-black mr-3" type="checkbox"/> Merino Wool</label></li>
+<li><label className="flex items-center cursor-pointer hover:text-pure-white transition-colors"><input checked={selectedMaterials.has("Titanium")} onChange={() => toggleMaterial("Titanium")} className="form-checkbox h-4 w-4 bg-pitch-black border-surface-deep text-primary-container focus:ring-primary-container focus:ring-offset-pitch-black mr-3" type="checkbox"/> Titanium</label></li>
+<li><label className="flex items-center cursor-pointer hover:text-pure-white transition-colors"><input checked={selectedMaterials.has("Carbon Fiber")} onChange={() => toggleMaterial("Carbon Fiber")} className="form-checkbox h-4 w-4 bg-pitch-black border-surface-deep text-primary-container focus:ring-primary-container focus:ring-offset-pitch-black mr-3" type="checkbox"/> Carbon Fiber</label></li>
+<li><label className="flex items-center cursor-pointer hover:text-pure-white transition-colors"><input checked={selectedMaterials.has("Merino Wool")} onChange={() => toggleMaterial("Merino Wool")} className="form-checkbox h-4 w-4 bg-pitch-black border-surface-deep text-primary-container focus:ring-primary-container focus:ring-offset-pitch-black mr-3" type="checkbox"/> Merino Wool</label></li>
 </ul>
 </div>
 </div>
@@ -113,38 +137,44 @@ export default function CollectionsPage() {
   </div>
 )}
 
-{!loading && products.map((product) => (
+{!loading && filteredProducts.length === 0 && products.length > 0 && (
+  <div className="col-span-full py-24 text-center">
+    <p className="font-body-lg text-body-lg text-silver-mist">No products match the selected filters.</p>
+  </div>
+)}
+
+{!loading && filteredProducts.map((product) => (
   <div key={product.id} className="group flex flex-col bg-pitch-black rounded-xl overflow-hidden border border-surface-container-low hover:border-surface-variant transition-all duration-300 relative">
-    {product.badge && (
-      <div className="absolute top-4 left-4 z-10">
-        <span className="bg-pure-white text-pitch-black font-label-caps text-label-caps px-3 py-1 rounded-full uppercase">{product.badge}</span>
+    <a href={`/products/${product.id}`} className="block flex-1">
+      {product.badge && (
+        <div className="absolute top-4 left-4 z-10">
+          <span className="bg-pure-white text-pitch-black font-label-caps text-label-caps px-3 py-1 rounded-full uppercase">{product.badge}</span>
+        </div>
+      )}
+      <div className="aspect-[4/5] relative overflow-hidden bg-surface-deep cursor-pointer">
+        <img
+          className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out"
+          src={product.image_url}
+          alt={product.name}
+        />
       </div>
-    )}
-    <div className="aspect-[4/5] relative overflow-hidden bg-surface-deep">
-      <img
-        className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out"
-        src={product.image_url}
-        alt={product.name}
-      />
-    </div>
-    <div className="p-6 flex flex-col flex-1 justify-between">
-      <div>
+      <div className="px-6 pt-6 pb-2">
         <h3 className="font-headline-md text-[20px] text-pure-white mb-2 font-bold uppercase tracking-wide">{product.name}</h3>
-        <p className="font-body-md text-silver-mist mb-4">{product.material}</p>
+        <p className="font-body-md text-silver-mist">{product.material}</p>
       </div>
-      <div className="flex items-center justify-between mt-auto">
-        <span className="font-body-lg text-pure-white font-bold">{formatPrice(product.price)}</span>
-        <button
-          onClick={() => handleAdd(product.id)}
-          disabled={addingId === product.id}
-          aria-label={`Add ${product.name} to bag`}
-          className="bg-surface-deep text-pure-white hover:bg-pure-white hover:text-pitch-black transition-colors w-10 h-10 flex items-center justify-center rounded-DEFAULT border border-surface-variant disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          <span className="material-symbols-outlined text-lg">
-            {addingId === product.id ? "hourglass_empty" : "add"}
-          </span>
-        </button>
-      </div>
+    </a>
+    <div className="px-6 pb-6 flex items-center justify-between mt-2">
+      <span className="font-body-lg text-pure-white font-bold">{formatPrice(product.price)}</span>
+      <button
+        onClick={() => handleAdd(product.id)}
+        disabled={addingId === product.id}
+        aria-label={`Add ${product.name} to bag`}
+        className="bg-surface-deep text-pure-white hover:bg-pure-white hover:text-pitch-black transition-colors w-10 h-10 flex items-center justify-center rounded-DEFAULT border border-surface-variant disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        <span className="material-symbols-outlined text-lg">
+          {addingId === product.id ? "hourglass_empty" : "add"}
+        </span>
+      </button>
     </div>
   </div>
 ))}
