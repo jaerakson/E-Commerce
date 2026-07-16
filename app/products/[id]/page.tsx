@@ -12,12 +12,16 @@ interface Product {
   id: string;
   name: string;
   slug: string;
-  description: string;
+  description: string | null;
   price: number;
   image_url: string;
+  badge: string | null;
   category: string;
-  material: string;
-  stock: number;
+  material: string | null;
+  collection_id: string | null;
+  sizes: string[] | null;
+  colors: string[] | null;
+  in_stock: number;
 }
 
 export default function ProductDetailPage() {
@@ -37,10 +41,15 @@ export default function ProductDetailPage() {
   const [savingToCurations, setSavingToCurations] = useState(false);
   const [saveToCurationsFeedback, setSaveToCurationsFeedback] = useState<"idle" | "success" | "error">("idle");
 
+  const [selectedSize, setSelectedSize] = useState<string | null>(null);
+  const [selectedColor, setSelectedColor] = useState<string | null>(null);
+
   useEffect(() => {
     if (!id) return;
     setFetchState("loading");
     setProduct(null);
+    setSelectedSize(null);
+    setSelectedColor(null);
 
     get<Product>(`/api/products/${id}`).then((res) => {
       if (res.ok) {
@@ -56,7 +65,10 @@ export default function ProductDetailPage() {
     if (!product || addingToBag) return;
     setAddingToBag(true);
     setAddToBagFeedback("idle");
-    const error = await addItem(product.id);
+    const error = await addItem(product.id, {
+      size: selectedSize ?? undefined,
+      color: selectedColor ?? undefined,
+    });
     setAddingToBag(false);
     if (error) {
       setAddToBagFeedback("error");
@@ -184,9 +196,11 @@ export default function ProductDetailPage() {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   src={product.image_url}
                 />
-                <div className="absolute top-4 left-4 bg-pure-white text-pitch-black font-label-caps text-label-caps px-4 py-1.5 rounded-full uppercase">
-                  New Arrival
-                </div>
+                {product.badge && (
+                  <div className="absolute top-4 left-4 bg-pure-white text-pitch-black font-label-caps text-label-caps px-4 py-1.5 rounded-full uppercase">
+                    {product.badge}
+                  </div>
+                )}
               </div>
             </div>
 
@@ -207,17 +221,66 @@ export default function ProductDetailPage() {
                 {product.description}
               </p>
 
-              <div className="font-accent-serif text-accent-serif mb-10">
+              <div className="font-accent-serif text-accent-serif mb-8">
                 {formatPrice(product.price)}
               </div>
+
+              {product.sizes && product.sizes.length > 0 && (
+                <div className="mb-6">
+                  <p className="font-label-caps text-label-caps text-pure-white mb-3 uppercase tracking-widest">Size</p>
+                  <div className="flex flex-wrap gap-2">
+                    {product.sizes.map((size) => (
+                      <button
+                        key={size}
+                        onClick={() => setSelectedSize((s) => (s === size ? null : size))}
+                        className={`px-4 py-2 border font-label-caps text-label-caps uppercase tracking-widest transition-colors ${
+                          selectedSize === size
+                            ? "bg-pure-white text-pitch-black border-pure-white"
+                            : "bg-transparent text-silver-mist border-surface-container-high hover:border-pure-white hover:text-pure-white"
+                        }`}
+                      >
+                        {size}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {product.colors && product.colors.length > 0 && (
+                <div className="mb-8">
+                  <p className="font-label-caps text-label-caps text-pure-white mb-3 uppercase tracking-widest">Color</p>
+                  <div className="flex flex-wrap gap-2">
+                    {product.colors.map((color) => (
+                      <button
+                        key={color}
+                        onClick={() => setSelectedColor((c) => (c === color ? null : color))}
+                        className={`px-4 py-2 border font-label-caps text-label-caps uppercase tracking-widest transition-colors ${
+                          selectedColor === color
+                            ? "bg-pure-white text-pitch-black border-pure-white"
+                            : "bg-transparent text-silver-mist border-surface-container-high hover:border-pure-white hover:text-pure-white"
+                        }`}
+                      >
+                        {color}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               <div className="flex flex-col gap-4 mb-12">
                 <button
                   onClick={handleAddToBag}
-                  disabled={addingToBag}
+                  disabled={addingToBag || product.in_stock === 0}
                   className="w-full py-5 px-8 bg-primary-container text-pure-white font-label-caps text-label-caps uppercase tracking-widest rounded flex items-center justify-center gap-3 hover:bg-pure-white hover:text-pitch-black transition-colors duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  {addingToBag ? (
+                  {product.in_stock === 0 ? (
+                    <>
+                      <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 0" }}>
+                        block
+                      </span>
+                      Out of Stock
+                    </>
+                  ) : addingToBag ? (
                     <>
                       <span className="material-symbols-outlined animate-spin" style={{ fontVariationSettings: "'FILL' 0" }}>
                         progress_activity
@@ -298,7 +361,7 @@ export default function ProductDetailPage() {
                   </li>
                   <li className="flex justify-between border-b border-surface-container-high pb-4">
                     <span className="text-pure-white">Availability</span>
-                    <span>{product.stock > 0 ? `In Stock (${product.stock})` : "Out of Stock"}</span>
+                    <span>{product.in_stock ? "In Stock" : "Out of Stock"}</span>
                   </li>
                   <li className="flex justify-between border-b border-surface-container-high pb-4">
                     <span className="text-pure-white">SKU</span>
@@ -315,7 +378,7 @@ export default function ProductDetailPage() {
                 <img
                   alt={`${product.name} detail`}
                   className="w-full h-full object-cover"
-                  src="/assets/stitch/stitch-32.jpg"
+                  src={product.image_url}
                 />
               </div>
               <div className="aspect-square bg-surface-deep flex flex-col justify-center p-12 lg:p-24">
