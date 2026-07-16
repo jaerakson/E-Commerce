@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 export async function POST(request: NextRequest) {
   const token = request.cookies.get("aether_session")?.value;
   if (token) {
-    logout(token);
+    await logout(token);
   }
 
   const response = NextResponse.json({ ok: true });

@@ -3,17 +3,33 @@ import { hashSync, compareSync } from "bcryptjs";
 import { v4 as uuid } from "uuid";
 import type { UserPublic, Address } from "../repositories/interfaces";
 import { cookies } from "next/headers";
+import { getClient } from "../db/connection";
 
 const SESSION_COOKIE = "aether_session";
 const SALT_ROUNDS = 10;
 
-// In-memory session store (포트폴리오용. 프로덕션에서는 DB/Redis 사용)
-// globalThis를 사용하여 Next.js dev 모드에서 모듈 재컴파일 시 세션 유실 방지
-const globalSessions = globalThis as unknown as { __aether_sessions?: Map<string, string> };
-if (!globalSessions.__aether_sessions) {
-  globalSessions.__aether_sessions = new Map<string, string>();
+async function sessionSet(token: string, userId: string): Promise<void> {
+  const client = getClient();
+  await client.execute({
+    sql: `INSERT OR REPLACE INTO sessions (token, user_id, expires_at)
+          VALUES (?, ?, datetime('now', '+7 days'))`,
+    args: [token, userId],
+  });
 }
-const sessions = globalSessions.__aether_sessions;
+
+async function sessionGet(token: string): Promise<string | undefined> {
+  const client = getClient();
+  const result = await client.execute({
+    sql: `SELECT user_id FROM sessions WHERE token = ? AND expires_at > datetime('now')`,
+    args: [token],
+  });
+  return result.rows[0]?.user_id as string | undefined;
+}
+
+async function sessionDelete(token: string): Promise<void> {
+  const client = getClient();
+  await client.execute({ sql: `DELETE FROM sessions WHERE token = ?`, args: [token] });
+}
 
 function toPublic(user: import("../repositories/interfaces").User): UserPublic {
   const { password_hash, ...rest } = user;
@@ -44,7 +60,7 @@ export async function register(input: {
   });
 
   const token = uuid();
-  sessions.set(token, user.id);
+  await sessionSet(token, user.id);
 
   return { user: toPublic(user), token };
 }
@@ -63,18 +79,18 @@ export async function login(input: {
   }
 
   const token = uuid();
-  sessions.set(token, user.id);
+  await sessionSet(token, user.id);
 
   return { user: toPublic(user), token };
 }
 
-export function logout(token: string): void {
-  sessions.delete(token);
+export async function logout(token: string): Promise<void> {
+  await sessionDelete(token);
 }
 
 export async function getCurrentUser(token: string | undefined): Promise<UserPublic | null> {
   if (!token) return null;
-  const userId = sessions.get(token);
+  const userId = await sessionGet(token);
   if (!userId) return null;
 
   const user = await userRepo.findById(userId);
@@ -93,7 +109,7 @@ export function getSessionToken(): string | undefined {
 
 export async function getUserIdFromToken(token: string | undefined): Promise<string | null> {
   if (!token) return null;
-  return sessions.get(token) ?? null;
+  return (await sessionGet(token)) ?? null;
 }
 
 export async function updateProfile(
@@ -173,7 +189,7 @@ export async function findOrCreateOAuthUser(
   }
 
   const token = uuid();
-  sessions.set(token, user!.id);
+  await sessionSet(token, user!.id);
 
   return { user: toPublic(user!), token };
 }

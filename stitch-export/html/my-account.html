@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AETHER | Profile Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #272c33;
+        }
+        .glass-header {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline-variant": "#5b3f41",
+                      "on-secondary-container": "#5c6b00",
+                      "outline": "#ab888a",
+                      "on-surface-variant": "#e4bdbf",
+                      "silver-mist": "#9ea0a9",
+                      "error-container": "#93000a",
+                      "surface-container-lowest": "#0d0e11",
+                      "on-secondary-fixed-variant": "#404c00",
+                      "primary": "#ffb2b8",
+                      "primary-fixed-dim": "#ffb2b8",
+                      "on-primary-container": "#ffffff",
+                      "on-error-container": "#ffdad6",
+                      "surface": "#121316",
+                      "surface-container": "#1e2022",
+                      "on-primary": "#67001d",
+                      "on-error": "#690005",
+                      "secondary-fixed": "#d0f100",
+                      "on-primary-fixed": "#40000f",
+                      "surface-bright": "#38393c",
+                      "secondary-fixed-dim": "#b6d300",
+                      "surface-container-low": "#1a1b1e",
+                      "surface-deep": "#272c33",
+                      "on-secondary": "#2c3400",
+                      "surface-container-high": "#292a2d",
+                      "surface-variant": "#343538",
+                      "primary-fixed": "#ffdadb",
+                      "on-background": "#e3e2e6",
+                      "on-primary-fixed-variant": "#91002c",
+                      "tertiary-fixed": "#fce18b",
+                      "pure-white": "#ffffff",
+                      "surface-container-highest": "#343538",
+                      "surface-tint": "#ffb2b8",
+                      "surface-dim": "#121316",
+                      "pitch-black": "#000000",
+                      "on-tertiary-container": "#4e3e00",
+                      "on-surface": "#e3e2e6",
+                      "inverse-surface": "#e3e2e6",
+                      "secondary": "#ffffff",
+                      "on-tertiary-fixed-variant": "#564500",
+                      "on-tertiary-fixed": "#231b00",
+                      "background": "#121316",
+                      "on-secondary-fixed": "#181e00",
+                      "inverse-on-surface": "#2f3033",
+                      "tertiary-container": "#c3aa5a",
+                      "tertiary": "#dfc573",
+                      "tertiary-fixed-dim": "#dfc572",
+                      "secondary-container": "#d0f100",
+                      "on-tertiary": "#3c2f00",
+                      "error": "#ffb4ab",
+                      "primary-container": "#e32652",
+                      "inverse-primary": "#be003d"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "section-gap": "64px",
+                      "margin-mobile": "20px",
+                      "gutter": "24px",
+                      "margin-desktop": "48px",
+                      "container-max": "1440px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Inter", "sans-serif"],
+                      "accent-serif": ["Playfair Display", "serif"],
+                      "label-caps": ["Inter", "sans-serif"],
+                      "display-xl": ["Anton", "sans-serif"],
+                      "headline-md": ["Inter", "sans-serif"],
+                      "display-lg-mobile": ["Anton", "sans-serif"],
+                      "body-md": ["Inter", "sans-serif"],
+                      "display-lg": ["Anton", "sans-serif"]
+              },
+              "fontSize": {
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "accent-serif": ["64px", {"lineHeight": "72px", "fontWeight": "600"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                      "display-xl": ["80px", {"lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "400"}],
+                      "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                      "display-lg-mobile": ["48px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "display-lg": ["64px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-pitch-black text-on-background min-h-screen font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-pitch-black bg-opacity-80 backdrop-blur-xl border-b border-surface-container-high">
+<div class="flex justify-between items-center px-margin-desktop py-6 w-full max-w-container-max mx-auto">
+<div class="font-display-lg text-display-lg text-pure-white tracking-tighter uppercase">AETHER</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-on-surface-variant hover:text-pure-white transition-colors duration-300 font-label-caps text-label-caps uppercase" href="#">Collections</a>
+<a class="text-on-surface-variant hover:text-pure-white transition-colors duration-300 font-label-caps text-label-caps uppercase" href="#">New Arrivals</a>
+<a class="text-on-surface-variant hover:text-pure-white transition-colors duration-300 font-label-caps text-label-caps uppercase" href="#">Curations</a>
+<a class="text-on-surface-variant hover:text-pure-white transition-colors duration-300 font-label-caps text-label-caps uppercase border-b-2 border-primary-container pb-1 text-primary-container font-bold" href="#">Boutique</a>
+</div>
+<div class="flex items-center space-x-6">
+<button class="material-symbols-outlined text-pure-white hover:opacity-80 transition-all duration-200">search</button>
+<button class="material-symbols-outlined text-pure-white hover:opacity-80 transition-all duration-200">shopping_bag</button>
+<div class="w-8 h-8 rounded-full border border-primary-container p-0.5">
+<div class="w-full h-full bg-surface-container-high rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A minimalist professional headshot of a stylish man with sharp features, dramatic high-contrast lighting typical of luxury fashion photography. The background is a soft Charcoal Canvas grey, emphasizing the subject's silhouette. The image carries a cinematic, high-end boutique feel with deep shadows and crisp highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWNHvS-V4Un4y-NzPo0-6_SrRNfh-Pm3Ja7SeGTjS0ngU2oUsPm1k5ZVLMhY_kIjFM6Hp28rKkX5dmSMdh3q4MzQ6bdpTsiPQonsDlRMI2orcNiQAErLSHJkl87G1dg1nRNUqgTmzRhXH-MwbJ_o7i-VoQbMt_RlPVej_DFVLTIc1wNROPozdW4BsheY6r5Z0AMY4Uuwyiuo23tOhT74Lwtqo1fshZKWE-6D6mPCOl5wxnsdBPL7-L"/>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Profile Header -->
+<header class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+<div>
+<span class="inline-block bg-pure-white text-pitch-black px-3 py-1 rounded-full font-label-caps text-label-caps mb-4">PLATINUM MEMBER</span>
+<h1 class="font-display-lg text-display-lg text-pure-white uppercase tracking-tight">Alexander Sterling</h1>
+</div>
+<button class="bg-primary-container text-pure-white px-8 py-3 rounded-lg font-label-caps text-label-caps uppercase hover:brightness-110 active:scale-95 transition-all duration-200 w-full md:w-auto">
+                Edit Profile
+            </button>
+</header>
+<!-- Main Dashboard Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-section-gap">
+<!-- Summary Card 1: Orders -->
+<div class="bg-surface-container p-8 rounded-xl border border-surface-container-high hover:border-silver-mist transition-colors duration-300 group cursor-pointer">
+<div class="flex justify-between items-start mb-12">
+<span class="material-symbols-outlined text-primary-container text-3xl">package_2</span>
+<span class="material-symbols-outlined text-silver-mist group-hover:text-pure-white transition-colors">arrow_forward_ios</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-pure-white mb-2 uppercase italic">Order History</h3>
+<p class="text-silver-mist font-body-md">12 Completed, 1 In Transit</p>
+</div>
+<!-- Summary Card 2: Address -->
+<div class="bg-surface-container p-8 rounded-xl border border-surface-container-high hover:border-silver-mist transition-colors duration-300 group cursor-pointer">
+<div class="flex justify-between items-start mb-12">
+<span class="material-symbols-outlined text-primary-container text-3xl">location_on</span>
+<span class="material-symbols-outlined text-silver-mist group-hover:text-pure-white transition-colors">arrow_forward_ios</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-pure-white mb-2 uppercase italic">Shipping Addresses</h3>
+<p class="text-silver-mist font-body-md">2 Registered Locations</p>
+</div>
+<!-- Summary Card 3: Payments -->
+<div class="bg-surface-container p-8 rounded-xl border border-surface-container-high hover:border-silver-mist transition-colors duration-300 group cursor-pointer">
+<div class="flex justify-between items-start mb-12">
+<span class="material-symbols-outlined text-primary-container text-3xl">credit_card</span>
+<span class="material-symbols-outlined text-silver-mist group-hover:text-pure-white transition-colors">arrow_forward_ios</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-pure-white mb-2 uppercase italic">Payment Methods</h3>
+<p class="text-silver-mist font-body-md">Amex Ending in 0004</p>
+</div>
+</div>
+<!-- Section 2: Recent Activity / Bento Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-4 grid-rows-auto gap-gutter mb-section-gap">
+<div class="lg:col-span-2 bg-surface-deep p-10 rounded-xl border border-surface-container-high flex flex-col justify-between">
+<div>
+<h2 class="font-label-caps text-label-caps text-silver-mist mb-6 uppercase tracking-widest">Active Shipment</h2>
+<div class="flex items-center gap-4 mb-8">
+<div class="w-16 h-16 bg-pitch-black rounded-lg overflow-hidden border border-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="Close up of a luxury black leather jacket texture, highlighting fine grain and precision stitching. The lighting is cinematic and focused, appearing against a pitch black background, reflecting the premium AETHER design aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGekU0HGPQefdx4rCl0aZDYIFx-8336ElkYnPbH-QRVxo64zKklx5B9oqrd_Zq1utAk-qv_u165jHzRnHV4mNCERRcod-5OWXKdUqI8pW3d4rT5yP1RZLx66qYOYElrpNRjg0grFXWB6YxSkKkHrYFnguUo9rEBt3PLcck1yC2w1WxjuB4a_cLw4mnpYS3pDnAf5uIklpUf_V4XtpA6xJPWKCRou3v0Eg9MLIu0tzi7DZ3M7kmpvtK"/>
+</div>
+<div>
+<p class="text-pure-white font-body-lg">Obsidian Zenith Parka</p>
+<p class="text-silver-mist font-label-caps text-[10px]">ORDER #AE-99210</p>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between text-label-caps">
+<span class="text-silver-mist">STATUS: IN TRANSIT</span>
+<span class="text-primary-container">ETA: TOMORROW</span>
+</div>
+<div class="w-full h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-3/4"></div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-2 bg-surface-container p-10 rounded-xl border border-surface-container-high">
+<h2 class="font-label-caps text-label-caps text-silver-mist mb-8 uppercase tracking-widest">Style Concierge</h2>
+<div class="space-y-6">
+<p class="font-body-lg text-pure-white italic">"Your winter curation is ready. We've selected 4 pieces that complement your previous purchases."</p>
+<button class="text-pure-white font-label-caps text-label-caps border-b border-pure-white pb-1 hover:text-primary-container hover:border-primary-container transition-all">VIEW SELECTION</button>
+</div>
+</div>
+</div>
+<!-- Section 3: Personalized Recommendations -->
+<section class="mb-section-gap">
+<div class="flex justify-between items-end mb-10">
+<div>
+<h2 class="font-label-caps text-label-caps text-primary-container mb-2 uppercase tracking-widest">Selected For You</h2>
+<h3 class="font-display-lg text-display-lg text-pure-white uppercase tracking-tight">Personalized Curations</h3>
+</div>
+<button class="hidden md:block text-silver-mist hover:text-pure-white transition-colors font-label-caps">VIEW ALL</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Product Card 1 -->
+<div class="group">
+<div class="relative bg-surface-container aspect-[3/4] rounded-xl overflow-hidden mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A cinematic product shot of a minimalist, high-tech matte black watch on a textured dark granite surface. Dramatic side lighting highlights the sculptural curves and precision of the piece. The overall mood is exclusive, architectural, and strictly monochromatic with high contrast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBTjjEmN1CD9fblBPgseWCdNhI8ay6cBpcjpMbRzrMjke6EU5VViVK2z059Q4bjF-w3HfzVRLU0B_gI-LKY3YqFwtsubq2iebVRVc9Ho5H5m3l1aUFZ09WNT3TPjPiEqlz6nHD8WJ4ger71Ew7xYw6kXDIM_mlqrq4WOBflK_jHby9NAljTnHqRZI6xNyWdl-V3Oy-hRYgxT7kWtF34gBEEVPHbLY6uiJf6l8gg_zT1-drbyUGqHlH"/>
+<div class="absolute top-4 right-4 bg-pure-white text-pitch-black px-3 py-1 rounded-full font-label-caps text-[10px]">NEW</div>
+</div>
+<h4 class="text-pure-white font-body-lg mb-1">AETHER Monolith Chrono</h4>
+<p class="text-silver-mist font-label-caps uppercase">$1,250.00</p>
+</div>
+<!-- Product Card 2 -->
+<div class="group">
+<div class="relative bg-surface-container aspect-[3/4] rounded-xl overflow-hidden mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Avant-garde luxury footwear in deep charcoal and raspberry accents. The sneaker is displayed in a void of pitch black with a thin rim of light defining its silhouette. The aesthetic is futuristic, sleek, and highly detailed, fitting the cinematic dark mode of the AETHER brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2yZkCv8XhP-1xVXDpZfvgmkJidV3maQuNajbUnj1wlsL2irDZom9XnRMFKRhkyp7ZiJXqh1tO3PAZLzxOhzYqC1QMXuhE3qpee8uWk6nSK3nzLEsGHExJKmBBFfHEUwokKKNL5N5UcIDtMGJOK0HBp071AWwO3QkMGIw0cCekt2CBTwd9H78LaECaUT7zxxo-giuYXtZpvuBvdp1SkRUAHSFDek_VwvogdlLaZuVxdqpi7m8dbaG5"/>
+</div>
+<h4 class="text-pure-white font-body-lg mb-1">Kinetix V3 Runner</h4>
+<p class="text-silver-mist font-label-caps uppercase">$380.00</p>
+</div>
+<!-- Product Card 3 -->
+<div class="group">
+<div class="relative bg-surface-container aspect-[3/4] rounded-xl overflow-hidden mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="High-end minimalist tailored wool overcoat in a deep navy hue, nearly black. The coat is draped over a sculptural form in a gallery setting with hard shadows and sharp highlights. The mood is sophisticated and authoritative, utilizing a luxury fashion photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCISJKx_iMq-Dv4bE44LdhFXyh7W_oaKuLYguXnkiA1vEaTf_S4evjVts1rc963Uu9V32EMAMVwbDMMbzQY58DcSU7C28bhOMnVOoiuylvEs7bHwBHdKH9ONZBiyyvKXt_94opr7h5qyfgzrS6daah7EcEStyAXUnsBtXC-AOWDJdpzSG_PqRDTgJYvuxWIPpz_PLvjB-lmax2qOOv57_RKXvd5POCJoxko4f4mwriiu2_e-pcs3wPa"/>
+</div>
+<h4 class="text-pure-white font-body-lg mb-1">Structure Wool Overcoat</h4>
+<p class="text-silver-mist font-label-caps uppercase">$890.00</p>
+</div>
+<!-- Product Card 4 -->
+<div class="group">
+<div class="relative bg-surface-container aspect-[3/4] rounded-xl overflow-hidden mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A luxury travel duffel bag made from architectural matte leather. The bag sits on a polished black glass floor, reflecting the subtle glow of the 'Action Raspberry' accent color from a nearby light source. Elegant, sharp, and high-performance aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6d5U-XonV_OPEFtSZbeun2cVJqIjT_nV96pg9RMl44UsKLi7ta-HtJ4_4iV9Fyx8zraL64zyy9OTviQbr51jrZxMocQ4FyNx2GcDpV7H7YO6O9vO13No66QiXNpA2uAa1JEktXAIebtRMXK6F-TPrJ55wSrdRfpKzt9EiJ6QJkvc0HzHe_9KtwQBKUmkdcPBYREbpkwDZqHD72YdRy1t2hRz3im8QizNHQWbbew7M5bGdlzWCw-DD"/>
+</div>
+<h4 class="text-pure-white font-body-lg mb-1">Transcend Travel Duffel</h4>
+<p class="text-silver-mist font-label-caps uppercase">$550.00</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-pitch-black border-t border-surface-container-high">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-section-gap w-full max-w-container-max mx-auto">
+<div class="font-display-lg-mobile text-display-lg-mobile text-pure-white mb-8 md:mb-0 uppercase tracking-tighter">AETHER</div>
+<div class="flex flex-wrap justify-center gap-8 mb-8 md:mb-0">
+<a class="text-silver-mist hover:text-pure-white transition-colors duration-200 font-label-caps text-label-caps uppercase" href="#">Sustainability</a>
+<a class="text-silver-mist hover:text-pure-white transition-colors duration-200 font-label-caps text-label-caps uppercase" href="#">Privacy Policy</a>
+<a class="text-silver-mist hover:text-pure-white transition-colors duration-200 font-label-caps text-label-caps uppercase" href="#">Terms of Service</a>
+<a class="text-silver-mist hover:text-pure-white transition-colors duration-200 font-label-caps text-label-caps uppercase" href="#">Shipping &amp; Returns</a>
+</div>
+<div class="text-silver-mist font-label-caps text-[10px] tracking-widest uppercase">
+                © 2024 AETHER. ALL RIGHTS RESERVED.
+            </div>
+</div>
+</footer>
+<!-- Simple Hover Interaction Script -->
+<script>
+        document.querySelectorAll('.group').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                // Future interaction expansion
+            });
+        });
+    </script>
+</body></html>

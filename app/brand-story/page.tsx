@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import HeaderUserIcon from "@/components/HeaderUserIcon";
 
 export const metadata: Metadata = { title: "Brand Story — AETHER" };
 
@@ -18,7 +19,7 @@ export default function BrandStoryPage() {
             </div>
 <div className="flex gap-4">
 <span className="material-symbols-outlined hover:text-primary transition-all duration-300 cursor-pointer" data-icon="shopping_bag">shopping_bag</span>
-<span className="material-symbols-outlined hover:text-primary transition-all duration-300 cursor-pointer" data-icon="person">person</span>
+<HeaderUserIcon />
 </div>
 </div>
 </header>

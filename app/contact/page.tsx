@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { post } from "@/lib/api/client";
+import HeaderUserIcon from "@/components/HeaderUserIcon";
 
 const FAQS = [
   {
@@ -82,9 +83,7 @@ export default function ContactPage() {
             <button className="text-on-surface-variant hover:text-pure-white transition-all duration-300 opacity-100 hover:opacity-80 scale-100 hover:scale-95">
               <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 0" }}>shopping_bag</span>
             </button>
-            <button className="text-on-surface-variant hover:text-pure-white transition-all duration-300 opacity-100 hover:opacity-80 scale-100 hover:scale-95">
-              <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 0" }}>person</span>
-            </button>
+            <HeaderUserIcon />
           </div>
         </div>
       </header>

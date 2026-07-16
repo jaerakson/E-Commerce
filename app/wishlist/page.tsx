@@ -6,6 +6,7 @@ import { get, del } from "@/lib/api/client";
 import { useCart } from "@/lib/hooks/useCart";
 import { useAuth } from "@/lib/hooks/useAuth";
 import { formatPrice } from "@/lib/utils/price";
+import HeaderUserIcon from "@/components/HeaderUserIcon";
 
 interface WishlistItem {
   id: string;
@@ -77,9 +78,7 @@ export default function WishlistPage() {
             <button className="p-2 hover:text-primary transition-all duration-300 opacity-100 hover:opacity-80">
               <span className="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
             </button>
-            <button className="p-2 hover:text-primary transition-all duration-300 opacity-100 hover:opacity-80">
-              <span className="material-symbols-outlined" data-icon="person">person</span>
-            </button>
+            <HeaderUserIcon />
           </div>
         </div>
       </nav>

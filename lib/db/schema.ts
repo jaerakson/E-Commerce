@@ -144,6 +144,12 @@ export async function migrate(): Promise<void> {
     `CREATE INDEX IF NOT EXISTS idx_reviews_product ON reviews(product_id)`,
     `CREATE INDEX IF NOT EXISTS idx_wishlist_items_user ON wishlist_items(user_id)`,
     `CREATE INDEX IF NOT EXISTS idx_addresses_user ON addresses(user_id)`,
+    `CREATE TABLE IF NOT EXISTS sessions (
+      token      TEXT PRIMARY KEY,
+      user_id    TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      expires_at TEXT NOT NULL
+    )`,
+    `CREATE INDEX IF NOT EXISTS idx_sessions_user ON sessions(user_id)`,
   ], "write");
 
   // OAuth 칼럼 마이그레이션 — 이미 존재하면 무시
