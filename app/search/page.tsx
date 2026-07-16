@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { get } from "@/lib/api/client";
 import { useCart } from "@/lib/hooks/useCart";
 import { formatPrice } from "@/lib/utils/price";
+import HeaderCartIcon from "@/components/HeaderCartIcon";
 
 interface Product {
   id: string;
@@ -61,9 +62,7 @@ export default function SearchPage() {
   onChange={(e) => setInputValue(e.target.value)}
 />
 </form>
-<button className="hover:text-primary transition-colors duration-300">
-<span className="material-symbols-outlined text-on-background text-[24px]">shopping_bag</span>
-</button>
+<HeaderCartIcon />
 </div>
 </header>
 <main className="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-32 pb-section-gap flex flex-col md:flex-row gap-gutter">

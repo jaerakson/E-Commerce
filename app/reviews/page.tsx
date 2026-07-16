@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import HeaderCartIcon from "@/components/HeaderCartIcon";
 
 export const metadata: Metadata = { title: "Reviews — AETHER" };
 
@@ -19,9 +20,7 @@ export default function ReviewsPage() {
 <button className="text-pure-white hover:text-primary-container transition-all duration-200 active:opacity-80 active:scale-95">
 <span className="material-symbols-outlined" data-icon="search">search</span>
 </button>
-<button className="text-pure-white hover:text-primary-container transition-all duration-200 active:opacity-80 active:scale-95">
-<span className="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
-</button>
+<HeaderCartIcon />
 </div>
 </div>
 </nav>

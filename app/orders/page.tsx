@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { get } from "@/lib/api/client";
 import { useAuth } from "@/lib/hooks/useAuth";
 import { formatPrice } from "@/lib/utils/price";
+import HeaderCartIcon from "@/components/HeaderCartIcon";
 
 interface Order {
   id: string;
@@ -114,11 +115,7 @@ export default function OrdersPage() {
           </div>
           <div className="hidden md:flex gap-8"></div>
           <div className="flex items-center gap-4">
-            <button className="hover:text-primary transition-colors duration-300">
-              <span className="material-symbols-outlined" data-icon="shopping_bag">
-                shopping_bag
-              </span>
-            </button>
+            <HeaderCartIcon />
           </div>
         </div>
       </header>

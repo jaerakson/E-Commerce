@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { post } from "@/lib/api/client";
 import HeaderUserIcon from "@/components/HeaderUserIcon";
+import HeaderCartIcon from "@/components/HeaderCartIcon";
 
 const FAQS = [
   {
@@ -80,9 +81,7 @@ export default function ContactPage() {
             <a className="nav-link text-on-surface-variant hover:text-pure-white transition-colors font-body-md text-body-md" href="/collections">Boutique</a>
           </nav>
           <div className="flex items-center gap-4">
-            <button className="text-on-surface-variant hover:text-pure-white transition-all duration-300 opacity-100 hover:opacity-80 scale-100 hover:scale-95">
-              <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 0" }}>shopping_bag</span>
-            </button>
+            <HeaderCartIcon />
             <HeaderUserIcon />
           </div>
         </div>

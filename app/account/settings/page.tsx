@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "@/lib/hooks/useAuth";
 import { post } from "@/lib/api/client";
 import Link from "next/link";
+import HeaderCartIcon from "@/components/HeaderCartIcon";
 
 export default function AccountSettingsPage() {
   const { user, loading: authLoading, logout } = useAuth();
@@ -77,9 +78,7 @@ export default function AccountSettingsPage() {
             <Link href="/search" className="text-pure-white hover:text-primary-container transition-all duration-200 active:scale-95">
               <span className="material-symbols-outlined">search</span>
             </Link>
-            <Link href="/bag" className="text-pure-white hover:text-primary-container transition-all duration-200 active:scale-95">
-              <span className="material-symbols-outlined">shopping_bag</span>
-            </Link>
+            <HeaderCartIcon />
             <span className="text-primary-container border-b-2 border-primary-container pb-1 font-bold font-label-caps text-label-caps cursor-default">
               Profile
             </span>

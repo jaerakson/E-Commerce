@@ -6,6 +6,7 @@ import { get, post } from "@/lib/api/client";
 import { useCart } from "@/lib/hooks/useCart";
 import { useAuth } from "@/lib/hooks/useAuth";
 import { formatPrice } from "@/lib/utils/price";
+import HeaderCartIcon from "@/components/HeaderCartIcon";
 
 interface Product {
   id: string;
@@ -136,9 +137,7 @@ export default function ProductDetailPage() {
             <a href="/search" aria-label="search" className="text-pure-white hover:text-primary-container transition-all duration-200">
               <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 0" }}>search</span>
             </a>
-            <a href="/bag" aria-label="shopping_bag" className="text-pure-white hover:text-primary-container transition-all duration-200">
-              <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 0" }}>shopping_bag</span>
-            </a>
+            <HeaderCartIcon />
             <button aria-label="Menu" className="md:hidden text-pure-white hover:text-primary-container transition-all duration-200 ml-2">
               <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 0" }}>menu</span>
             </button>

@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/lib/hooks/useAuth";
 import Link from "next/link";
+import HeaderCartIcon from "@/components/HeaderCartIcon";
 
 export default function MyAccountPage() {
   const { user, loading: authLoading, logout } = useAuth();
@@ -46,9 +47,7 @@ export default function MyAccountPage() {
             <Link href="/search" className="text-pure-white hover:text-primary-container transition-all duration-200 active:scale-95">
               <span className="material-symbols-outlined">search</span>
             </Link>
-            <Link href="/bag" className="text-pure-white hover:text-primary-container transition-all duration-200 active:scale-95">
-              <span className="material-symbols-outlined">shopping_bag</span>
-            </Link>
+            <HeaderCartIcon />
             <Link href="/account" className="w-8 h-8 rounded-full border border-primary-container p-0.5 block">
               <div className="w-full h-full bg-surface-container-high rounded-full flex items-center justify-center">
                 <span className="material-symbols-outlined text-sm text-silver-mist">person</span>

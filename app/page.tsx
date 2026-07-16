@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import HeaderUserIcon from "@/components/HeaderUserIcon";
+import HeaderCartIcon from "@/components/HeaderCartIcon";
 
 export const metadata: Metadata = { title: "AETHER — Premium E-Commerce" };
 
@@ -29,9 +30,7 @@ export default function HomePage() {
 <a href="/search" aria-label="Search" className="hover:text-primary transition-colors opacity-100 hover:opacity-80">
 <span className="material-symbols-outlined" data-icon="search" style={{fontVariationSettings: "'FILL' 0"}}>search</span>
 </a>
-<a href="/bag" aria-label="shopping_bag" className="hover:text-primary transition-colors opacity-100 hover:opacity-80">
-<span className="material-symbols-outlined" data-icon="shopping_bag" style={{fontVariationSettings: "'FILL' 0"}}>shopping_bag</span>
-</a>
+<HeaderCartIcon />
 <HeaderUserIcon />
 </div>
 </div>

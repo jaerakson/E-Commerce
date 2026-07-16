@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { get, post } from "@/lib/api/client";
 import { useAuth } from "@/lib/hooks/useAuth";
+import HeaderCartIcon from "@/components/HeaderCartIcon";
 
 interface WishlistFolder {
   id: string;
@@ -71,10 +72,7 @@ export default function CurationsPage() {
           </div>
           <div className="flex items-center space-x-6">
             <button className="material-symbols-outlined text-pure-white hover:opacity-80 transition-all scale-110" data-icon="search">search</button>
-            <button className="material-symbols-outlined text-pure-white hover:opacity-80 transition-all scale-110 relative" data-icon="shopping_bag">
-              shopping_bag
-              <span className="absolute -top-1 -right-1 bg-primary-container text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">2</span>
-            </button>
+            <HeaderCartIcon />
           </div>
         </nav>
       </header>

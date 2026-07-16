@@ -7,6 +7,7 @@ import { useCart } from "@/lib/hooks/useCart";
 import { useAuth } from "@/lib/hooks/useAuth";
 import { formatPrice } from "@/lib/utils/price";
 import HeaderUserIcon from "@/components/HeaderUserIcon";
+import HeaderCartIcon from "@/components/HeaderCartIcon";
 
 interface WishlistItem {
   id: string;
@@ -75,9 +76,7 @@ export default function WishlistPage() {
           </div>
 
           <div className="flex items-center gap-4 text-pure-white">
-            <button className="p-2 hover:text-primary transition-all duration-300 opacity-100 hover:opacity-80">
-              <span className="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
-            </button>
+            <HeaderCartIcon />
             <HeaderUserIcon />
           </div>
         </div>

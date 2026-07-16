@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { get } from "@/lib/api/client";
 import { useCart } from "@/lib/hooks/useCart";
 import { formatPrice } from "@/lib/utils/price";
+import HeaderCartIcon from "@/components/HeaderCartIcon";
 
 interface Product {
   id: string;
@@ -57,9 +58,7 @@ export default function CollectionsPage() {
 <button className="hover:text-primary-container transition-all duration-200 focus:outline-none">
 <span className="material-symbols-outlined text-2xl">search</span>
 </button>
-<button className="hover:text-primary-container transition-all duration-200 focus:outline-none">
-<span className="material-symbols-outlined text-2xl">shopping_bag</span>
-</button>
+<HeaderCartIcon />
 
 <button className="md:hidden hover:text-primary-container transition-all duration-200 focus:outline-none">
 <span className="material-symbols-outlined text-2xl">menu</span>
